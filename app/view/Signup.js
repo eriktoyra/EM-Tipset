@@ -102,8 +102,7 @@ Ext.define('EM.view.Signup', {
 						xtype: 'togglefield',
 						height: '45px',
 						label: 'Jag &ouml;nskar f&aring; push-notifikationer med resultat:',
-						name: 'recieve-push-notifications',
-						labelWidth: '66.66666667%'
+						name: 'recieve-push-notifications'
 					}										
 				]
 			},
