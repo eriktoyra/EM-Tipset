@@ -11,11 +11,11 @@ Ext.define('EM.view.Signup', {
 	],
 			
 	config: {
-		title: 'Skapa konto',
+		title: 'Signup',
 		
 		iconCls: 'user',
 		iconAlign: 'right',
-		url: 'contact.php',
+		url: 'signup.action',
 		layout: 'vbox',
 		
 		items: [
@@ -28,90 +28,77 @@ Ext.define('EM.view.Signup', {
 				},
 				
 				html: [
-					'<h1>Skapa konto</h1>',
-					'<p>Skapa ett konto i EM TIPSET 2012 och...'
+					'<h1>Sign Up!</h1>',
+					'<p>Sign up and join your friends in the 2012 edition of EM-Tipset.'
 				].join("")
 			},
 			
 			{
 				xtype: 'fieldset',
-				title: 'Konto',
-				instructions: 'Att ange namn och e-postadress &auml;r obligatoriskt.',
 				items: [
 					{
 						xtype: 'textfield',
-						label: 'Namn',
+						label: 'Name',
 						name: 'name',
+						placeHolder: 'Your name on the form \'Thomas Ravelli\'',
 						required: true,
 						clearIcon: true											
-					},
+					}
+				]
+			},
+						
+			{
+				xtype: 'fieldset',
+				title: 'Login Details',
+				items: [
 					{
 						xtype: 'emailfield',
-						label: 'E-post',
+						label: 'Email',
 						name: 'email',
+						placeHolder: 'thomas.ravelli@example.com',
 						required: true,
 						clearIcon: true
 					},
 					{
 						xtype: 'passwordfield',
-						label: 'L&ouml;senord',
+						label: 'Password',
 						name: 'password',
-						placeHolder: 'Minst sex tecken, minst en siffra',
+						placeHolder: 'Enter six characters minimum',
 						required: true,
 						clearIcon: true
-					},											
-					{
-						xtype: 'textareafield',
-						label: 'Presentation'
-					}
-				]
-			},
-			{
-				xtype: 'fieldset',
-				title: 'EM-tipset',
-				instructions: 'Tippa segrande nation i EM och den spelare som kommer att vinna skytteligan.',
-				items: [
-					{
-						xtype: 'selectfield',
-						label: 'Segrande nation',
-						name: 'winning-nation',
-						required: true,
-						value: 'Sverige',
-						options: [
-							{text: 'Frankrike', value: 'frankrike'},
-							{text: 'Italien', value: 'italien'},
-							{text: 'Holland', value: 'holland'},													
-							{text: 'Spanien', value: 'spanien'},
-							{text: 'Sverige', value: 'sverige'},
-							{text: 'Tyskland', value: 'tyskland'},												
-						]
 					},
 					{
-						xtype: 'textfield',
-						label: 'Skytteligavinnare',
-						name: 'top-scorer',
+						xtype: 'passwordfield',
+						label: 'Password, confirm',
+						name: 'password-confirm',
+						placeHolder: 'Same password as above',
 						required: true,
-						placeHolder: 'Ange enligt formen [namn efternamn, nationalitet]'
+						clearIcon: true
 					}
 				]
 			},
+
 			{
 				xtype: 'fieldset',
+				instructions: 'You need an invite code to sign up. The code has been sent to your email address.',				
 				items: [
 					{
-						xtype: 'togglefield',
-						height: '45px',
-						label: 'Jag &ouml;nskar f&aring; push-notifikationer med resultat:',
-						name: 'recieve-push-notifications'
-					}										
+						xtype: 'textfield',
+						label: 'Invite Code',
+						name: 'invite-code',
+						placeHolder: 'Enter your invite code',
+						required: true,
+						clearIcon: true											
+					}
 				]
 			},
+									
 			{
 				xtype: 'button',
-				text: 'Skapa konto',
+				text: 'Sign up!',
 				ui: 'confirm',
 				handler: function() {
-					this.up('formpanel').submit();
+					this.up('signupform').submit();
 				}
 			}
 		]

@@ -1,7 +1,28 @@
 Ext.define('EM.view.Home', {
-	extend: 'Ext.Panel',
-	xtype: 'homepanel',
-	
+	extend: 'Ext.Container',
+	xtype: 'homecontainer',
+
+	/*	
+	config: {
+		title: 'Hem',		
+		iconCls: 'home',
+		layout: 'hbox',		
+		
+		items: [
+	      {
+	          xtype: 'blog',
+	          flex: 1,
+						height: '25%',
+						width: '33.33333333%',
+	      },
+	      {
+	          xtype: 'resultspanel',
+	          flex: 2,
+						width: '66.66666667%'	
+	      }
+	  ]
+	}	
+
 	config: {
 		title: 'Hem',
 		
@@ -16,5 +37,6 @@ Ext.define('EM.view.Home', {
 			'<h1>EM Tipset 2012</h1>',
 			'<h3>Ditt alternativ till Unibet <em>;)</em></h3>'
 		].join("")
-	} 
+	}*/
+	 
 })
