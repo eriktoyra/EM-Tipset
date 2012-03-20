@@ -12,7 +12,53 @@ Ext.define('EM.view.Details', {
 			'<h1>Detaljerad information: statistik, ranking, tips och mycket mycket mer!</h1>',
 			
 		].join("")
-	}	
+	},
+	
+	initialize: function() {
+		this.callParent(arguments);
+		this.getEventDispatcher().addListener('element', '#details', 'drag', this.onDrag, this);
+		this.getEventDispatcher().addListener('element', '#details', 'dragend', this.onDragEnd, this);
+		this.getEventDispatcher().addListener('element', '#details', 'swipe', this.onSwipe, this);
+	},	
+
+	onSwipe :  function(event) {
+		if (event.deltaX > 0) {
+			console.log("right swipe");
+
+		}
+		else {
+			console.log("left swipe");
+			
+			/*while (this.getLeft() > 50) {
+				this.setLeft(this.getLeft() - 1);
+			}*/
+		}
+		
+
+	},
+
+	
+	onDrag : function (e, target, options, eventController) {
+		
+		//console.log("L" + this.getLeft());
+		//console.log("Del" + e.deltaX);
+		//console.log("LastDel" + this.latestDeltaX);
+		this.setLeft(this.getLeft() + e.deltaX - this.latestDeltaX);
+		
+		
+		this.latestDeltaX = e.deltaX;
+		
+		
+		//this.latestDeltaX = e.deltaX;
+	},
+	
+	onDragEnd: function() {
+
+		this.latestDeltaX=0;
+	},
+	
+	latestDeltaX:0
+
 /*
 	config: {
 		title: 'Hem',
@@ -29,5 +75,6 @@ Ext.define('EM.view.Details', {
 			'<h3>Ditt alternativ till Unibet <em>;)</em></h3>'
 		].join("")
 	}*/
-	 
+	
+		
 })

@@ -13,9 +13,10 @@ Ext.define("EM.view.Main", {
 });
 
 var button = Ext.create('Ext.Button', {
+	id: 'signUp',
     iconCls: 'refresh',
-		text: 'Sign Up!',
-		ui: 'add',
+	text: 'Sign Up!',
+	ui: 'add',
     iconMask: true
 });
 
