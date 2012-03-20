@@ -3,19 +3,37 @@ Ext.define('EM.view.MatchList', {
 	xtype: 'matchList',
 	cls: 'matchList',
 	
-		
+	initialize: function() {
+		this.callParent(arguments);
+		this.getEventDispatcher().addListener('element', '#matchList', 'swipe', this.onSwipe, this);
+	},	
+	
+	
 	config: {
 	     grouped:true,
 		 itemTpl:  
 				['<img src="http://img.uefa.com/imgml/flags/32x32/{firstTeam.short}.png" /> {firstTeam.name} <p>',
 				 '<img src="http://img.uefa.com/imgml/flags/32x32/{secondTeam.short}.png" /> {secondTeam.name}'
 				].join(""),
-		 store: 'Matches'
+		 store: 'Matches',
+		 refs: {
+			matchList : '#matchList',
+			loginButton: 'loginform button',
+            loginForm: 'loginform',
+			signUp: '#signUp',
+			mainPanel:'mainPanel',
+			details: '#details'
+		}
  		  
 
 		
 	  
-	}	
+	},
+	onSwipe :  function(event) {
+		console.log("right swiprrrrre");
+	}
+	
+	
 /*
 	config: {
 		title: 'Hem',

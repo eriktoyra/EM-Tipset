@@ -10,7 +10,8 @@ Ext.application({
     name: 'EM',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+		'Ext.Anim'
     ],
 
     views: ['Main', 'LoginForm', 'MatchList', 'Details'],

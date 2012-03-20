@@ -1,5 +1,12 @@
 Ext.define('EM.controller.MainController', {
     extend: 'Ext.app.Controller',
+
+	initialize: function() {
+		this.callParent(arguments);
+		console.log("INIT!");
+		this.getEventDispatcher().addListener('element', '#matchList', 'swipe', this.onSwipe, this);
+	},
+
    config: {
 		refs: {
 			matchList : '#matchList',
@@ -11,14 +18,16 @@ Ext.define('EM.controller.MainController', {
 		},
         control: {
             matchList: {
-					select: function() {
-							console.log("select!!!");
-							 //Ext.dataview.DataView this, Ext.data.Model record, Object eOpts )
-					},
 					itemtap: function() {
 						console.log("tap!!!");
+						this.slideInDetailsPanel();
 						
-					}
+					},
+					itemswipe: function(target, item, index, event, eOpts) {
+						if (eOpts.deltaX < 0) {
+							this.slideInDetailsPanel();
+						}
+					},
         		},
 				loginButton: {
 	        		tap: 'doLogin'
@@ -27,16 +36,27 @@ Ext.define('EM.controller.MainController', {
 	        		tap: 'slideDetailsPanel'
 	        	},
 				details: {
-					tap: 'slideDetailsPanel'
+					swipe: 'slideDetailsPanel'
 				}
 			
 			}
     },	
+	onSwipe :  function(event) {
+		console.log("controller swipe!!!" + this.getDetails());
+		
+	},
 
 	slideDetailsPanel: function() {
-		console.log(this.getLoginButton());
-		console.log(this.getMatchList());
-		console.log("Slaide!");	
+		console.log("right swipe");
+	},
+	
+	slideInDetailsPanel: function() {
+		Ext.Anim.run(this.getDetails(), 'slide', {
+		    out: false,
+			direction:'left',
+			duration: 500
+		});
+		this.getDetails().setLeft(52);
 	},
 
 
@@ -57,9 +77,9 @@ Ext.define('EM.controller.MainController', {
 		Ext.Viewport.add({
 			xtype:'details',
 			id:'details',
-			left: 52,
+			left: 1000,
 			top: 0, 
-			width: "80%",
+			width: "100%",
 			height: "100%",
 		});
 	}

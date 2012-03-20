@@ -1,5 +1,5 @@
 Ext.define('EM.view.Details', {
-	extend: 'Ext.Container',
+	extend: 'Ext.Panel',
 	xtype: 'details',
 	cls: 'details',
 
@@ -16,24 +16,26 @@ Ext.define('EM.view.Details', {
 	
 	initialize: function() {
 		this.callParent(arguments);
-		this.getEventDispatcher().addListener('element', '#details', 'drag', this.onDrag, this);
-		this.getEventDispatcher().addListener('element', '#details', 'dragend', this.onDragEnd, this);
+		/*this.getEventDispatcher().addListener('element', '#details', 'drag', this.onDrag, this);
+		this.getEventDispatcher().addListener('element', '#details', 'dragend', this.onDragEnd, this);*/
 		this.getEventDispatcher().addListener('element', '#details', 'swipe', this.onSwipe, this);
 	},	
 
 	onSwipe :  function(event) {
-		if (event.deltaX > 0) {
+		/*if (event.deltaX > 0) {
 			console.log("right swipe");
-
-		}
-		else {
-			console.log("left swipe");
+			Ext.Anim.run(this, 'slide', {
+			    out: true,
+				direction:'right',
+				duration: 500,
+				after: function() {
+					console.log("After");
+					//console.log(this.getEl());
+					//this.hide();
+				}
+			});
 			
-			/*while (this.getLeft() > 50) {
-				this.setLeft(this.getLeft() - 1);
-			}*/
-		}
-		
+		}*/
 
 	},
 
