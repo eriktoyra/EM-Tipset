@@ -1,5 +1,6 @@
 Ext.define('EM.view.Details', {
-	extend: 'Ext.Panel',
+	extend: 'Ext.form.Panel',
+	id: 'details',
 	xtype: 'details',
 	cls: 'details',
 
@@ -22,21 +23,20 @@ Ext.define('EM.view.Details', {
 	},	
 
 	onSwipe :  function(event) {
-		/*if (event.deltaX > 0) {
-			console.log("right swipe");
+		if (event.deltaX > 0) {
 			Ext.Anim.run(this, 'slide', {
 			    out: true,
 				direction:'right',
 				duration: 500,
-				after: function() {
-					console.log("After");
-					//console.log(this.getEl());
-					//this.hide();
-				}
+				//TODO - after does fire instantly and not after animation as described in documentation!!!
+				after: this.setOutside()
 			});
-			
-		}*/
 
+		}
+	},
+	
+	setOutside: function() {
+		this.setLeft(1000);
 	},
 
 	
