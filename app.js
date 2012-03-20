@@ -13,7 +13,7 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    views: ['Main', 'Login', 'Home', 'Blog', 'Signup', 'Results'],
+    views: ['Viewport', 'Main', 'Results'],
 
     icon: {
         57: 'resources/icons/Icon.png',
@@ -28,9 +28,9 @@ Ext.application({
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();
-
-        // Initialize the login view
-        Ext.Viewport.add(Ext.create('EM.view.Main'));
+				
+				// Create the viewport, the Container that we will fill with various Components
+				Ext.create('EM.view.Viewport');
     },
 
     onUpdated: function() {
