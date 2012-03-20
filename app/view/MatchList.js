@@ -2,12 +2,15 @@ Ext.define('EM.view.MatchList', {
 	extend: 'Ext.List',
 	xtype: 'matchList',
 	cls: 'matchList',
-
+	
 		
 	config: {
 	     grouped:true,
-		 itemTpl: '{firstTeam} {secondTeam}',
-		 store: 'Matches',
+		 itemTpl:  
+				['<img src="http://img.uefa.com/imgml/flags/32x32/{firstTeam.short}.png" /> {firstTeam.name} <p>',
+				 '<img src="http://img.uefa.com/imgml/flags/32x32/{secondTeam.short}.png" /> {secondTeam.name}'
+				].join(""),
+		 store: 'Matches'
  		  
 
 		

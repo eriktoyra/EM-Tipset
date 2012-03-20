@@ -16,7 +16,7 @@ Ext.define('EM.controller.MainController', {
 							 //Ext.dataview.DataView this, Ext.data.Model record, Object eOpts )
 					},
 					itemtap: function() {
-						console.log("drag!!!");
+						console.log("tap!!!");
 						
 					}
         		},
@@ -39,6 +39,8 @@ Ext.define('EM.controller.MainController', {
 		console.log("Slaide!");	
 	},
 
+
+	
 	doLogin: function() {
 	    console.log("Login...");
 	
@@ -47,21 +49,18 @@ Ext.define('EM.controller.MainController', {
 			id: 'matchList', 
 			left: 0,
 			top: 0, 
-			width: "80%",
+			width: "100%",
 			height: "100%"
 		});
+		
 		
 		Ext.Viewport.add({
 			xtype:'details',
 			id:'details',
-			left: 200,
+			left: 52,
 			top: 0, 
 			width: "80%",
-			height: "100%"
+			height: "100%",
 		});
-		
-		
-		
-		
 	}
 });
