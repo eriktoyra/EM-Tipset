@@ -5,7 +5,7 @@ Ext.Loader.setPath({
 //</debug>
 
 Ext.application({
-    controllers: ["Main"],
+    controllers: ["MainController"],
 
     name: 'EM',
 
@@ -13,7 +13,7 @@ Ext.application({
         'Ext.MessageBox'
     ],
 
-    views: ['Main', 'Login', 'Home', 'Blog', 'Signup', 'Results'],
+    views: ['Main', 'LoginForm', 'MatchList', 'Details'],
 
     icon: {
         57: 'resources/icons/Icon.png',
@@ -21,6 +21,10 @@ Ext.application({
         114: 'resources/icons/Icon@2x.png',
         144: 'resources/icons/Icon~ipad@2x.png'
     },
+
+	stores: ['Matches'],
+	
+	models: ['Match'],
     
     phoneStartupScreen: 'resources/loading/Homescreen.jpg',
     tabletStartupScreen: 'resources/loading/Homescreen~ipad.jpg',
@@ -31,6 +35,9 @@ Ext.application({
 
         // Initialize the login view
         Ext.Viewport.add(Ext.create('EM.view.Main'));
+		/*Ext.Viewport.add({
+			xclass: 'EM.view.MatchList'
+		});*/
     },
 
     onUpdated: function() {

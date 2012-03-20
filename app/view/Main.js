@@ -1,6 +1,7 @@
 Ext.define("EM.view.Main", {
-    extend: 'Ext.Panel',
-    requires: ['Ext.TitleBar'],
+	extend: 'Ext.Panel',
+	xtype: 'mainPanel',
+	layout: 'card',
     
 		config: {
 			items: [
@@ -9,27 +10,6 @@ Ext.define("EM.view.Main", {
 				}
 			]
 		}
-
-		/*
-    config: {
-        tabBarPosition: 'bottom',
-        
-        items: [
-            {
-							xtype: 'homecontainer'
-						},
-						{
-							xtype: 'signupform'
-						}, 
-						{
-							xtype: 'blog'
-						},
-						{
-							xtype: 'resultspanel'
-						}
-        ]
-    }
-		*/
 });
 
 var button = Ext.create('Ext.Button', {
@@ -43,5 +23,6 @@ Ext.Viewport.add({
 	xtype: 'container', 
 	right: 10,
 	top: 10, 
+	width: "300px",
 	items: [button] 
 });

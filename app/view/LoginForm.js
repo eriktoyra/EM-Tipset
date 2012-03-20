@@ -1,4 +1,4 @@
-Ext.define('EM.view.Login', {
+Ext.define('EM.view.LoginForm', {
 	extend: 'Ext.form.Panel',
 	xtype: 'loginform',	
 	scrollable: false,
@@ -16,6 +16,7 @@ Ext.define('EM.view.Login', {
 		width: '60%',
 		url: 'login.action',
 		layout: 'vbox',
+		scrollable:'false',
 
 		items: [
 		{
@@ -57,9 +58,9 @@ Ext.define('EM.view.Login', {
 			text: 'Login',
 			ui: 'confirm',
 	    iconMask: true,			
-			handler: function() {
+			/*handler: function() {
 				this.up('loginform').submit();
-			}
+			}*/
 		}		
 		]
 	}	

@@ -1,28 +1,19 @@
-Ext.define('EM.view.Home', {
+Ext.define('EM.view.Details', {
 	extend: 'Ext.Container',
-	xtype: 'homecontainer',
+	xtype: 'details',
+	cls: 'details',
 
-	/*	
-	config: {
-		title: 'Hem',		
-		iconCls: 'home',
-		layout: 'hbox',		
 		
-		items: [
-	      {
-	          xtype: 'blog',
-	          flex: 1,
-						height: '25%',
-						width: '33.33333333%',
-	      },
-	      {
-	          xtype: 'resultspanel',
-	          flex: 2,
-						width: '66.66666667%'	
-	      }
-	  ]
+	config: {
+		
+	
+		html: [
+			
+			'<h1>Detaljerad information: statistik, ranking, tips och mycket mycket mer!</h1>',
+			
+		].join("")
 	}	
-
+/*
 	config: {
 		title: 'Hem',
 		
