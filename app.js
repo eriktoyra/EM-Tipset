@@ -1,53 +1,48 @@
 //<debug>
 Ext.Loader.setPath({
-    'Ext': 'sdk/src'
+	'Ext': 'sdk/src'
 });
 //</debug>
 
 Ext.application({
-    controllers: ["MainController"],
+	controllers: ["MainController"],
 
-    name: 'EM',
+	name: 'EM',
 
-    requires: [
-        'Ext.MessageBox',
-		'Ext.Anim'
-    ],
-
-    views: ['Main', 'LoginForm', 'MatchList', 'Details'],
-
-    icon: {
-        57: 'resources/icons/Icon.png',
-        72: 'resources/icons/Icon~ipad.png',
-        114: 'resources/icons/Icon@2x.png',
-        144: 'resources/icons/Icon~ipad@2x.png'
-    },
+	requires: [
+	'Ext.MessageBox',
+	'Ext.Anim'
+	],
 
 	stores: ['Matches'],
-	
 	models: ['Match'],
-    
-    phoneStartupScreen: 'resources/loading/Homescreen.jpg',
-    tabletStartupScreen: 'resources/loading/Homescreen~ipad.jpg',
+	views: ['Main', 'Viewport', 'MainToolbar', 'MainNav', 'LoginForm', 'MatchList', 'Details'],
 
-    launch: function() {
-        // Destroy the #appLoadingIndicator element
-        Ext.fly('appLoadingIndicator').destroy();
+	icon: {
+		57: 'resources/icons/Icon.png',
+		72: 'resources/icons/Icon~ipad.png',
+		114: 'resources/icons/Icon@2x.png',
+		144: 'resources/icons/Icon~ipad@2x.png'
+	},
 
-        // Initialize the login view
-        Ext.Viewport.add(Ext.create('EM.view.Main'));
-		/*Ext.Viewport.add({
-			xclass: 'EM.view.MatchList'
-		});*/
-    },
+	phoneStartupScreen: 'resources/loading/Homescreen.jpg',
+	tabletStartupScreen: 'resources/loading/Homescreen~ipad.jpg',
 
-    onUpdated: function() {
-        Ext.Msg.confirm(
-            "Application Update",
-            "This application has just successfully been updated to the latest version. Reload now?",
-            function() {
-                window.location.reload();
-            }
-        );
-    }
+	launch: function() {
+		// Destroy the #appLoadingIndicator element
+		Ext.fly('appLoadingIndicator').destroy();
+
+		// Create the viewport, the Container that we will fill with various Components
+		Ext.create('EM.view.Viewport');
+	},
+
+	onUpdated: function() {
+		Ext.Msg.confirm(
+			"Application Update",
+			"This application has just successfully been updated to the latest version. Reload now?",
+			function() {
+				window.location.reload();
+			}
+		);
+	}
 });

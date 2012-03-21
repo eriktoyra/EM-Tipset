@@ -1,54 +1,35 @@
 Ext.define('EM.view.MatchList', {
 	extend: 'Ext.List',
-	xtype: 'matchList',
-	cls: 'matchList',
-	
-	initialize: function() {
-		this.callParent(arguments);
-		this.getEventDispatcher().addListener('element', '#matchList', 'swipe', this.onSwipe, this);
-	},	
-	
-	
+	xtype: 'matchlist',
+
 	config: {
-	     grouped:true,
-		 itemTpl:  
-				['<img src="http://img.uefa.com/imgml/flags/32x32/{firstTeam.short}.png" /> {firstTeam.name} <p>',
-				 '<img src="http://img.uefa.com/imgml/flags/32x32/{secondTeam.short}.png" /> {secondTeam.name}'
-				].join(""),
-		 store: 'Matches',
-		 refs: {
+		cls: 'matchList',
+		id: 'matchList', 
+		left: 0,
+		top: 0, 
+		width: "100%",
+		//height: "100%",		
+		grouped:true,
+		itemTpl:  
+		['<img src="http://img.uefa.com/imgml/flags/32x32/{firstTeam.short}.png" /> {firstTeam.name} <p>',
+		'<img src="http://img.uefa.com/imgml/flags/32x32/{secondTeam.short}.png" /> {secondTeam.name}'
+		].join(""),
+		store: 'Matches',
+		refs: {
 			matchList : '#matchList',
 			loginButton: 'loginform button',
-            loginForm: 'loginform',
+			loginForm: 'loginform',
 			signUp: '#signUp',
 			mainPanel:'mainPanel',
 			details: '#details'
-		}
- 		  
+		},
 
-		
-	  
+		initialize: function() {
+			this.callParent(arguments);
+			this.getEventDispatcher().addListener('element', '#matchList', 'swipe', this.onSwipe, this);
+		}	
 	},
 	onSwipe :  function(event) {
 		console.log("right swiprrrrre");
 	}
-	
-	
-/*
-	config: {
-		title: 'Hem',
-		
-		iconCls: 'home',
-		cls: 'home',
-		
-		scrollable: true,
-		styleHtmlContent: true,
-		
-		html: [
-			'<img src="http://www.uefa.com/MultimediaFiles/Photo/competitions/Comp_Matches/01/76/12/72/1761272_S2.jpg" />',
-			'<h1>EM Tipset 2012</h1>',
-			'<h3>Ditt alternativ till Unibet <em>;)</em></h3>'
-		].join("")
-	}*/
-	 
 })

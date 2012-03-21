@@ -12,6 +12,7 @@ Ext.define("EM.view.Main", {
 		}
 });
 
+/*
 var button = Ext.create('Ext.Button', {
 	id: 'signUp',
     iconCls: 'refresh',
@@ -27,3 +28,4 @@ Ext.Viewport.add({
 	width: "300px",
 	items: [button] 
 });
+*/
