@@ -117,8 +117,25 @@ body.x-desktop {
 }
 
 #my-stats {
-  height: 90px;
   @include background-image-with-vertical-gradient-overlay('../images/graph-paper.png', rgba(255, 255, 255, 0.2), rgba(225, 232, 234, 0.5));
   border-top: 1px solid rgb(223, 238, 240);
   border-left: 1px solid rgb(223, 238, 240);
+  height: 70px;
+  padding: $default-padding * 2 $default-padding * 3;
+  
+  #leage-select {
+    color: #333;
+    font-size: 14px;
+  }
+    
+  #my-ranking {
+    color: #448202;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+  }
+  
+  .total-contestants {
+    color: #bcc7c8;
+  }
 }
