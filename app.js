@@ -16,7 +16,7 @@ Ext.application({
 
 	stores: ['Matches'],
 	models: ['Match'],
-	views: ['Main', 'Viewport', 'MainToolbar', 'MainNav', 'LoginForm', 'MatchList', 'Details'],
+	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'MatchList', 'Details'],
 
 	icon: {
 		57: 'resources/icons/Icon.png',

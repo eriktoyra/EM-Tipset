@@ -1,29 +1,36 @@
 Ext.define('EM.view.MainNav', {
-	extend: 'Ext.tab.Panel',
+	extend: 'Ext.Toolbar',
 	xtype: 'mainnav',
 
+	requires: ['Ext.SegmentedButton'],
+	
 	config: {
-		ui: 'light',
-		tabBar: {
-			layout: { 
-				pack: 'center',
-				animation: {
-					type: 'fade'
-				}				
-			}
-		},
-		activeTab: 1,
-		scroll: 'vertical',
-
+		id: 'main-nav',
+		dock: 'top',
+		
 		items: [
-		{
-			title: 'Resultat',
-			xtype: 'matchlist',			
-		},
-		{
-			title: 'Tabell',
-			html: '<h1>Tabell med statistik för delagares poäng och position.</h1>'			
-		}
+			{
+				xtype: 'segmentedbutton',
+				centered: true,
+				cls: 'nav-item',
+				activeItem: 0,				
+				
+					items: [
+						{
+							id: "results-nav-item",
+							text: 'Resultat'
+						},
+						{
+							id: 'standings-nav-item',
+							text: 'Tabeller'
+						}
+					],
+					listeners: {
+						toggle: function(container, button, pressed) {
+							console.log("User toggled the '" + button.text + "' button: " + (pressed ? 'on' : 'off'));
+						}
+					}
+			}
 		]		
 	},
-})
+});

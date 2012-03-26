@@ -3,20 +3,36 @@ Ext.define('EM.view.Viewport', {
 
 	config: {
 		fullscreen: true, 
-		layout: 'vbox',
-
-		items: [		
+		scrollable: 'vertical',
+		
+		items: [
 		{
-			xtype: 'maintoolbar',
-			flex: 1
+			xtype: 'container',	
+			
+			items: [
+			{
+				xtype: 'toptoolbar'
+			},
+			{
+				xtype: 'mainnav'
+			},
+			{
+				xtype: 'mystats'
+			}
+			]				
 		},
 		{
-			xtype: 'mainnav',
-			flex: 1			
-		},		
-		{
-			xtype: 'details',
-			flex: 1			
+			xtype: 'container',			
+			
+			items: [
+			{
+				xtype: 'container',
+					
+				html: [
+				'Resultatlista m.m.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>2<br/><br/>'
+				]
+			}
+			]				
 		}
 		]
 	}

@@ -4,16 +4,121 @@
 // do not use in order to create a smaller css file.
 @include sencha-panel;
 @include sencha-buttons;
-//@include sencha-sheet;
-//@include sencha-picker;
+@include sencha-sheet;
+@include sencha-picker;
 @include sencha-tabs;
 @include sencha-toolbar;
-//@include sencha-toolbar-forms;
-//@include sencha-indexbar;
+@include sencha-toolbar-forms;
+@include sencha-indexbar;
 @include sencha-list;
 @include sencha-layout;
-//@include sencha-carousel;
+@include sencha-carousel;
 @include sencha-form;
 @include sencha-msgbox;
 
-// Your custom code goes here...
+// =Colors
+$top-toolbar-gradient-light-color: rgba(41, 43, 43, 1);
+$top-toolbar-gradient-dark-color: rgba(28, 28, 29, 1);
+$top-toolbar-color: #fff;
+
+$default-gradient-light-color: rgba(250, 250, 250, 1);
+$default-gradient-dark-color: rgba(209, 209, 209, 1);
+
+$active-gradient-light-color: rgba(116, 173, 53, 1);
+$active-gradient-dark-color: rgba(51, 99, 11, 1);
+
+$main-nav-foreground-color: #3c3c3c;
+$main-nav-foreground-color-active: #fff;
+
+$light-panel-background-color: #e7e7e7;
+
+// =Layout
+$default-padding: 5px;
+
+// =Typography
+$default-font-size: 12px;
+
+// =Mixins
+@mixin default-vertical-box-shadow {
+  -webkit-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+}
+
+@mixin vertical-gradient-background($light-color, $dark-color) {
+  background: $dark-color;
+  background-color: $dark-color;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($light-color), to($dark-color));
+  background-image: -webkit-linear-gradient(top, $light-color, $dark-color);
+  background-image:    -moz-linear-gradient(top, $light-color, $dark-color);
+  background-image:     -ms-linear-gradient(top, $light-color, $dark-color);
+  background-image:      -o-linear-gradient(top, $light-color, $dark-color);
+}
+
+@mixin background-image-with-vertical-gradient-overlay($image-url, $light-color, $dark-color) {
+  background: rgb(255, 255, 255);
+  background:         -webkit-gradient(linear, 0% 0%, 0% 100%, from($dark-color), to($light-color), url($image-url) 1px 1px repeat);
+  background:  -webkit-linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+  background:     -moz-linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+  background:      -ms-linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+  background:       -o-linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+  background:          linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+}
+
+// *** =Custom SASS below ***
+body,
+body.x-desktop {
+}
+
+#top-toolbar {
+  @include vertical-gradient-background($top-toolbar-gradient-light-color, $top-toolbar-gradient-dark-color);  
+  color: $top-toolbar-color;
+  font-size: $default-font-size;
+  padding: $default-padding;
+  
+  .user.name {
+    display: inline-block;
+    font-weight: bold;
+    margin-right: $default-padding * 2;
+  }
+  
+  .settings {
+    display: inline-block;
+  }
+}
+
+#main-nav {
+  @include vertical-gradient-background($default-gradient-light-color, $default-gradient-dark-color);
+  @include default-vertical-box-shadow;
+  
+  .x-button {
+    background: transparent;
+    border: 0;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid #fff; 
+    -webkit-borderradius: 0;
+    border-radius: 0;
+    color: $main-nav-foreground-color;
+    display: inline-block;
+    padding: $default-padding * 3 $default-padding * 2;
+  }
+  
+  .x-button-pressed {
+    @include vertical-gradient-background($active-gradient-light-color, $active-gradient-dark-color);
+    border-left-color: rgba(133, 171, 94, 0.75);
+    border-right-color: rgba(186, 201, 173, 0.75);
+    color: $main-nav-foreground-color-active;
+    text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75); 
+  }
+}
+
+#main-nav.x-toolbar {
+  height: 2.5em;
+}
+
+#my-stats {
+  height: 90px;
+  @include background-image-with-vertical-gradient-overlay('../images/graph-paper.png', rgba(255, 255, 255, 0.2), rgba(225, 232, 234, 0.5));
+  border-top: 1px solid rgb(223, 238, 240);
+  border-left: 1px solid rgb(223, 238, 240);
+}
