@@ -1,39 +1,29 @@
 Ext.define('EM.view.Viewport', {
-	extend: 'Ext.Container',
-
+	extend: 'Ext.Container',		
+	
 	config: {
 		fullscreen: true, 
 		scrollable: 'vertical',
 		
+		/*layout: 'vbox',
+		
 		items: [
 		{
-			xtype: 'container',	
-			
-			items: [
-			{
-				xtype: 'toptoolbar'
-			},
-			{
-				xtype: 'mainnav'
-			},
-			{
-				xtype: 'mystats'
-			}
-			]				
+			xtype: 'toptoolbar'
 		},
 		{
-			xtype: 'container',			
-			
-			items: [
-			{
-				xtype: 'container',
-					
-				html: [
-				'Resultatlista m.m.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>2<br/><br/>'
-				]
-			}
-			]				
+			xtype: 'mainnav'
+		},
+		{
+			xtype: 'mystats'
+		},
+		{
+			xtype: 'container',
+				
+			html: [
+			'Resultatlista m.m.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>2<br/><br/>'
+			]
 		}
-		]
+		]*/
 	}
 })

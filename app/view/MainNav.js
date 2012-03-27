@@ -6,19 +6,20 @@ Ext.define('EM.view.MainNav', {
 	
 	config: {
 		id: 'main-nav',
-		dock: 'top',
+		dock: 'top',	 		
 		
 		items: [
 			{
 				xtype: 'segmentedbutton',
 				centered: true,
-				cls: 'nav-item',
-				activeItem: 0,				
-				
+				allowDepress: false,				
+				cls: 'nav-item',				
+
 					items: [
 						{
 							id: "results-nav-item",
-							text: 'Resultat'
+							text: 'Resultat',
+							pressed: true
 						},
 						{
 							id: 'standings-nav-item',
@@ -27,10 +28,16 @@ Ext.define('EM.view.MainNav', {
 					],
 					listeners: {
 						toggle: function(container, button, pressed) {
-							console.log("User toggled the '" + button.text + "' button: " + (pressed ? 'on' : 'off'));
+							console.log(container.getParent());
+							console.log("User toggled the '" + button.getText() + "' button: " + (pressed ? 'on' : 'off'));
 						}
 					}
 			}
 		]		
 	},
+	
+	initialize: function() {
+		console.log("initialize EM.view.MainNav");
+		//console.log(this);
+	}
 });
