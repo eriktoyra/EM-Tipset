@@ -4,6 +4,9 @@ Ext.define('EM.view.ResultsPage', {
 	
 	config: {
 		id: 'results-page',
+		showAnimation: Ext.create('Ext.fx.animation.Slide', {
+			direction: 'right'
+		}),
 		
 		items: [
 			{
@@ -13,9 +16,9 @@ Ext.define('EM.view.ResultsPage', {
 				xtype: 'container',
 
 				html: [
-				'Resultatlista m.m.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>2<br/><br/>'
+				'Resultatlista m.m.'
 				]
 			}			
-		]		
+		]
 	}
 })

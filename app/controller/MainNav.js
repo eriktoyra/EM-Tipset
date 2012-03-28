@@ -7,6 +7,7 @@ Ext.define('EM.controller.MainNav', {
 	
 	launch: function() {
 		// Launch operations if needed
+		this.addNewPageInMainIfNotAlreadyExists('#results-page', 'EM.view.ResultsPage');
 	},
 	
 	config: {
@@ -47,9 +48,18 @@ Ext.define('EM.controller.MainNav', {
 	 */ 
 	addNewPageInMainIfNotAlreadyExists: function(ref, className) {
 		if (!this.getMain().child(ref)) {
+			// Creates the container as hidden and then shows it because I want to trigger the slideIn effect
 			this.getMain().add(
-				Ext.create(className, {})
+				Ext.create(className, {
+					hidden: true
+				})
 			)
+			this.getMain().child(ref).show();
+			console.log("create new component");
+		}
+		else {
+			this.getMain().child(ref).show();
+			console.log("show already created component");	
 		}		
 	},
 	
@@ -60,7 +70,7 @@ Ext.define('EM.controller.MainNav', {
 		var previousPage = this.getMain().child(ref);
 		
 		if (previousPage) {
-			this.getMain().remove(previousPage);
+			previousPage.hide();
 		}		
 	}
 });
