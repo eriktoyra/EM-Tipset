@@ -19,7 +19,7 @@ Ext.define('EM.view.MainNav', {
 						{
 							id: "results-nav-item",
 							text: 'Resultat',
-							pressed: true
+							pressed: true, 
 						},
 						{
 							id: 'standings-nav-item',
@@ -38,6 +38,11 @@ Ext.define('EM.view.MainNav', {
 	
 	initialize: function() {
 		console.log("initialize EM.view.MainNav");
-		//console.log(this);
+				
+		//this.element.on('tap', this.onTap, this);
+	},
+	
+	onTap: function() {
+		console.log("Tapped on the MainNav");
 	}
 });
