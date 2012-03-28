@@ -12,10 +12,10 @@ Ext.application({
 	'Ext.Anim'
 	],
 	
-	controllers: ['MainController'],
+	controllers: ['MainNav'],
 	stores: ['Matches'],
 	models: ['Match'],
-	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'MatchList', 'Details'],
+	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage'],
 
 	icon: {
 		57: 'resources/icons/Icon.png',
@@ -38,14 +38,12 @@ Ext.application({
 		
 		topToolbar = Ext.create('EM.view.TopToolbar', {});
 		mainNav = Ext.create('EM.view.MainNav', {});	
-		myStats = Ext.create('EM.view.MyStats', {});	
+		main = Ext.create('EM.view.Main', {});	
 
 		viewport = Ext.create('EM.view.Viewport', {});
 		viewport.add(topToolbar);
 		viewport.add(mainNav);
-		viewport.add(myStats);
-		
-			
+		viewport.add(main);
 
 		Ext.Viewport.add(viewport);	
 	},

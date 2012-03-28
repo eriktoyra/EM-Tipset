@@ -90,7 +90,8 @@ body.x-desktop {
 #main-nav {
   @include vertical-gradient-background($default-gradient-light-color, $default-gradient-dark-color);
   @include default-vertical-box-shadow;
-  
+  z-index: 1000;
+      
   .x-button {
     background: transparent;
     border: 0;

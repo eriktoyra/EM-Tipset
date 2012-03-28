@@ -3,15 +3,16 @@ Ext.define('EM.controller.MainController', {
 
 	config: {
 		refs: {
-			matchList : '#matchList',
-			loginButton: 'loginform button',
-			loginForm: 'loginform',
-			signUp: '#signUp',
-			mainPanel:'mainPanel',
-			details: '#details',
-			views: ['MainToolbar', 'MainNav', 'MatchList', 'Details']			
+			//matchList : '#matchList',
+			//loginButton: 'loginform button',
+			//loginForm: 'loginform',
+			//signUp: '#signUp',
+			//mainPanel:'mainPanel',
+			//details: '#details',
+			//views: ['MainToolbar', 'MainNav', 'MatchList', 'Details']			
 		},
 		control: {
+			/*
 			matchList: {
 				itemtap: function() {
 					console.log("tap!!!");
@@ -33,14 +34,14 @@ Ext.define('EM.controller.MainController', {
 			details: {
 				swipe: 'slideDetailsPanel'
 			}
-
+			*/
 		}
 	},
 	
-	initialize: function() {
+	init: function() {
 		this.callParent(arguments);
 		console.log("INIT!");
-		this.getEventDispatcher().addListener('element', '#matchList', 'swipe', this.onSwipe, this);
+		//this.getEventDispatcher().addListener('element', '#matchList', 'swipe', this.onSwipe, this);
 	},
 			
 	onSwipe :  function(event) {

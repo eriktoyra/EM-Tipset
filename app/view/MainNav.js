@@ -26,23 +26,13 @@ Ext.define('EM.view.MainNav', {
 							text: 'Tabeller'
 						}
 					],
-					listeners: {
+					/*listeners: {
 						toggle: function(container, button, pressed) {
 							console.log(container.getParent());
 							console.log("User toggled the '" + button.getText() + "' button: " + (pressed ? 'on' : 'off'));
 						}
-					}
+					}*/
 			}
 		]		
-	},
-	
-	initialize: function() {
-		console.log("initialize EM.view.MainNav");
-				
-		//this.element.on('tap', this.onTap, this);
-	},
-	
-	onTap: function() {
-		console.log("Tapped on the MainNav");
 	}
 });

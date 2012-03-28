@@ -6514,8 +6514,9 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
 }
-/* line 94, ../sass/app.scss */
+/* line 95, ../sass/app.scss */
 #main-nav .x-button {
   background: transparent;
   border: 0;
@@ -6527,7 +6528,7 @@ input[type="search"]::-webkit-search-cancel-button {
   display: inline-block;
   padding: 15px 10px;
 }
-/* line 106, ../sass/app.scss */
+/* line 107, ../sass/app.scss */
 #main-nav .x-button-pressed {
   background: #33630b;
   background-color: #33630b;
@@ -6542,12 +6543,12 @@ input[type="search"]::-webkit-search-cancel-button {
   text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
 }
 
-/* line 115, ../sass/app.scss */
+/* line 116, ../sass/app.scss */
 #main-nav.x-toolbar {
   height: 2.5em;
 }
 
-/* line 119, ../sass/app.scss */
+/* line 120, ../sass/app.scss */
 #my-stats {
   background: white;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(225, 232, 234, 0.5)), to(rgba(255, 255, 255, 0.2)), url("../images/graph-paper.png") 1px 1px repeat);
@@ -6561,19 +6562,19 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 70px;
   padding: 10px 15px;
 }
-/* line 126, ../sass/app.scss */
+/* line 127, ../sass/app.scss */
 #my-stats #leage-select {
   color: #333;
   font-size: 14px;
 }
-/* line 131, ../sass/app.scss */
+/* line 132, ../sass/app.scss */
 #my-stats #my-ranking {
   color: #448202;
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -0.05em;
 }
-/* line 138, ../sass/app.scss */
+/* line 139, ../sass/app.scss */
 #my-stats .total-contestants {
   color: #bcc7c8;
 }
