@@ -8,16 +8,15 @@ Ext.define('EM.view.TopToolbar', {
 
 	config: {
 		id: 'top-toolbar',
-		dock: 'top',
 		
 		items: [
 		{
 			xtype: 'container',
-			right: 0,
+			left: 0,
 			top: '2px',
 				
 			html: [
-				'<span class="user name">Christofer Falkman</span><div class="settings">X</span>'
+				'<img class="settings" src="resources/images/cog" /> <div class="user name">Christofer Falkman</div>'
 			]
 		}		
 		]		

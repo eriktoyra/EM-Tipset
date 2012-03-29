@@ -37,6 +37,7 @@ $default-padding: 5px;
 
 // =Typography
 $default-font-size: 12px;
+$small-font-size: 11px;
 
 // =Mixins
 @mixin default-vertical-box-shadow {
@@ -71,19 +72,21 @@ body.x-desktop {
 }
 
 #top-toolbar {
-  @include vertical-gradient-background($top-toolbar-gradient-light-color, $top-toolbar-gradient-dark-color);  
+  background: url(../images/black-background.png) top left repeat-x;
   color: $top-toolbar-color;
-  font-size: $default-font-size;
+  font-size: $small-font-size;
   padding: $default-padding;
   
   .user.name {
-    display: inline-block;
+	float: left;
     font-weight: bold;
-    margin-right: $default-padding * 2;
+    margin-left: $default-padding * 2;
   }
   
   .settings {
-    display: inline-block;
+	float: left;
+	height: 15px;
+	width: 15px;	
   }
 }
 

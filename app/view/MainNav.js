@@ -11,7 +11,7 @@ Ext.define('EM.view.MainNav', {
 		items: [
 			{
 				xtype: 'segmentedbutton',
-				centered: true,
+				docked: 'right',
 				allowDepress: false,				
 				cls: 'nav-item',				
 

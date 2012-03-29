@@ -6480,26 +6480,22 @@ input[type="search"]::-webkit-search-cancel-button {
 
 /* line 73, ../sass/app.scss */
 #top-toolbar {
-  background: #1c1c1d;
-  background-color: #1c1c1d;
-  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#292b2b), to(#1c1c1d));
-  background-image: -webkit-linear-gradient(top, #292b2b, #1c1c1d);
-  background-image: -moz-linear-gradient(top, #292b2b, #1c1c1d);
-  background-image: -ms-linear-gradient(top, #292b2b, #1c1c1d);
-  background-image: -o-linear-gradient(top, #292b2b, #1c1c1d);
+  background: url(../images/black-background.png) top left repeat-x;
   color: white;
-  font-size: 12px;
+  font-size: 11px;
   padding: 5px;
 }
 /* line 79, ../sass/app.scss */
 #top-toolbar .user.name {
-  display: inline-block;
+  float: left;
   font-weight: bold;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 /* line 85, ../sass/app.scss */
 #top-toolbar .settings {
-  display: inline-block;
+  float: left;
+  height: 15px;
+  width: 15px;
 }
 
 /* line 90, ../sass/app.scss */
