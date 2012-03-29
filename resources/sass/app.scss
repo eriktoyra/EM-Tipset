@@ -78,14 +78,17 @@ body.x-desktop {
   padding: $default-padding;
   
   .user.name {
+	border-left: 1px solid rgba(255, 255, 255, 0.25);  
 	float: left;
     font-weight: bold;
-    margin-left: $default-padding * 2;
+    margin-left: $default-padding * 3;
+    padding-left: $default-padding * 2;
   }
   
   .settings {
 	float: left;
 	height: 15px;
+    margin-left: $default-padding * 2;	
 	width: 15px;	
   }
 }

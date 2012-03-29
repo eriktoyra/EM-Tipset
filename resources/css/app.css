@@ -6487,14 +6487,17 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 /* line 79, ../sass/app.scss */
 #top-toolbar .user.name {
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
   float: left;
   font-weight: bold;
   margin-left: 10px;
+  padding-left: 10px;
 }
 /* line 85, ../sass/app.scss */
 #top-toolbar .settings {
   float: left;
   height: 15px;
+  margin-left: 10px;  
   width: 15px;
 }
 
