@@ -3,111 +3,78 @@ Ext.define('EM.store.Matches', {
 	
 	config: {
 		model: 'EM.model.Match',
-		grouper: function (match) {
-			return match.get('round'); 
+		sorters: [
+			{
+				property: 'kickOff',
+				direction: 'DESC'				
+			}
+			],		
+		grouper: {
+			groupFn: function (item) {
+				var kickOff = new Date(util.convertUnixTimeToMilliseconds(item.get('kickOff')));
+				return Ext.Date.format(kickOff, 'j F Y');
+			}
 		},
 		data: [
-		
-			{
-				firstTeam: {
-					name: "Poland",
-					short: "pol"
-				},
-				secondTeam : {
-					name: "Greece",
-					short: "gre"
-				},
-				round: "Group Phase 1"
-			},
-			
-			{
-				firstTeam: {
-					name: "Russia",
-					short: "rus"
-				},
-				secondTeam : {
-					name: "Czech Republic",
-					short: "cze"
-				},
-				round: "Group Phase 1"
-			},
-			
-			{
-				firstTeam: {
-					name: "Netherlands",
-					short: "ned"
-				},
-				secondTeam : {
-					name: "Denmark",
-					short: "den"
-				},
-				round: "Group Phase 1"
-			},
-			
-			{
-				firstTeam: {
-					name: "Germany",
-					short: "ger"
-				},
-				secondTeam : {
-					name: "Portugal",
-					short: "por"
-				},
-				round: "Group Phase 1"
-			},
-			{
-				firstTeam: {
-					name: "Poland",
-					short: "pol"
-				},
-				secondTeam : {
-					name: "Greece",
-					short: "gre"
-				},
-				round: "Group Phase 2"
-			},
-			
-			{
-				firstTeam: {
-					name: "Russia",
-					short: "rus"
-				},
-				secondTeam : {
-					name: "Czech Republic",
-					short: "cze"
-				},
-				round: "Group Phase 2"
-			},
-			
-			{
-				firstTeam: {
-					name: "Netherlands",
-					short: "ned"
-				},
-				secondTeam : {
-					name: "Denmark",
-					short: "den"
-				},
-				round: "Group Phase 2"
-			},
-			
-			{
-				firstTeam: {
-					name: "Germany",
-					short: "ger"
-				},
-				secondTeam : {
-					name: "Portugal",
-					short: "por"
-				},
-				round: "Group Phase 2"
-			},
-
-/*			
-			{firstTeam:"Greece", secondTeam:"Czech Republic", round:"Group Phase 2"},
-			{firstTeam:"Poland", secondTeam:"Russia", round:"Group Phase 2"},
-			{firstTeam:"Denmark", secondTeam:"Portugal", round:"Group Phase 2"},
-			{firstTeam:"Netherlands", secondTeam:"Germany", round:"Group Phase 2"}*/
+		{
+			"gameId": 1,
+			"firstTeam": "Pol",
+			"secondTeam": "Gre",
+			"kickOff": 1339178400,
+			"firstTeamGoals": 2,
+			"secondTeamGoals": 3,
+			"firstTeamGoalsBet": 1,
+			"secondTeamGoalsBet": 4,
+			"points": 2
+		},
+		{
+			"gameId": 2,
+			"firstTeam": "Rus",
+			"secondTeam": "Cze",
+			"kickOff": 1339188300,
+			"firstTeamGoals": 1,
+			"secondTeamGoals": 0,
+			"firstTeamGoalsBet": 2,
+			"secondTeamGoalsBet": 2,
+			"points": 0
+		},{
+			"gameId": 3,
+			"firstTeam": "Ned",
+			"secondTeam": "Den",
+			"kickOff": 1339264800,
+			"firstTeamGoals": 1,
+			"secondTeamGoals": 0
+		},
+		{
+			"gameId": 4,
+			"firstTeam": "Ger",
+			"secondTeam": "Port",
+			"kickOff": 1339274700
+		},
+		{
+			"gameId": 5,
+			"firstTeam": "Spa",
+			"secondTeam": "Ita",
+			"kickOff": 1339351200
+		},  
+		{
+			"gameId": 6,
+			"firstTeam": "Irl",
+			"secondTeam": "Cro",
+			"kickOff": 1339361100
+		},
+		{
+			"gameId": 7,
+			"firstTeam": "Fra",
+			"secondTeam": "Eng",
+			"kickOff": 1339437600
+		},
+		{
+			"gameId": 8,
+			"firstTeam": "Ukr",
+			"secondTeam": "Swe",
+			"kickOff": 1339447500
+		}
 		]
 	}
 });

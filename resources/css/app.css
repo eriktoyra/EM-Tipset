@@ -6478,30 +6478,30 @@ input[type="search"]::-webkit-search-cancel-button {
   border: 0.1em solid rgba(25, 133, 208, 0.9);
 }
 
-/* line 73, ../sass/app.scss */
+/* line 74, ../sass/app.scss */
 #top-toolbar {
   background: url(../images/black-background.png) top left repeat-x;
   color: white;
   font-size: 11px;
   padding: 5px;
 }
-/* line 79, ../sass/app.scss */
+/* line 80, ../sass/app.scss */
 #top-toolbar .user.name {
   border-left: 1px solid rgba(255, 255, 255, 0.25);
   float: left;
   font-weight: bold;
-  margin-left: 10px;
+  margin-left: 15px;
   padding-left: 10px;
 }
-/* line 85, ../sass/app.scss */
+/* line 88, ../sass/app.scss */
 #top-toolbar .settings {
   float: left;
   height: 15px;
-  margin-left: 10px;  
+  margin-left: 10px;
   width: 15px;
 }
 
-/* line 90, ../sass/app.scss */
+/* line 96, ../sass/app.scss */
 #main-nav {
   background: #d1d1d1;
   background-color: #d1d1d1;
@@ -6515,7 +6515,7 @@ input[type="search"]::-webkit-search-cancel-button {
   box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
   z-index: 1000;
 }
-/* line 95, ../sass/app.scss */
+/* line 101, ../sass/app.scss */
 #main-nav .x-button {
   background: transparent;
   border: 0;
@@ -6527,7 +6527,7 @@ input[type="search"]::-webkit-search-cancel-button {
   display: inline-block;
   padding: 15px 10px;
 }
-/* line 107, ../sass/app.scss */
+/* line 113, ../sass/app.scss */
 #main-nav .x-button-pressed {
   background: #33630b;
   background-color: #33630b;
@@ -6542,12 +6542,12 @@ input[type="search"]::-webkit-search-cancel-button {
   text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
 }
 
-/* line 116, ../sass/app.scss */
+/* line 122, ../sass/app.scss */
 #main-nav.x-toolbar {
   height: 2.5em;
 }
 
-/* line 120, ../sass/app.scss */
+/* line 126, ../sass/app.scss */
 #my-stats {
   background: white;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(225, 232, 234, 0.5)), to(rgba(255, 255, 255, 0.2)), url("../images/graph-paper.png") 1px 1px repeat);
@@ -6561,19 +6561,65 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 70px;
   padding: 10px 15px;
 }
-/* line 127, ../sass/app.scss */
+/* line 133, ../sass/app.scss */
 #my-stats #leage-select {
   color: #333;
   font-size: 14px;
 }
-/* line 132, ../sass/app.scss */
+/* line 138, ../sass/app.scss */
 #my-stats #my-ranking {
   color: #448202;
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -0.05em;
 }
-/* line 139, ../sass/app.scss */
+/* line 145, ../sass/app.scss */
 #my-stats .total-contestants {
   color: #bcc7c8;
+}
+
+/* line 152, ../sass/app.scss */
+.match-meta-data .team-wrapper {
+  float: left;
+  font-weight: bold;
+  position: relative;
+  width: 40%;
+  text-transform: uppercase;
+}
+/* line 160, ../sass/app.scss */
+.match-meta-data .team-wrapper.home-team {
+  text-align: left;
+}
+/* line 164, ../sass/app.scss */
+.match-meta-data .team-wrapper.away-team {
+  text-align: right;
+}
+/* line 168, ../sass/app.scss */
+.match-meta-data .goals-scored {
+  background: url(../images/result-background.png) top left no-repeat;
+  height: 32px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 26px;
+}
+/* line 177, ../sass/app.scss */
+.match-meta-data .home-team .goals-scored {
+  right: 0;
+}
+/* line 181, ../sass/app.scss */
+.match-meta-data .kick-off-time {
+  float: left;
+  width: 20%;
+}
+
+/* line 187, ../sass/app.scss */
+.x-list .x-list-item {
+  background: #d1d1d1;
+  background-color: #d1d1d1;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fafafa), to(#d1d1d1));
+  background-image: -webkit-linear-gradient(top, #fafafa, #d1d1d1);
+  background-image: -moz-linear-gradient(top, #fafafa, #d1d1d1);
+  background-image: -ms-linear-gradient(top, #fafafa, #d1d1d1);
+  background-image: -o-linear-gradient(top, #fafafa, #d1d1d1);
 }

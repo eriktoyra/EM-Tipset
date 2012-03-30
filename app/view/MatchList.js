@@ -2,34 +2,21 @@ Ext.define('EM.view.MatchList', {
 	extend: 'Ext.List',
 	xtype: 'matchlist',
 
+	requires: ['EM.store.Matches'],
+
 	config: {
-		cls: 'matchList',
-		id: 'matchList', 
-		left: 0,
-		top: 0, 
-		width: "100%",
-		//height: "100%",		
-		grouped:true,
-		itemTpl:  
-		['<img src="http://img.uefa.com/imgml/flags/32x32/{firstTeam.short}.png" /> {firstTeam.name} <p>',
-		'<img src="http://img.uefa.com/imgml/flags/32x32/{secondTeam.short}.png" /> {secondTeam.name}'
-		].join(""),
+		id: 'match-list',		
 		store: 'Matches',
-		refs: {
-			matchList : '#matchList',
-			loginButton: 'loginform button',
-			loginForm: 'loginform',
-			signUp: '#signUp',
-			mainPanel:'mainPanel',
-			details: '#details'
+		grouped: true,
+		scrollable: false,
+
+		itemTpl: [
+			'<div class="match-meta-data">',
+				'<div class="team-wrapper home-team">{firstTeam} <img src="http://img.uefa.com/imgml/flags/32x32/swe.png" width="16" height="16" /> <div class="goals-scored">{firstTeamGoals}</div></div>',
+				'<div class="kick-off-time">XX.XX</div>',
+				'<div class="team-wrapper away-team"><div class="goals-scored">{secondTeamGoals}</div> <img src="http://img.uefa.com/imgml/flags/32x32/ger.png" width="16" height="16" /> {secondTeam}</div>',
+			'</div>'
+			].join('')
 		},
 
-		initialize: function() {
-			this.callParent(arguments);
-			this.getEventDispatcher().addListener('element', '#matchList', 'swipe', this.onSwipe, this);
-		}	
-	},
-	onSwipe :  function(event) {
-		console.log("right swiprrrrre");
-	}
-})
+	});

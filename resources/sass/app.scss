@@ -146,3 +146,44 @@ body.x-desktop {
     color: #bcc7c8;
   }
 }
+
+.match-meta-data {
+
+  .team-wrapper {
+    float: left;
+    font-weight: bold;
+    position: relative;
+    width: 40%;
+    text-transform: uppercase;
+  }
+
+  .team-wrapper.home-team {
+    text-align: left;
+  }
+  
+  .team-wrapper.away-team {
+    text-align: right;
+  }
+  
+  .goals-scored {
+    background: url(../images/result-background.png) top left no-repeat;
+    height: 32px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 26px;
+  }
+  
+  .home-team .goals-scored {
+    right: 0;
+  }
+    
+  .kick-off-time {
+    float: left;
+    width: 20%;
+  }
+}
+
+.x-list .x-list-item {
+  @include vertical-gradient-background($default-gradient-light-color, $default-gradient-dark-color);
+}

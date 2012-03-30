@@ -13,11 +13,7 @@ Ext.define('EM.view.ResultsPage', {
 				xtype: 'mystats'
 			},
 			{
-				xtype: 'container',
-
-				html: [
-				'Resultatlista m.m.'
-				]
+				xtype: 'matchlist',
 			}			
 		]
 	}

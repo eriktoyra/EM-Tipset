@@ -13,9 +13,9 @@ Ext.application({
 	],
 	
 	controllers: ['MainNav'],
-	stores: ['Matches'],
 	models: ['Match'],
-	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage'],
+	stores: ['Matches'],	
+	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage', 'MatchList'],
 
 	icon: {
 		57: 'resources/icons/Icon.png',
@@ -28,14 +28,12 @@ Ext.application({
 	tabletStartupScreen: 'resources/loading/Homescreen~ipad.jpg',
 
 	launch: function() {
-		var viewport, topToolbar, mainNav, myStats = {};
+		var viewport, topToolbar, mainNav, myStats, matchList = {};
 		
 		// Destroy the #appLoadingIndicator element
 		Ext.fly('appLoadingIndicator').destroy();
-
-		// Create the viewport, the Container that we will fill with various Components
-//		Ext.create('EM.view.Viewport');
 		
+		// Create app components
 		topToolbar = Ext.create('EM.view.TopToolbar', {});
 		mainNav = Ext.create('EM.view.MainNav', {});	
 		main = Ext.create('EM.view.Main', {});	
@@ -58,3 +56,19 @@ Ext.application({
 		);
 	}
 });
+
+/**
+ * Utility functions that is useful throughout the app
+ */ 
+var util = (function() {
+	var util = {};
+
+	/**
+	 * Converts a unix timestamp to millisecond.
+	 */ 
+	util.convertUnixTimeToMilliseconds = function(unixTime) {
+		return unixTime * 1000;
+	}
+		
+	return util;
+})();
