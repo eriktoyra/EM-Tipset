@@ -17,18 +17,17 @@
 @include sencha-msgbox;
 
 // =Colors
-$top-toolbar-gradient-light-color: rgba(41, 43, 43, 1);
-$top-toolbar-gradient-dark-color: rgba(28, 28, 29, 1);
-$top-toolbar-color: #fff;
-
 $default-gradient-light-color: rgba(250, 250, 250, 1);
 $default-gradient-dark-color: rgba(209, 209, 209, 1);
 
 $active-gradient-light-color: rgba(116, 173, 53, 1);
 $active-gradient-dark-color: rgba(51, 99, 11, 1);
 
-$main-nav-foreground-color: #3c3c3c;
+$main-nav-foreground-color: #333;
 $main-nav-foreground-color-active: #fff;
+
+$default-text-color-on-light-background: #333;
+$default-text-color-on-dark-background: #fff;
 
 $light-panel-background-color: #e7e7e7;
 
@@ -41,9 +40,20 @@ $small-font-size: 11px;
 
 // =Mixins
 @mixin default-vertical-box-shadow {
-  -webkit-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+}
+
+@mixin default-inset-drop-shadow {
+  -webkit-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+@mixin default-dark-section {
+  background: url(../images/black-background.png) top left repeat;
+  color: $default-text-color-on-dark-background;
 }
 
 @mixin vertical-gradient-background($light-color, $dark-color) {
@@ -72,8 +82,7 @@ body.x-desktop {
 }
 
 #top-toolbar {
-  background: url(../images/black-background.png) top left repeat-x;
-  color: $top-toolbar-color;
+  @include default-dark-section;
   font-size: $small-font-size;
   padding: $default-padding;
   
@@ -97,6 +106,8 @@ body.x-desktop {
   @include vertical-gradient-background($default-gradient-light-color, $default-gradient-dark-color);
   @include default-vertical-box-shadow;
   z-index: 1000;
+  margin-right: 0;
+  padding-right: 0;
       
   .x-button {
     background: transparent;
@@ -105,7 +116,7 @@ body.x-desktop {
     border-bottom: 1px solid #fff; 
     -webkit-borderradius: 0;
     border-radius: 0;
-    color: $main-nav-foreground-color;
+    color: $default-text-color-on-light-background;
     display: inline-block;
     padding: $default-padding * 3 $default-padding * 2;
   }
@@ -148,42 +159,85 @@ body.x-desktop {
 }
 
 .match-meta-data {
-
+  
   .team-wrapper {
     float: left;
     font-weight: bold;
     position: relative;
     width: 40%;
     text-transform: uppercase;
+    
+    img {
+      position: absolute;
+      top: 4px;
+    } 
+    
+    .goals-scored {
+      background: url(../images/result-background.png) top left no-repeat;
+      padding: $default-padding 0;
+      color: $default-text-color-on-dark-background;
+      position: absolute;
+      text-align: center;       
+      top: -3px;
+      width: 31px;     
+    }       
   }
 
   .team-wrapper.home-team {
     text-align: left;
+    
+    img {
+      left: 50px;
+    }
+    
+    .goals-scored {
+      left: 90px;
+    }    
   }
   
   .team-wrapper.away-team {
     text-align: right;
-  }
-  
-  .goals-scored {
-    background: url(../images/result-background.png) top left no-repeat;
-    height: 32px;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 26px;
-  }
-  
-  .home-team .goals-scored {
-    right: 0;
+    
+    img {
+      right: 50px;
+    }
+    
+    .goals-scored {
+      right: 90px;
+    }
   }
     
   .kick-off-time {
+    background: url(../images/lock-closed.png) top center no-repeat;
     float: left;
+    font-size: $small-font-size;
+    margin-top: -1px;
+    padding-top: $default-padding * 3;
+    text-align: center;
     width: 20%;
   }
 }
 
+.x-list-normal .x-list-header {
+  @include default-dark-section;
+  @include default-inset-drop-shadow;
+  border-bottom-color: #1b1b1c;
+  border-top-color: #1b1b1c;
+  font-size: $small-font-size;
+}
+
 .x-list .x-list-item {
   @include vertical-gradient-background($default-gradient-light-color, $default-gradient-dark-color);
+}
+
+.x-list .x-list-item.x-item-selected .x-list-item-label {
+  @include vertical-gradient-background($active-gradient-light-color, $active-gradient-dark-color);
+  border-bottom-color: $active-gradient-light-color;
+  border-top-color: #7a8c6b;
+  color: $default-text-color-on-dark-background;  
+}
+
+.x-list-normal .x-list-item .x-list-item-label {
+  border-bottom-color: $default-gradient-light-color;
+  border-top-color: $default-gradient-dark-color;
 }

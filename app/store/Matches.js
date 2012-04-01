@@ -48,7 +48,7 @@ Ext.define('EM.store.Matches', {
 		{
 			"gameId": 4,
 			"firstTeam": "Ger",
-			"secondTeam": "Port",
+			"secondTeam": "Por",
 			"kickOff": 1339274700
 		},
 		{

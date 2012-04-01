@@ -6478,14 +6478,14 @@ input[type="search"]::-webkit-search-cancel-button {
   border: 0.1em solid rgba(25, 133, 208, 0.9);
 }
 
-/* line 74, ../sass/app.scss */
+/* line 84, ../sass/app.scss */
 #top-toolbar {
-  background: url(../images/black-background.png) top left repeat-x;
+  background: url(../images/black-background.png) top left repeat;
   color: white;
   font-size: 11px;
   padding: 5px;
 }
-/* line 80, ../sass/app.scss */
+/* line 89, ../sass/app.scss */
 #top-toolbar .user.name {
   border-left: 1px solid rgba(255, 255, 255, 0.25);
   float: left;
@@ -6493,7 +6493,7 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-left: 15px;
   padding-left: 10px;
 }
-/* line 88, ../sass/app.scss */
+/* line 97, ../sass/app.scss */
 #top-toolbar .settings {
   float: left;
   height: 15px;
@@ -6501,7 +6501,7 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 15px;
 }
 
-/* line 96, ../sass/app.scss */
+/* line 105, ../sass/app.scss */
 #main-nav {
   background: #d1d1d1;
   background-color: #d1d1d1;
@@ -6510,12 +6510,14 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: -moz-linear-gradient(top, #fafafa, #d1d1d1);
   background-image: -ms-linear-gradient(top, #fafafa, #d1d1d1);
   background-image: -o-linear-gradient(top, #fafafa, #d1d1d1);
-  -webkit-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
   z-index: 1000;
+  margin-right: 0;
+  padding-right: 0;
 }
-/* line 101, ../sass/app.scss */
+/* line 112, ../sass/app.scss */
 #main-nav .x-button {
   background: transparent;
   border: 0;
@@ -6523,11 +6525,11 @@ input[type="search"]::-webkit-search-cancel-button {
   border-bottom: 1px solid #fff;
   -webkit-borderradius: 0;
   border-radius: 0;
-  color: #3c3c3c;
+  color: #333333;
   display: inline-block;
   padding: 15px 10px;
 }
-/* line 113, ../sass/app.scss */
+/* line 124, ../sass/app.scss */
 #main-nav .x-button-pressed {
   background: #33630b;
   background-color: #33630b;
@@ -6542,12 +6544,12 @@ input[type="search"]::-webkit-search-cancel-button {
   text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
 }
 
-/* line 122, ../sass/app.scss */
+/* line 133, ../sass/app.scss */
 #main-nav.x-toolbar {
   height: 2.5em;
 }
 
-/* line 126, ../sass/app.scss */
+/* line 137, ../sass/app.scss */
 #my-stats {
   background: white;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(225, 232, 234, 0.5)), to(rgba(255, 255, 255, 0.2)), url("../images/graph-paper.png") 1px 1px repeat);
@@ -6561,24 +6563,24 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 70px;
   padding: 10px 15px;
 }
-/* line 133, ../sass/app.scss */
+/* line 144, ../sass/app.scss */
 #my-stats #leage-select {
   color: #333;
   font-size: 14px;
 }
-/* line 138, ../sass/app.scss */
+/* line 149, ../sass/app.scss */
 #my-stats #my-ranking {
   color: #448202;
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -0.05em;
 }
-/* line 145, ../sass/app.scss */
+/* line 156, ../sass/app.scss */
 #my-stats .total-contestants {
   color: #bcc7c8;
 }
 
-/* line 152, ../sass/app.scss */
+/* line 163, ../sass/app.scss */
 .match-meta-data .team-wrapper {
   float: left;
   font-weight: bold;
@@ -6586,34 +6588,69 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 40%;
   text-transform: uppercase;
 }
-/* line 160, ../sass/app.scss */
+/* line 170, ../sass/app.scss */
+.match-meta-data .team-wrapper img {
+  position: absolute;
+  top: 4px;
+}
+/* line 175, ../sass/app.scss */
+.match-meta-data .team-wrapper .goals-scored {
+  background: url(../images/result-background.png) top left no-repeat;
+  padding: 5px 0;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: -3px;
+  width: 31px;
+}
+/* line 186, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team {
   text-align: left;
 }
-/* line 164, ../sass/app.scss */
+/* line 189, ../sass/app.scss */
+.match-meta-data .team-wrapper.home-team img {
+  left: 50px;
+}
+/* line 193, ../sass/app.scss */
+.match-meta-data .team-wrapper.home-team .goals-scored {
+  left: 90px;
+}
+/* line 198, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team {
   text-align: right;
 }
-/* line 168, ../sass/app.scss */
-.match-meta-data .goals-scored {
-  background: url(../images/result-background.png) top left no-repeat;
-  height: 32px;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 26px;
+/* line 201, ../sass/app.scss */
+.match-meta-data .team-wrapper.away-team img {
+  right: 50px;
 }
-/* line 177, ../sass/app.scss */
-.match-meta-data .home-team .goals-scored {
-  right: 0;
+/* line 205, ../sass/app.scss */
+.match-meta-data .team-wrapper.away-team .goals-scored {
+  right: 90px;
 }
-/* line 181, ../sass/app.scss */
+/* line 210, ../sass/app.scss */
 .match-meta-data .kick-off-time {
+  background: url(../images/lock-closed.png) top center no-repeat;
   float: left;
+  font-size: 11px;
+  margin-top: -1px;
+  padding-top: 15px;
+  text-align: center;
   width: 20%;
 }
 
-/* line 187, ../sass/app.scss */
+/* line 221, ../sass/app.scss */
+.x-list-normal .x-list-header {
+  background: url(../images/black-background.png) top left repeat;
+  color: white;
+  -webkit-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  border-bottom-color: #1b1b1c;
+  border-top-color: #1b1b1c;
+  font-size: 11px;
+}
+
+/* line 229, ../sass/app.scss */
 .x-list .x-list-item {
   background: #d1d1d1;
   background-color: #d1d1d1;
@@ -6622,4 +6659,24 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: -moz-linear-gradient(top, #fafafa, #d1d1d1);
   background-image: -ms-linear-gradient(top, #fafafa, #d1d1d1);
   background-image: -o-linear-gradient(top, #fafafa, #d1d1d1);
+}
+
+/* line 233, ../sass/app.scss */
+.x-list .x-list-item.x-item-selected .x-list-item-label {
+  background: #33630b;
+  background-color: #33630b;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#74ad35), to(#33630b));
+  background-image: -webkit-linear-gradient(top, #74ad35, #33630b);
+  background-image: -moz-linear-gradient(top, #74ad35, #33630b);
+  background-image: -ms-linear-gradient(top, #74ad35, #33630b);
+  background-image: -o-linear-gradient(top, #74ad35, #33630b);
+  border-bottom-color: #74ad35;
+  border-top-color: #7a8c6b;
+  color: white;
+}
+
+/* line 240, ../sass/app.scss */
+.x-list-normal .x-list-item .x-list-item-label {
+  border-bottom-color: #fafafa;
+  border-top-color: #d1d1d1;
 }
