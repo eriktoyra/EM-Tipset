@@ -167,10 +167,33 @@ body.x-desktop {
     width: 40%;
     text-transform: uppercase;
     
-    img {
+    .flag {
+      background-image: url(../images/flags-32x32.png), url(../images/flags-bg-32x32.png);
+      background-position: -5px -5px, -10px -10px;
+      background-repeat: no-repeat, no-repeat;
+      background-size: 426px 36px, 46px 118px;      
+      height: 27px;
       position: absolute;
-      top: 4px;
+      top: 0;
+      width: 27px;      
     } 
+    
+    .flag.pol { background-position-x: -5px, -10px; }
+    .flag.gre { background-position-x: -31px, -10px; }
+    .flag.rus { background-position-x: -57px, -10px; }
+    .flag.cze { background-position-x: -83px, -10px; }
+    .flag.ned { background-position-x: -109px, -10px; }    
+    .flag.den { background-position-x: -135px, -10px; } 
+    .flag.ger { background-position-x: -161px, -10px; }           
+    .flag.por { background-position-x: -187px, -10px; }    
+    .flag.spa { background-position-x: -213px, -10px; }
+    .flag.ita { background-position-x: -239px, -10px; } 
+    .flag.irl { background-position-x: -265px, -10px; }
+    .flag.cro { background-position-x: -291px, -10px; }
+    .flag.fra { background-position-x: -317px, -10px; }
+    .flag.eng { background-position-x: -343px, -10px; }                       
+    .flag.ukr { background-position-x: -369px, -10px; }
+    .flag.swe { background-position-x: -395px, -10px; }          
     
     .goals-scored {
       background: url(../images/result-background.png) top left no-repeat;
@@ -186,7 +209,7 @@ body.x-desktop {
   .team-wrapper.home-team {
     text-align: left;
     
-    img {
+    .flag {
       left: 50px;
     }
     
@@ -198,7 +221,7 @@ body.x-desktop {
   .team-wrapper.away-team {
     text-align: right;
     
-    img {
+    .flag {
       right: 50px;
     }
     
@@ -231,10 +254,14 @@ body.x-desktop {
 }
 
 .x-list .x-list-item.x-item-selected .x-list-item-label {
-  @include vertical-gradient-background($active-gradient-light-color, $active-gradient-dark-color);
+  @include vertical-gradient-background($active-gradient-light-color, $active-gradient-dark-color);  
   border-bottom-color: $active-gradient-light-color;
   border-top-color: #7a8c6b;
   color: $default-text-color-on-dark-background;  
+  
+  .team-wrapper .flag {
+    background-position-y: -5px, -46px; 
+  }  
 }
 
 .x-list-normal .x-list-item .x-list-item-label {
