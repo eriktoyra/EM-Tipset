@@ -2,18 +2,16 @@ Ext.define('EM.store.Matches', {
 	extend: 'Ext.data.Store',
 	
 	config: {
-		model: 'EM.model.Match',
-		sorters: [
-			{
-				property: 'kickOff',
-				direction: 'DESC'				
-			}
-			],		
+		model: 'EM.model.Match',	
 		grouper: {
+			/**
+			 * Instead of a Unix timestamp from field 'kickOff' we will display the group header as '27 May 2012'.
+			 */
 			groupFn: function (item) {
 				var kickOff = new Date(util.convertUnixTimeToMilliseconds(item.get('kickOff')));
 				return Ext.Date.format(kickOff, 'j F Y');
-			}
+			},
+			sortProperty: 'kickOff'
 		},
 		data: [
 		{
