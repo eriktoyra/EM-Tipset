@@ -176,62 +176,76 @@ body.x-desktop {
   .team-wrapper {
     float: left;
     font-weight: bold;
+    line-height: 1.65;
     margin-bottom: 17px;
     position: relative;
     text-transform: uppercase;
     width: 40%;    
     
     .flag {
-      background-image: url(../images/flags-32x32.png), url(../images/flags-bg-32x32.png);
-      background-position: -5px -5px, $flag-position-x $flag-position-y;
-      background-repeat: no-repeat, no-repeat;
-      background-size: 426px 36px, 46px 118px;      
-      height: 27px;
+      background-image: url(../images/flags-bg-32x32.png);
+      background-position: -10px -9px;
+      background-repeat: no-repeat;
+      background-size: 46px 118px;      
       position: absolute;
-      top: -1px;
-      width: 27px;      
+      height: 28px;
+      width: 28px;
+      top: 0;
+
+      span {
+        background-image: url(../images/flags-32x32.png);
+        background-position: 5px -4px;      
+        background-repeat: no-repeat;
+        background-size: 426px 36px;
+        display: inline-block;      
+        height: 28px;
+        width: 27px;        
+      }
     } 
-    
-    .flag.pol { background-position-x: -5px, $flag-position-x; }
-    .flag.gre { background-position-x: -31px, $flag-position-x; }
-    .flag.rus { background-position-x: -57px, $flag-position-x; }
-    .flag.cze { background-position-x: -83px, $flag-position-x; }
-    .flag.ned { background-position-x: -109px, $flag-position-x; }    
-    .flag.den { background-position-x: -135px, $flag-position-x; } 
-    .flag.ger { background-position-x: -161px, $flag-position-x; }           
-    .flag.por { background-position-x: -187px, $flag-position-x; }    
-    .flag.spa { background-position-x: -213px, $flag-position-x; }
-    .flag.ita { background-position-x: -239px, $flag-position-x; } 
-    .flag.irl { background-position-x: -265px, $flag-position-x; }
-    .flag.cro { background-position-x: -291px, $flag-position-x; }
-    .flag.fra { background-position-x: -317px, $flag-position-x; }
-    .flag.eng { background-position-x: -343px, $flag-position-x; }                       
-    .flag.ukr { background-position-x: -369px, $flag-position-x; }
-    .flag.swe { background-position-x: -395px, $flag-position-x; }          
+
+    .flag.pol span { background-position-x: -5px; }
+    .flag.gre span { background-position-x: -32px; }
+    .flag.rus span { background-position-x: -57px; }
+    .flag.cze span { background-position-x: -84px; }
+    .flag.ned span { background-position-x: -109px; }    
+    .flag.den span { background-position-x: -136px; } 
+    .flag.ger span { background-position-x: -161px; }           
+    .flag.por span { background-position-x: -188px; }    
+    .flag.spa span { background-position-x: -213px; }
+    .flag.ita span { background-position-x: -240px; } 
+    .flag.irl span { background-position-x: -265px; }
+    .flag.cro span { background-position-x: -292px; }
+    .flag.fra span { background-position-x: -317px; }
+    .flag.eng span { background-position-x: -344px; }                       
+    .flag.ukr span { background-position-x: -369px; }
+    .flag.swe span { background-position-x: -396px; }     
     
     .goals-scored {
       background: url(../images/result-background.png) top left no-repeat;
-      padding: $default-padding 0;
+      padding: 1px 0 3px 0;
       color: $default-text-color-on-dark-background;
       position: absolute;
       text-align: center;       
-      top: -3px;
+      top: -1px;
       width: 31px;     
     }       
   }
 
-  .team-wrapper.home-team {
+  .team-wrapper.home-team,
+  .team-wrapper.away-team {
     text-align: left;
-    
+  }
+  
+  .team-wrapper.home-team {
     .flag {
       left: 50px;
     }
     
     .goals-scored {
       left: 90px;
-    }    
+    } 
   }
-  
+
   .team-wrapper.away-team {
     text-align: right;
     
@@ -248,7 +262,7 @@ body.x-desktop {
     background: url(../images/lock-closed.png) top center no-repeat;
     float: left;
     font-size: $small-font-size;
-    margin-top: -1px;
+    margin-top: 1px;
     padding-top: $default-padding * 3;
     text-align: center;
     width: 20%;
@@ -256,7 +270,6 @@ body.x-desktop {
 
   .bet-meta-data {
     @include default-dark-section;
-    background: #232323;
     border: 1px solid rgb(255, 255, 255);
     border-left-color: rgb(142, 142, 142);    
     border-top-color: rgb(142, 142, 142); 
@@ -288,14 +301,10 @@ body.x-desktop {
     }
 
     .goals-bet.home-team {
-      //float: left;
-      //margin-left: 90px;
       left: 90px;
     }
 
     .goals-bet.away-team {
-      //float: right;
-      //margin-right: 93px;
       right: 93px;
     }
   }
@@ -318,7 +327,7 @@ body.x-desktop {
   border-top-color: #7a8c6b;
   
   .team-wrapper .flag {
-    background-position-y: -5px, -46px; 
+    background-position-y: -45px; 
   } 
 
   .bet-meta-data {
