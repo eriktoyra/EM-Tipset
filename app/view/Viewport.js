@@ -1,38 +1,29 @@
 Ext.define('EM.view.Viewport', {
-	extend: 'Ext.Container',
-
+	extend: 'Ext.Container',		
+	
 	config: {
 		fullscreen: true, 
-		layout: 'vbox',
-
+		scrollable: 'vertical',
+		
+		/*layout: 'vbox',
+		
 		items: [
 		{
-			xtype: 'slideinmenu',
+			xtype: 'toptoolbar'
 		},
 		{
-			xtype: 'toolbar',
-			docked: 'top',
-			flex: 1,
-			cls: 'top-panel',
-
-			defaults: {
-				iconMask: true,
-				ui: 'plain'
-			},
-
-			items: [{
-				xtype: 'button',
-				ui: 'normal',
-				icon: 'resources/icons/note1.png',
-
-				listeners: {
-					tap: function() {
-						console.log("You tapped the button");
-					}
-				}
-			}			
+			xtype: 'mainnav'
+		},
+		{
+			xtype: 'mystats'
+		},
+		{
+			xtype: 'container',
+				
+			html: [
+			'Resultatlista m.m.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>2<br/><br/>'
 			]
 		}
-		]
+		]*/
 	}
 })

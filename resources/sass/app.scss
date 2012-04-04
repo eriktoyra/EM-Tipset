@@ -4,16 +4,361 @@
 // do not use in order to create a smaller css file.
 @include sencha-panel;
 @include sencha-buttons;
-//@include sencha-sheet;
-//@include sencha-picker;
+@include sencha-sheet;
+@include sencha-picker;
 @include sencha-tabs;
 @include sencha-toolbar;
-//@include sencha-toolbar-forms;
-//@include sencha-indexbar;
+@include sencha-toolbar-forms;
+@include sencha-indexbar;
 @include sencha-list;
 @include sencha-layout;
-//@include sencha-carousel;
+@include sencha-carousel;
 @include sencha-form;
 @include sencha-msgbox;
 
-// Your custom code goes here...
+// =Colors
+$default-gradient-light-color: rgba(250, 250, 250, 1);
+$default-gradient-dark-color: rgba(209, 209, 209, 1);
+
+$active-gradient-light-color: rgba(116, 173, 53, 1);
+$active-gradient-dark-color: rgba(51, 99, 11, 1);
+
+$main-nav-foreground-color: #333;
+$main-nav-foreground-color-active: #fff;
+
+$default-text-color-on-light-background: #333;
+$default-text-color-on-dark-background: #fff;
+
+$light-panel-background-color: #e7e7e7;
+
+$default-gradient-base-color: rgb(230, 230, 230);
+$default-gradient-active-color: rgb(84, 136, 32);
+$default-gradient-type: 'matte';
+
+$list-color: #333;
+$list-active-color: #fff;
+
+// =Layout
+$default-padding: 5px;
+
+$flag-position-x: -10px;
+$flag-position-y: -10px;
+
+$default-border-radius: 10px;
+
+// =Typography
+$default-font-size: 12px;
+$small-font-size: 11px;
+
+// =Mixins
+@mixin default-vertical-box-shadow {
+  -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow:    0px 5px 6px rgba(0, 0, 0, 0.25);
+  box-shadow:         0px 5px 6px rgba(0, 0, 0, 0.25);
+}
+
+@mixin default-inset-drop-shadow {
+  -webkit-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow:    inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  box-shadow:         inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+@mixin default-dark-section {
+  background: url(../images/black-background.png) top left repeat;
+  color: $default-text-color-on-dark-background;
+}
+
+@mixin vertical-gradient-background($light-color, $dark-color) {
+  background: $dark-color;
+  background-color: $dark-color;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from($light-color), to($dark-color));
+  background-image: -webkit-linear-gradient(top, $light-color, $dark-color);
+  background-image:    -moz-linear-gradient(top, $light-color, $dark-color);
+  background-image:     -ms-linear-gradient(top, $light-color, $dark-color);
+  background-image:      -o-linear-gradient(top, $light-color, $dark-color);
+}
+
+@mixin background-image-with-vertical-gradient-overlay($image-url, $light-color, $dark-color) {
+  background: rgb(255, 255, 255);
+  background:         -webkit-gradient(linear, 0% 0%, 0% 100%, from($dark-color), to($light-color), url($image-url) 1px 1px repeat);
+  background:  -webkit-linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+  background:     -moz-linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+  background:      -ms-linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+  background:       -o-linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+  background:          linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
+}
+
+// *** =Custom SASS below ***
+body,
+body.x-desktop {
+}
+
+#top-toolbar {
+  @include default-dark-section;
+  font-size: $small-font-size;
+  padding: $default-padding;
+  
+  .user.name {
+	border-left: 1px solid rgba(255, 255, 255, 0.25);  
+	float: left;
+    font-weight: bold;
+    margin-left: $default-padding * 3;
+    padding-left: $default-padding * 2;
+  }
+  
+  .settings {
+	float: left;
+	height: 15px;
+    margin-left: $default-padding * 2;	
+	width: 15px;	
+  }
+}
+
+#main-nav {
+  @include background-gradient($default-gradient-base-color, $default-gradient-type);
+  @include default-vertical-box-shadow;
+  z-index: 1000;
+  margin-right: 0;
+  padding-right: 0;
+      
+  .x-button {
+    background: transparent;
+    border: 0;
+    border-left: 1px solid transparent;
+    border-bottom: 1px solid #fff; 
+    -webkit-borderradius: 0;
+    border-radius: 0;
+    color: $default-text-color-on-light-background;
+    display: inline-block;
+    padding: $default-padding * 3 $default-padding * 2;
+  }
+  
+  .x-button-pressed {
+    @include background-gradient($default-gradient-active-color, $default-gradient-type);
+    border-left-color: rgba(133, 171, 94, 0.75);
+    border-right-color: rgba(186, 201, 173, 0.75);
+    color: $main-nav-foreground-color-active;
+    text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75); 
+  }
+}
+
+#main-nav.x-toolbar {
+  height: 2.5em;
+}
+
+#my-stats {
+  @include background-image-with-vertical-gradient-overlay('../images/graph-paper.png', rgba(255, 255, 255, 0.2), rgba(225, 232, 234, 0.5));
+  border-top: 1px solid rgb(223, 238, 240);
+  border-left: 1px solid rgb(223, 238, 240);
+  height: 70px;
+  padding: $default-padding * 2 $default-padding * 3;
+  
+  #leage-select {
+    color: #333;
+    font-size: 14px;
+  }
+    
+  #my-ranking {
+    color: #448202;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: -0.05em;
+  }
+  
+  .total-contestants {
+    color: #bcc7c8;
+  }
+}
+
+.match-meta-data {
+  .margin-top: 2px;
+
+  .team-wrapper {
+    float: left;
+    font-weight: bold;
+    line-height: 1.65;
+    margin-bottom: 17px;
+    position: relative;
+    text-transform: uppercase;
+    width: 40%;    
+    
+    .flag {
+      background-image: url(../images/flags-bg-32x32.png);
+      background-position: -10px -9px;
+      background-repeat: no-repeat;
+      background-size: 46px 118px;      
+      position: absolute;
+      height: 28px;
+      width: 28px;
+      top: 0;
+
+      span {
+        background-image: url(../images/flags-32x32.png);
+        background-position: 5px -4px;      
+        background-repeat: no-repeat;
+        background-size: 426px 36px;
+        display: inline-block;      
+        height: 28px;
+        width: 27px;        
+      }
+    } 
+
+    .flag.pol span { background-position-x: -5px; }
+    .flag.gre span { background-position-x: -32px; }
+    .flag.rus span { background-position-x: -57px; }
+    .flag.cze span { background-position-x: -84px; }
+    .flag.ned span { background-position-x: -109px; }    
+    .flag.den span { background-position-x: -136px; } 
+    .flag.ger span { background-position-x: -161px; }           
+    .flag.por span { background-position-x: -188px; }    
+    .flag.spa span { background-position-x: -213px; }
+    .flag.ita span { background-position-x: -240px; } 
+    .flag.irl span { background-position-x: -265px; }
+    .flag.cro span { background-position-x: -292px; }
+    .flag.fra span { background-position-x: -317px; }
+    .flag.eng span { background-position-x: -344px; }                       
+    .flag.ukr span { background-position-x: -369px; }
+    .flag.swe span { background-position-x: -396px; }     
+    
+    .goals-scored {
+      background: url(../images/result-background.png) top left no-repeat;
+      padding: 1px 0 3px 0;
+      color: $default-text-color-on-dark-background;
+      position: absolute;
+      text-align: center;       
+      top: -1px;
+      width: 31px;     
+    }       
+  }
+
+  .team-wrapper.home-team,
+  .team-wrapper.away-team {
+    text-align: left;
+  }
+  
+  .team-wrapper.home-team {
+    .flag {
+      left: 50px;
+    }
+    
+    .goals-scored {
+      left: 90px;
+    } 
+  }
+
+  .team-wrapper.away-team {
+    text-align: right;
+    
+    .flag {
+      right: 50px;
+    }
+    
+    .goals-scored {
+      right: 90px;
+    }
+  }
+    
+  .kick-off-time {
+    background: url(../images/lock-closed.png) top center no-repeat;
+    float: left;
+    font-size: $small-font-size;
+    margin-top: 1px;
+    padding-top: $default-padding * 3;
+    text-align: center;
+    width: 20%;
+  }
+
+  .bet-meta-data {
+    @include default-dark-section;
+    border: 1px solid rgb(255, 255, 255);
+    border-left-color: rgb(142, 142, 142);    
+    border-top-color: rgb(142, 142, 142); 
+    -webkit-borderradius: $default-border-radius;
+    -moz-border-radius:   $default-border-radius;
+    -ms-border-radius:    $default-border-radius;
+    border-radius:        $default-border-radius;    
+    clear: both;
+    height: 32px;
+    margin-top: $default-padding * 2;
+    position: relative; 
+
+    img.user-icon {
+      height: 13px;
+      left: $default-padding * 2;
+      position: absolute;      
+      top: 8px;
+      width: 11px;
+    }
+
+    .goals-bet {
+      color: #7f7f7f;
+      font-weight: bold;
+      height: 30px;
+      line-height: 1.6;
+      position: absolute;
+      text-align: center;
+      width: 28px;
+    }
+
+    .points-earned,
+    .no-points-earned {
+      background-image: url(../images/round-background.png);
+      background-position: -11px -5px;      
+      background-repeat: no-repeat;
+      background-size: 88px 34px;      
+      float: right;
+      font-size: 15px;
+      font-weight: bold;
+      height: 28px;
+      line-height: 1.65;
+      margin-top: 2px;
+      margin-right: $default-padding;
+      text-align: center;
+      width: 28px;
+    }
+
+    .no-points-earned {
+      background-position-x: -51px;  
+    }
+
+    .goals-bet.home-team {
+      left: 90px;
+    }
+
+    .goals-bet.away-team {
+      right: 93px;
+    }
+  }
+}
+
+.x-list-normal .x-list-header {
+  @include default-dark-section;
+  border-bottom-color: #1b1b1c;
+  border-top-color: #1b1b1c;
+  font-size: $small-font-size;
+}
+
+.x-list .x-list-item {
+  @include background-gradient($default-gradient-base-color, $default-gradient-type);
+}
+
+.x-list .x-list-item.x-item-selected .x-list-item-label {
+  @include background-gradient($default-gradient-active-color, $default-gradient-type);
+  border-bottom-color: $active-gradient-light-color;
+  border-top-color: #7a8c6b;
+  
+  .team-wrapper .flag {
+    background-position-y: -45px; 
+  } 
+
+  .bet-meta-data {
+    border: 1px solid rgb(133, 179, 83);
+    border-left-color: rgb(60, 110, 17);    
+    border-top-color: rgb(60, 110, 17);     
+  } 
+}
+
+.x-list-normal .x-list-item .x-list-item-label {
+  border-bottom-color: $default-gradient-light-color;
+  border-top-color: $default-gradient-dark-color;
+}
