@@ -34,6 +34,9 @@ $light-panel-background-color: #e7e7e7;
 // =Layout
 $default-padding: 5px;
 
+$flag-position-x: -10px;
+$flag-position-y: -10px;
+
 // =Typography
 $default-font-size: 12px;
 $small-font-size: 11px;
@@ -159,7 +162,8 @@ body.x-desktop {
 }
 
 .match-meta-data {
-  
+  .margin-top: 2px;
+
   .team-wrapper {
     float: left;
     font-weight: bold;
@@ -169,31 +173,31 @@ body.x-desktop {
     
     .flag {
       background-image: url(../images/flags-32x32.png), url(../images/flags-bg-32x32.png);
-      background-position: -5px -5px, -10px -10px;
+      background-position: -5px -5px, $flag-position-x $flag-position-y;
       background-repeat: no-repeat, no-repeat;
       background-size: 426px 36px, 46px 118px;      
       height: 27px;
       position: absolute;
-      top: 0;
+      top: -1px;
       width: 27px;      
     } 
     
-    .flag.pol { background-position-x: -5px, -10px; }
-    .flag.gre { background-position-x: -31px, -10px; }
-    .flag.rus { background-position-x: -57px, -10px; }
-    .flag.cze { background-position-x: -83px, -10px; }
-    .flag.ned { background-position-x: -109px, -10px; }    
-    .flag.den { background-position-x: -135px, -10px; } 
-    .flag.ger { background-position-x: -161px, -10px; }           
-    .flag.por { background-position-x: -187px, -10px; }    
-    .flag.spa { background-position-x: -213px, -10px; }
-    .flag.ita { background-position-x: -239px, -10px; } 
-    .flag.irl { background-position-x: -265px, -10px; }
-    .flag.cro { background-position-x: -291px, -10px; }
-    .flag.fra { background-position-x: -317px, -10px; }
-    .flag.eng { background-position-x: -343px, -10px; }                       
-    .flag.ukr { background-position-x: -369px, -10px; }
-    .flag.swe { background-position-x: -395px, -10px; }          
+    .flag.pol { background-position-x: -5px, $flag-position-x; }
+    .flag.gre { background-position-x: -31px, $flag-position-x; }
+    .flag.rus { background-position-x: -57px, $flag-position-x; }
+    .flag.cze { background-position-x: -83px, $flag-position-x; }
+    .flag.ned { background-position-x: -109px, $flag-position-x; }    
+    .flag.den { background-position-x: -135px, $flag-position-x; } 
+    .flag.ger { background-position-x: -161px, $flag-position-x; }           
+    .flag.por { background-position-x: -187px, $flag-position-x; }    
+    .flag.spa { background-position-x: -213px, $flag-position-x; }
+    .flag.ita { background-position-x: -239px, $flag-position-x; } 
+    .flag.irl { background-position-x: -265px, $flag-position-x; }
+    .flag.cro { background-position-x: -291px, $flag-position-x; }
+    .flag.fra { background-position-x: -317px, $flag-position-x; }
+    .flag.eng { background-position-x: -343px, $flag-position-x; }                       
+    .flag.ukr { background-position-x: -369px, $flag-position-x; }
+    .flag.swe { background-position-x: -395px, $flag-position-x; }          
     
     .goals-scored {
       background: url(../images/result-background.png) top left no-repeat;
