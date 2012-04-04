@@ -3,6 +3,7 @@ Ext.define('EM.controller.MainNav', {
 	
 	init: function() {
 		// Init operations if needed
+		var currentVisiblePage = {};
 	},
 	
 	launch: function() {
@@ -31,46 +32,49 @@ Ext.define('EM.controller.MainNav', {
 	 * Adds the Resuls page when the user taps 'Results' in #mainNav 
 	 */
 	doTapResultNavItem: function() {
-		this.removePreviousPageFromMainIfExists('#standings-page');
-		this.addNewPageInMainIfNotAlreadyExists('#results-page', 'EM.view.ResultsPage');
+		this.removePreviousPageFromMainIfExists('#standings-page');		
+		this.addNewPageInMainIfNotAlreadyExists('#results-page', 'EM.view.ResultsPage');		
 	},
 
 	/**
 	 * Adds the Standings page when the user taps 'Standings' in #mainNav 
 	 */	
 	doTapStandingsNavItem: function() {
-		this.removePreviousPageFromMainIfExists('#results-page');
-		this.addNewPageInMainIfNotAlreadyExists('#standings-page', 'EM.view.StandingsPage');
+		this.removePreviousPageFromMainIfExists('#results-page');		
+		this.addNewPageInMainIfNotAlreadyExists('#standings-page', 'EM.view.StandingsPage');		
 	},
 	
 	/**
 	 * Adds a new component in #main if it doesn't exist already
 	 */ 
 	addNewPageInMainIfNotAlreadyExists: function(ref, className) {
-		if (!this.getMain().child(ref)) {
+		var main  = this.getMain();
+		var child = main.child(ref);
+		
+		if (!child) {
 			// Creates the container as hidden and then shows it because I want to trigger the slideIn effect
-			this.getMain().add(
+			child = main.add(
 				Ext.create(className, {
 					hidden: true
 				})
 			)
-			this.getMain().child(ref).show();
-			console.log("create new component");
 		}
-		else {
-			this.getMain().child(ref).show();
-			console.log("show already created component");	
-		}		
+		this.setCurrentVisiblePage(child);
+		child.show();
 	},
 	
 	/**
 	 * Removes a component from #main when another component should take its place
 	 */ 
 	removePreviousPageFromMainIfExists: function(ref) {
-		var previousPage = this.getMain().child(ref);
-		
-		if (previousPage) {
-			previousPage.hide();
-		}		
-	}
+		this.getCurrentVisiblePage().hide();
+	},
+
+	getCurrentVisiblePage: function() {
+		return this.currentVisiblePage;
+	},
+
+	setCurrentVisiblePage: function(ref) {
+		this.currentVisiblePage = ref;
+	},	
 });

@@ -31,11 +31,20 @@ $default-text-color-on-dark-background: #fff;
 
 $light-panel-background-color: #e7e7e7;
 
+$default-gradient-base-color: rgb(230, 230, 230);
+$default-gradient-active-color: rgb(84, 136, 32);
+$default-gradient-type: 'matte';
+
+$list-color: #333;
+$list-active-color: #fff;
+
 // =Layout
 $default-padding: 5px;
 
 $flag-position-x: -10px;
 $flag-position-y: -10px;
+
+$default-border-radius: 10px;
 
 // =Typography
 $default-font-size: 12px;
@@ -44,14 +53,14 @@ $small-font-size: 11px;
 // =Mixins
 @mixin default-vertical-box-shadow {
   -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow:    0px 5px 6px rgba(0, 0, 0, 0.25);
+  box-shadow:         0px 5px 6px rgba(0, 0, 0, 0.25);
 }
 
 @mixin default-inset-drop-shadow {
   -webkit-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow:    inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+  box-shadow:         inset 0px 3px 4px rgba(0, 0, 0, 0.25);
 }
 
 @mixin default-dark-section {
@@ -106,7 +115,7 @@ body.x-desktop {
 }
 
 #main-nav {
-  @include vertical-gradient-background($default-gradient-light-color, $default-gradient-dark-color);
+  @include background-gradient($default-gradient-base-color, $default-gradient-type);
   @include default-vertical-box-shadow;
   z-index: 1000;
   margin-right: 0;
@@ -125,7 +134,7 @@ body.x-desktop {
   }
   
   .x-button-pressed {
-    @include vertical-gradient-background($active-gradient-light-color, $active-gradient-dark-color);
+    @include background-gradient($default-gradient-active-color, $default-gradient-type);
     border-left-color: rgba(133, 171, 94, 0.75);
     border-right-color: rgba(186, 201, 173, 0.75);
     color: $main-nav-foreground-color-active;
@@ -167,9 +176,10 @@ body.x-desktop {
   .team-wrapper {
     float: left;
     font-weight: bold;
+    margin-bottom: 17px;
     position: relative;
-    width: 40%;
     text-transform: uppercase;
+    width: 40%;    
     
     .flag {
       background-image: url(../images/flags-32x32.png), url(../images/flags-bg-32x32.png);
@@ -243,29 +253,79 @@ body.x-desktop {
     text-align: center;
     width: 20%;
   }
+
+  .bet-meta-data {
+    @include default-dark-section;
+    background: #232323;
+    border: 1px solid rgb(255, 255, 255);
+    border-left-color: rgb(142, 142, 142);    
+    border-top-color: rgb(142, 142, 142); 
+    -webkit-borderradius: $default-border-radius;
+    -moz-border-radius:   $default-border-radius;
+    -ms-border-radius:    $default-border-radius;
+    border-radius:        $default-border-radius;    
+    clear: both;
+    height: 32px;
+    margin-top: $default-padding * 2;
+    position: relative; 
+
+    img.user-icon {
+      height: 13px;
+      left: $default-padding * 2;
+      position: absolute;      
+      top: 8px;
+      width: 11px;
+    }
+
+    .goals-bet {
+      color: #7f7f7f;
+      font-weight: bold;
+      height: 30px;
+      line-height: 1.6;
+      position: absolute;
+      text-align: center;
+      width: 28px;
+    }
+
+    .goals-bet.home-team {
+      //float: left;
+      //margin-left: 90px;
+      left: 90px;
+    }
+
+    .goals-bet.away-team {
+      //float: right;
+      //margin-right: 93px;
+      right: 93px;
+    }
+  }
 }
 
 .x-list-normal .x-list-header {
   @include default-dark-section;
-  @include default-inset-drop-shadow;
   border-bottom-color: #1b1b1c;
   border-top-color: #1b1b1c;
   font-size: $small-font-size;
 }
 
 .x-list .x-list-item {
-  @include vertical-gradient-background($default-gradient-light-color, $default-gradient-dark-color);
+  @include background-gradient($default-gradient-base-color, $default-gradient-type);
 }
 
 .x-list .x-list-item.x-item-selected .x-list-item-label {
-  @include vertical-gradient-background($active-gradient-light-color, $active-gradient-dark-color);  
+  @include background-gradient($default-gradient-active-color, $default-gradient-type);
   border-bottom-color: $active-gradient-light-color;
   border-top-color: #7a8c6b;
-  color: $default-text-color-on-dark-background;  
   
   .team-wrapper .flag {
     background-position-y: -5px, -46px; 
-  }  
+  } 
+
+  .bet-meta-data {
+    border: 1px solid rgb(133, 179, 83);
+    border-left-color: rgb(60, 110, 17);    
+    border-top-color: rgb(60, 110, 17);     
+  } 
 }
 
 .x-list-normal .x-list-item .x-list-item-label {

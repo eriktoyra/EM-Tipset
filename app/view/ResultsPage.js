@@ -9,9 +9,9 @@ Ext.define('EM.view.ResultsPage', {
 		}),
 		
 		items: [
-			{
+			/*{
 				xtype: 'mystats'
-			},
+			},*/
 			{
 				xtype: 'matchlist',
 			}			
