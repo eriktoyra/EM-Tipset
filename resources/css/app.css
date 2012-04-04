@@ -6752,16 +6752,37 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 28px;
 }
-/* line 303, ../sass/app.scss */
+/* line 304, ../sass/app.scss */
+.match-meta-data .bet-meta-data .points-earned,
+.match-meta-data .bet-meta-data .no-points-earned {
+  background-image: url(../images/round-background.png);
+  background-position: -11px -5px;
+  background-repeat: no-repeat;
+  background-size: 88px 34px;
+  float: right;
+  font-size: 15px;
+  font-weight: bold;
+  height: 28px;
+  line-height: 1.65;
+  margin-top: 2px;
+  margin-right: 5px;
+  text-align: center;
+  width: 28px;
+}
+/* line 320, ../sass/app.scss */
+.match-meta-data .bet-meta-data .no-points-earned {
+  background-position-x: -51px;
+}
+/* line 324, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.home-team {
   left: 90px;
 }
-/* line 307, ../sass/app.scss */
+/* line 328, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.away-team {
   right: 93px;
 }
 
-/* line 313, ../sass/app.scss */
+/* line 334, ../sass/app.scss */
 .x-list-normal .x-list-header {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6770,7 +6791,7 @@ input[type="search"]::-webkit-search-cancel-button {
   font-size: 11px;
 }
 
-/* line 320, ../sass/app.scss */
+/* line 341, ../sass/app.scss */
 .x-list .x-list-item {
   background-color: #e6e6e6;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f8f8f8), color-stop(100%, #d4d4d4));
@@ -6778,7 +6799,7 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: linear-gradient(#ffffff, #f8f8f8 2%, #d4d4d4);
 }
 
-/* line 324, ../sass/app.scss */
+/* line 345, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label {
   background-color: #548820;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a1db66), color-stop(2%, #66a527), color-stop(100%, #426b19));
@@ -6787,18 +6808,18 @@ input[type="search"]::-webkit-search-cancel-button {
   border-bottom-color: #74ad35;
   border-top-color: #7a8c6b;
 }
-/* line 329, ../sass/app.scss */
+/* line 350, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .team-wrapper .flag {
   background-position-y: -45px;
 }
-/* line 333, ../sass/app.scss */
+/* line 354, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .bet-meta-data {
   border: 1px solid #85b353;
   border-left-color: #3c6e11;
   border-top-color: #3c6e11;
 }
 
-/* line 340, ../sass/app.scss */
+/* line 361, ../sass/app.scss */
 .x-list-normal .x-list-item .x-list-item-label {
   border-bottom-color: #fafafa;
   border-top-color: #d1d1d1;

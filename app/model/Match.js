@@ -43,7 +43,24 @@ Ext.define('EM.model.Match', {
 			},			 
 			'firstTeamGoalsBet', 
 			'secondTeamGoalsBet', 
-			'points'
+			'points',
+			{
+				name: 'pointsEarned',
+				convert: function(value, record) {
+					var className = 'no-points-earned';
+					var points = record.get('points'); 
+					
+					if (typeof points == 'undefined') {
+						return '';
+					}
+
+					if (points > 0) {
+						className = 'points-earned';
+					}
+					
+					return '<div class="' + className + '">' + points + '</div>'
+				}
+			}
 		]
 	}
 });

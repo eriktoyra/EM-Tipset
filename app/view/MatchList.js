@@ -18,7 +18,8 @@ Ext.define('EM.view.MatchList', {
 				'<div class="bet-meta-data">',
 					'<img class="user-icon" src="resources/images/user-22x26.png" />',
 					'<div class="home-team goals-bet">{firstTeamGoalsBet}</div>',
-					'<div class="away-team goals-bet">{secondTeamGoalsBet}</div>',	
+					'<div class="away-team goals-bet">{secondTeamGoalsBet}</div>',
+					'{pointsEarned}',	
 				'</div>',
 			'</div>'			
 			].join('')

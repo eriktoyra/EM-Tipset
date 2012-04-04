@@ -300,6 +300,27 @@ body.x-desktop {
       width: 28px;
     }
 
+    .points-earned,
+    .no-points-earned {
+      background-image: url(../images/round-background.png);
+      background-position: -11px -5px;      
+      background-repeat: no-repeat;
+      background-size: 88px 34px;      
+      float: right;
+      font-size: 15px;
+      font-weight: bold;
+      height: 28px;
+      line-height: 1.65;
+      margin-top: 2px;
+      margin-right: $default-padding;
+      text-align: center;
+      width: 28px;
+    }
+
+    .no-points-earned {
+      background-position-x: -51px;  
+    }
+
     .goals-bet.home-team {
       left: 90px;
     }

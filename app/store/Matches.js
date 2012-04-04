@@ -10,8 +10,6 @@ Ext.define('EM.store.Matches', {
 			groupFn: function (item) {
 				var kickOff = new Date(util.convertUnixTimeToMilliseconds(item.get('kickOff')));
 				return kickOff.format('d mmmm yyyy');
-
-				//return Ext.Date.format(kickOff, 'j F Y');
 			},
 			sortProperty: 'kickOff'
 		},
