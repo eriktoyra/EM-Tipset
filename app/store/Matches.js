@@ -1,6 +1,11 @@
 Ext.define('EM.store.Matches', {
 	extend: 'Ext.data.Store',
-	
+
+	init: function() {
+		//console.log(this);
+		console.log("init of Matches store");
+	},
+
 	config: {
 		model: 'EM.model.Match',
 		storeId: 'Matches',		
@@ -13,15 +18,15 @@ Ext.define('EM.store.Matches', {
 				return kickOff.format('d mmmm yyyy');
 			},
 			sortProperty: 'kickOff'
-		},		
+		},/*	
 		proxy: {
-	        type: 'ajax',
+	        type: 'rest',
 	        url : 'resources/json/matches.json',
 	        reader: {
 	            type: 'json',
 	            rootProperty: 'games'
 	        }
-	    },
+	    },*/
 	    autoLoad: true,
 	}
 });

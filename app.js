@@ -9,13 +9,14 @@ Ext.application({
 
 	requires: [
 	'Ext.MessageBox',
-	'Ext.Anim'
+	'Ext.Anim',
+	'Ext.data.proxy.Rest',	
 	],
 	
 	controllers: ['MainNav'],
-	models: ['Match'],
-	stores: ['Matches'],	
-	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage', 'MatchList'],
+	models: ['Match', 'Round'],
+	stores: ['Matches', 'Rounds'],	
+	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage', 'RoundSelector', 'MatchList'],
 
 	icon: {
 		57: 'resources/icons/Icon.png',
@@ -28,7 +29,7 @@ Ext.application({
 	tabletStartupScreen: 'resources/loading/Homescreen~ipad.jpg',
 
 	launch: function() {
-		var viewport, topToolbar, mainNav, myStats, matchList = {};
+		var viewport, topToolbar, mainNav, myStats = {};
 		
 		// Destroy the #appLoadingIndicator element
 		Ext.fly('appLoadingIndicator').destroy();

@@ -1,64 +1,129 @@
-
-	{
-		"games": [
-			{
-				"gameId": 1,
-				"firstTeam": "Pol",
-				"secondTeam": "Gre",
-				"kickOff": 1339178400,
-				"firstTeamGoals": 2,
-				"secondTeamGoals": 3,
-				"firstTeamGoalsBet": 1,
-				"secondTeamGoalsBet": 4,
-				"points": 2
-			},
-			{
-				"gameId": 2,
-				"firstTeam": "Rus",
-				"secondTeam": "Cze",
-				"kickOff": 1339188300,
-				"firstTeamGoals": 1,
-				"secondTeamGoals": 0,
-				"firstTeamGoalsBet": 2,
-				"secondTeamGoalsBet": 2,
-				"points": 0
-			},{
-				"gameId": 3,
-				"firstTeam": "Ned",
-				"secondTeam": "Den",
-				"kickOff": 1339264800,
-				"firstTeamGoals": 1,
-				"secondTeamGoals": 0
-			},
-			{
-				"gameId": 4,
-				"firstTeam": "Ger",
-				"secondTeam": "Por",
-				"kickOff": 1339274700
-			},
-			{
-				"gameId": 5,
-				"firstTeam": "Spa",
-				"secondTeam": "Ita",
-				"kickOff": 1339351200
-			},  
-			{
-				"gameId": 6,
-				"firstTeam": "Irl",
-				"secondTeam": "Cro",
-				"kickOff": 1339361100
-			},
-			{
-				"gameId": 7,
-				"firstTeam": "Fra",
-				"secondTeam": "Eng",
-				"kickOff": 1339437600
-			},
-			{
-				"gameId": 8,
-				"firstTeam": "Ukr",
-				"secondTeam": "Swe",
-				"kickOff": 1339447500
-			}
-		]
-	}	
+[
+    {   
+        "name": "Omgång 1",
+        "lockedDate": 1325420111,
+        "games": [
+            {
+                "gameId": 1,
+                "firstTeam": "Pol",
+                "secondTeam": "Gre",
+                "kickOff": 1339178400,
+                "firstTeamGoals": 0,
+                "secondTeamGoals": 3,
+                "firstTeamGoalsBet": 0,
+                "secondTeamGoalsBet": 3,
+                "points": 3
+            },
+            {
+                "gameId": 2,
+                "firstTeam": "Rus",
+                "secondTeam": "Cze",
+                "kickOff": 1339188300,
+                "firstTeamGoals": 4,
+                "secondTeamGoals": 1,
+                "firstTeamGoalsBet": 1,
+                "secondTeamGoalsBet": 2,
+                "points": 0
+            },{
+                "gameId": 3,
+                "firstTeam": "Ned",
+                "secondTeam": "Den",
+                "kickOff": 1339264800,
+                "firstTeamGoals": 2,
+                "secondTeamGoals": 1,
+                "firstTeamGoalsBet": 4,
+                "secondTeamGoalsBet": 2,
+                "points": 2
+            },
+            {
+                "gameId": 4,
+                "firstTeam": "Ger",
+                "secondTeam": "Por",
+				"firstTeamGoalsBet": 4,
+                "secondTeamGoalsBet": 0,
+                "kickOff": 1339274700
+            },
+            {
+                "gameId": 5,
+                "firstTeam": "Spa",
+                "secondTeam": "Ita",
+                "firstTeamGoalsBet": 3,
+                "secondTeamGoalsBet": 2,
+                "kickOff": 1339351200
+            },  
+            {
+                "gameId": 6,
+                "firstTeam": "Irl",
+                "secondTeam": "Cro",
+                "kickOff": 1339361100
+            },
+            {
+                "gameId": 7,
+                "firstTeam": "Fra",
+                "secondTeam": "Eng",
+                "kickOff": 1339437600
+            },
+                        {
+                "gameId": 8,
+                "firstTeam": "Ukr",
+                "secondTeam": "Swe",
+                "kickOff": 1339447500
+            }
+        ]
+    },
+    {
+         "name": "Omgång 2",
+         "games": [
+	         {
+                "gameId": 4,
+                "firstTeam": "Gre",
+                "secondTeam": "Cze",
+                "kickOff": 1339524000
+            }
+         ]
+    },
+    {
+         "name": "Omgång 3",
+         "games": [
+	         {
+                "gameId": 4,
+                "firstTeam": "Gre",
+                "secondTeam": "Rus",
+                "kickOff": 1339869600
+            }
+         ]
+    },
+    {
+         "name": "Kvart",
+         "games": [
+	         {
+                "gameId": 4,
+                "firstTeam": "1A",
+                "secondTeam": "2B",
+                "kickOff": 1340311500
+            }
+         ]
+    },
+    {
+         "name": "Semi",
+         "games": [
+	         {
+                "gameId": 4,
+                "firstTeam": "#25",
+                "secondTeam": "#27",
+                "kickOff": 1340829900
+            }
+         ]
+    },
+    {
+         "name": "Final",
+         "games": [
+	         {
+                "gameId": 4,
+                "firstTeam": "#29",
+                "secondTeam": "#30",
+                "kickOff": 1341175500
+            }
+         ]
+    }
+]

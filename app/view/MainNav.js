@@ -26,12 +26,6 @@ Ext.define('EM.view.MainNav', {
 							text: 'Tabeller'
 						}
 					],
-					/*listeners: {
-						toggle: function(container, button, pressed) {
-							console.log(container.getParent());
-							console.log("User toggled the '" + button.getText() + "' button: " + (pressed ? 'on' : 'off'));
-						}
-					}*/
 			}
 		]		
 	}

@@ -9,6 +9,9 @@ Ext.define('EM.view.ResultsPage', {
 		}),
 		
 		items: [
+			{
+				xtype: 'roundselector'
+			},
 			/*{
 				xtype: 'mystats'
 			},*/
