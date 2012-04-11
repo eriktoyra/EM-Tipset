@@ -6544,6 +6544,11 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* line 149, ../sass/app.scss */
+.x-toolbar.x-docked-top {
+  border: 0;
+}
+
+/* line 153, ../sass/app.scss */
 #my-stats {
   background: white;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(225, 232, 234, 0.5)), to(rgba(255, 255, 255, 0.2)), url("../images/graph-paper.png") 1px 1px repeat);
@@ -6557,28 +6562,28 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 70px;
   padding: 10px 15px;
 }
-/* line 156, ../sass/app.scss */
+/* line 160, ../sass/app.scss */
 #my-stats #leage-select {
   color: #333;
   font-size: 14px;
 }
-/* line 161, ../sass/app.scss */
+/* line 165, ../sass/app.scss */
 #my-stats #my-ranking {
   color: #448202;
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -0.05em;
 }
-/* line 168, ../sass/app.scss */
+/* line 172, ../sass/app.scss */
 #my-stats .total-contestants {
   color: #bcc7c8;
 }
 
-/* line 173, ../sass/app.scss */
+/* line 177, ../sass/app.scss */
 .match-meta-data {
   .margin-top: 2px;
 }
-/* line 176, ../sass/app.scss */
+/* line 180, ../sass/app.scss */
 .match-meta-data .team-wrapper {
   float: left;
   font-weight: bold;
@@ -6588,7 +6593,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-transform: uppercase;
   width: 40%;
 }
-/* line 185, ../sass/app.scss */
+/* line 189, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag {
   background-image: url(../images/flags-bg-32x32.png);
   background-position: -10px -9px;
@@ -6599,7 +6604,7 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 28px;
   top: 0;
 }
-/* line 195, ../sass/app.scss */
+/* line 199, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span {
   background-image: url(../images/flags-32x32.png);
   background-position: 5px -4px;
@@ -6609,71 +6614,71 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 28px;
   width: 27px;
 }
-/* line 206, ../sass/app.scss */
+/* line 210, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.pol span {
   background-position-x: -5px;
 }
-/* line 207, ../sass/app.scss */
+/* line 211, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.gre span {
   background-position-x: -32px;
 }
-/* line 208, ../sass/app.scss */
+/* line 212, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.rus span {
   background-position-x: -57px;
 }
-/* line 209, ../sass/app.scss */
+/* line 213, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.cze span {
   background-position-x: -84px;
 }
-/* line 210, ../sass/app.scss */
+/* line 214, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.ned span {
   background-position-x: -109px;
 }
-/* line 211, ../sass/app.scss */
+/* line 215, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.den span {
   background-position-x: -136px;
 }
-/* line 212, ../sass/app.scss */
+/* line 216, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.ger span {
   background-position-x: -161px;
 }
-/* line 213, ../sass/app.scss */
+/* line 217, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.por span {
   background-position-x: -188px;
 }
-/* line 214, ../sass/app.scss */
+/* line 218, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.spa span {
   background-position-x: -213px;
 }
-/* line 215, ../sass/app.scss */
+/* line 219, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.ita span {
   background-position-x: -240px;
 }
-/* line 216, ../sass/app.scss */
+/* line 220, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.irl span {
   background-position-x: -265px;
 }
-/* line 217, ../sass/app.scss */
+/* line 221, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.cro span {
   background-position-x: -292px;
 }
-/* line 218, ../sass/app.scss */
+/* line 222, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.fra span {
   background-position-x: -317px;
 }
-/* line 219, ../sass/app.scss */
+/* line 223, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.eng span {
   background-position-x: -344px;
 }
-/* line 220, ../sass/app.scss */
+/* line 224, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.ukr span {
   background-position-x: -369px;
 }
-/* line 221, ../sass/app.scss */
+/* line 225, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag.swe span {
   background-position-x: -396px;
 }
-/* line 223, ../sass/app.scss */
+/* line 227, ../sass/app.scss */
 .match-meta-data .team-wrapper .goals-scored {
   background: url(../images/result-background.png) top left no-repeat;
   padding: 1px 0 3px 0;
@@ -6683,32 +6688,32 @@ input[type="search"]::-webkit-search-cancel-button {
   top: -1px;
   width: 31px;
 }
-/* line 235, ../sass/app.scss */
+/* line 239, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team,
 .match-meta-data .team-wrapper.away-team {
   text-align: left;
 }
-/* line 240, ../sass/app.scss */
+/* line 244, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team .flag {
   left: 50px;
 }
-/* line 244, ../sass/app.scss */
+/* line 248, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team .goals-scored {
   left: 90px;
 }
-/* line 249, ../sass/app.scss */
+/* line 253, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team {
   text-align: right;
 }
-/* line 252, ../sass/app.scss */
+/* line 256, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team .flag {
   right: 50px;
 }
-/* line 256, ../sass/app.scss */
+/* line 260, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team .goals-scored {
   right: 90px;
 }
-/* line 261, ../sass/app.scss */
+/* line 265, ../sass/app.scss */
 .match-meta-data .kick-off-time {
   background: url(../images/lock-closed.png) top center no-repeat;
   float: left;
@@ -6718,7 +6723,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 20%;
 }
-/* line 271, ../sass/app.scss */
+/* line 275, ../sass/app.scss */
 .match-meta-data .bet-meta-data {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6734,7 +6739,7 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-top: 10px;
   position: relative;
 }
-/* line 285, ../sass/app.scss */
+/* line 289, ../sass/app.scss */
 .match-meta-data .bet-meta-data img.user-icon {
   height: 13px;
   left: 10px;
@@ -6742,7 +6747,7 @@ input[type="search"]::-webkit-search-cancel-button {
   top: 8px;
   width: 11px;
 }
-/* line 293, ../sass/app.scss */
+/* line 297, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet {
   color: #7f7f7f;
   font-weight: bold;
@@ -6752,7 +6757,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 28px;
 }
-/* line 304, ../sass/app.scss */
+/* line 308, ../sass/app.scss */
 .match-meta-data .bet-meta-data .points-earned,
 .match-meta-data .bet-meta-data .no-points-earned {
   background-image: url(../images/round-background.png);
@@ -6769,20 +6774,20 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 28px;
 }
-/* line 320, ../sass/app.scss */
+/* line 324, ../sass/app.scss */
 .match-meta-data .bet-meta-data .no-points-earned {
   background-position-x: -51px;
 }
-/* line 324, ../sass/app.scss */
+/* line 328, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.home-team {
   left: 90px;
 }
-/* line 328, ../sass/app.scss */
+/* line 332, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.away-team {
   right: 93px;
 }
 
-/* line 334, ../sass/app.scss */
+/* line 338, ../sass/app.scss */
 .x-list-normal .x-list-header {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6791,7 +6796,7 @@ input[type="search"]::-webkit-search-cancel-button {
   font-size: 11px;
 }
 
-/* line 341, ../sass/app.scss */
+/* line 345, ../sass/app.scss */
 .x-list .x-list-item {
   background-color: #e6e6e6;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f8f8f8), color-stop(100%, #d4d4d4));
@@ -6799,7 +6804,7 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: linear-gradient(#ffffff, #f8f8f8 2%, #d4d4d4);
 }
 
-/* line 345, ../sass/app.scss */
+/* line 349, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label {
   background-color: #548820;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a1db66), color-stop(2%, #66a527), color-stop(100%, #426b19));
@@ -6808,18 +6813,18 @@ input[type="search"]::-webkit-search-cancel-button {
   border-bottom-color: #74ad35;
   border-top-color: #7a8c6b;
 }
-/* line 350, ../sass/app.scss */
+/* line 354, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .team-wrapper .flag {
   background-position-y: -45px;
 }
-/* line 354, ../sass/app.scss */
+/* line 358, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .bet-meta-data {
   border: 1px solid #85b353;
   border-left-color: #3c6e11;
   border-top-color: #3c6e11;
 }
 
-/* line 361, ../sass/app.scss */
+/* line 365, ../sass/app.scss */
 .x-list-normal .x-list-item .x-list-item-label {
   border-bottom-color: #fafafa;
   border-top-color: #d1d1d1;

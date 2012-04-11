@@ -2,8 +2,7 @@ Ext.define('EM.model.Match', {
 	extend: 'Ext.data.Model',
 	
 	init: function() {
-		console.log("init of Match model");
-		console.log(this);
+
 	},
 
 	config: {
@@ -79,23 +78,15 @@ Ext.define('EM.model.Match', {
 					return '<div class="' + className + '">' + points + '</div>'
 				}
 			},
+			//'name'
 		],
-
+		//belongsTo: {model: 'Round', name: 'round', autoLoad: true, },
 		associations: {
 			type: 'belongsTo',
             model: 'EM.model.Round',
             name: 'round',
             autoLoad: true
-            /*
-            			type: 'hasMany', 
-			model: 'EM.model.Match', 
-			primaryKey: 'gameId',
-			name: 'matches',
-			autoLoad: true,
-			associationKey: 'games'
-            */
 		}
-
 	}
 });
 

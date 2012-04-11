@@ -13,9 +13,7 @@ Ext.define('EM.view.StandingsPage', {
 				xtype: 'container',
 
 				html: [
-					'<h1>Standings goes here</h1>',
-					'<p>Some lorem ipsum text to fill out the page.</p>',
-					'<p>Yet some more text.</p>'
+					'<h1>Tabeller, så småningom.</h1>',
 				].join('')
 			}			
 		]			

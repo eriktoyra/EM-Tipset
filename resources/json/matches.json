@@ -1,8 +1,9 @@
 [
     {   
+        "id": 1,
         "name": "Omgång 1",
         "lockedDate": 1325420111,
-        "games": [
+        "matches": [
             {
                 "gameId": 1,
                 "firstTeam": "Pol",
@@ -72,8 +73,9 @@
         ]
     },
     {
-         "name": "Omgång 2",
-         "games": [
+        "id": 2,
+        "name": "Omgång 2",
+        "matches": [
 	         {
                 "gameId": 4,
                 "firstTeam": "Gre",
@@ -83,19 +85,21 @@
          ]
     },
     {
-         "name": "Omgång 3",
-         "games": [
+        "id": 3,
+        "name": "Omgång 3",
+        "matches": [
 	         {
                 "gameId": 4,
-                "firstTeam": "Gre",
-                "secondTeam": "Rus",
+                "firstTeam": "Swe",
+                "secondTeam": "Ger",
                 "kickOff": 1339869600
             }
          ]
     },
     {
-         "name": "Kvart",
-         "games": [
+        "id": 4,
+        "name": "Kvart",
+        "matches": [
 	         {
                 "gameId": 4,
                 "firstTeam": "1A",
@@ -105,8 +109,9 @@
          ]
     },
     {
-         "name": "Semi",
-         "games": [
+        "id": 5,
+        "name": "Semi",
+        "matches": [
 	         {
                 "gameId": 4,
                 "firstTeam": "#25",
@@ -116,8 +121,9 @@
          ]
     },
     {
-         "name": "Final",
-         "games": [
+        "id": 6,
+        "name": "Final",
+        "matches": [
 	         {
                 "gameId": 4,
                 "firstTeam": "#29",

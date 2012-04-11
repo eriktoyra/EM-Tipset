@@ -1,4 +1,4 @@
-Ext.define("EM.view.Main", {
+Ext.define('EM.view.Main', {
 	extend: 'Ext.Container',
 	xtype: 'main',
 	id: 'main'

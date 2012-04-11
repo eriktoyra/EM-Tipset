@@ -13,9 +13,18 @@ Ext.application({
 	'Ext.data.proxy.Rest',	
 	],
 	
-	controllers: ['MainNav'],
-	models: ['Match', 'Round'],
-	stores: ['Matches', 'Rounds'],	
+	controllers: [
+		'MainNav',
+		'Rounds'
+	],
+	models: [
+		'Match', 
+		'Round'
+	],
+	stores: [
+		'Matches', 
+		'Rounds'
+	],	
 	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage', 'RoundSelector', 'MatchList'],
 
 	icon: {
@@ -28,23 +37,11 @@ Ext.application({
 	phoneStartupScreen: 'resources/loading/Homescreen.jpg',
 	tabletStartupScreen: 'resources/loading/Homescreen~ipad.jpg',
 
-	launch: function() {
-		var viewport, topToolbar, mainNav, myStats = {};
-		
+	launch: function() {		
 		// Destroy the #appLoadingIndicator element
 		Ext.fly('appLoadingIndicator').destroy();
-		
-		// Create app components
-		topToolbar = Ext.create('EM.view.TopToolbar', {});
-		mainNav = Ext.create('EM.view.MainNav', {});	
-		main = Ext.create('EM.view.Main', {});	
 
-		viewport = Ext.create('EM.view.Viewport', {});
-		viewport.add(topToolbar);
-		viewport.add(mainNav);
-		viewport.add(main);
-
-		Ext.Viewport.add(viewport);	
+		Ext.create('EM.view.Viewport', {});	
 	},
 
 	onUpdated: function() {
@@ -93,6 +90,21 @@ var util = (function() {
 			return defaultValue;
 		}	
 	}
+
+	/**
+     * Filter the Round store by the passed in round name.
+     */
+    util.doFilter = function(filterOption) {
+        var store = Ext.getStore('Matches');
+
+        // Clear all existing filters first...
+        store.clearFilter();
+
+        // ... then apply the selected filter
+        store.filterBy(function(record, id) {
+                return record.getRound().get('name') == filterOption;
+            }, this);
+    }	
 		
 	return util;
 })();

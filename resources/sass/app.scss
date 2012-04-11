@@ -146,6 +146,10 @@ body.x-desktop {
   height: 2.5em;
 }
 
+.x-toolbar.x-docked-top {
+  border: 0;
+}
+
 #my-stats {
   @include background-image-with-vertical-gradient-overlay('../images/graph-paper.png', rgba(255, 255, 255, 0.2), rgba(225, 232, 234, 0.5));
   border-top: 1px solid rgb(223, 238, 240);

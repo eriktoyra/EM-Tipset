@@ -5,25 +5,21 @@ Ext.define('EM.view.Viewport', {
 		fullscreen: true, 
 		scrollable: 'vertical',
 		
-		/*layout: 'vbox',
-		
 		items: [
-		{
-			xtype: 'toptoolbar'
-		},
-		{
-			xtype: 'mainnav'
-		},
-		{
-			xtype: 'mystats'
-		},
-		{
-			xtype: 'container',
-				
-			html: [
-			'Resultatlista m.m.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>2<br/><br/>'
-			]
-		}
-		]*/
+			{
+				xtype: 'toptoolbar',
+				docked: 'top'
+			},
+			{
+				xtype: 'mainnav',
+				docked:'top'				
+			},
+			{
+				xtype: 'mystats'
+			},
+			{
+				xtype: 'main'
+			}
+		]
 	}
 })
