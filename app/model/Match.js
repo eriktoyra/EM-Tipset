@@ -18,9 +18,8 @@ Ext.define('EM.model.Match', {
 			{
 				name: 'firstTeamFlag',
 				type: 'string',
-
 				convert: function(value, record) {
-					return getTeamFlagOrElse(record.get('firstTeam'), '');
+					return matchExt.getTeamFlagOrElse(record.get('firstTeam'), '');
 				}
 			}, 
 			{
@@ -30,9 +29,8 @@ Ext.define('EM.model.Match', {
 			{
 				name: 'secondTeamFlag',
 				type: 'string',
-
 				convert: function(value, record) {
-					return getTeamFlagOrElse(record.get('secondTeam'), '');
+					return matchExt.getTeamFlagOrElse(record.get('secondTeam'), '');
 				}
 			},
 			'kickOff',
@@ -64,23 +62,10 @@ Ext.define('EM.model.Match', {
 			{
 				name: 'pointsEarned',
 				convert: function(value, record) {
-					var className = 'no-points-earned';
-					var points = record.get('points'); 
-					
-					if (typeof points == 'undefined') {
-						return '';
-					}
-
-					if (points > 0) {
-						className = 'points-earned';
-					}
-					
-					return '<div class="' + className + '">' + points + '</div>'
+					return matchExt.getPointsEarnedOrElse(record.get('points'), '');	
 				}
 			},
-			//'name'
 		],
-		//belongsTo: {model: 'Round', name: 'round', autoLoad: true, },
 		associations: {
 			type: 'belongsTo',
             model: 'EM.model.Round',
@@ -91,15 +76,41 @@ Ext.define('EM.model.Match', {
 });
 
 /**
- * Return the markup needed to display the team flag or else an empty string.
- */
-function getTeamFlagOrElse(teamName, defaultValue) {
-	if (teamName == "TBA") {
-		return defaultValue;
+ * Match extensions
+ */ 
+var matchExt = (function() {
+	var matchExt = {};
+
+	/**
+	 * Return the markup needed to display the team flag or else an empty string.
+	 */
+	matchExt.getTeamFlagOrElse = function(teamName, defaultValue) {
+		if (teamName == "TBA") {
+			return defaultValue;
+		}
+
+		return '<span class="' + teamName.toLowerCase() + '"></span>';
 	}
 
-	return '<span class="' + teamName.toLowerCase() + '"></span>';
-}
+	/**
+	 * Return the markup needed to display points earned for a match or else an empty string.
+	 */
+	matchExt.getPointsEarnedOrElse = function(points, defaultValue) {
+		var className = 'no-points-earned';
+		
+		if (typeof points == 'undefined') {
+			return defaultValue;
+		}
+
+		if (points > 0) {
+			className = 'points-earned';
+		}
+		
+		return '<div class="' + className + '">' + points + '</div>'
+	}	
+
+	return matchExt;
+})();
 
 
 

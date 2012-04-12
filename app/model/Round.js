@@ -26,6 +26,4 @@ Ext.define('EM.model.Round', {
 	        }
 	    },
 	},
-
-	
 });
