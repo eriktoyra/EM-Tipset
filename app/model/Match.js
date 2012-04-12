@@ -16,11 +16,11 @@ Ext.define('EM.model.Match', {
 				type: 'string'
 			},
 			{
-				name: 'firstTeamClass',
+				name: 'firstTeamFlag',
 				type: 'string',
 
 				convert: function(value, record) {
-					return util.convertFieldValueToLowerCase('firstTeam', record);
+					return getTeamFlagOrElse(record.get('firstTeam'), '');
 				}
 			}, 
 			{
@@ -28,11 +28,11 @@ Ext.define('EM.model.Match', {
 				type: 'string'
 			},
 			{
-				name: 'secondTeamClass',
+				name: 'secondTeamFlag',
 				type: 'string',
 
 				convert: function(value, record) {
-					return util.convertFieldValueToLowerCase('secondTeam', record);
+					return getTeamFlagOrElse(record.get('secondTeam'), '');
 				}
 			},
 			'kickOff',
@@ -89,6 +89,17 @@ Ext.define('EM.model.Match', {
 		}
 	}
 });
+
+/**
+ * Return the markup needed to display the team flag or else an empty string.
+ */
+function getTeamFlagOrElse(teamName, defaultValue) {
+	if (teamName == "TBA") {
+		return defaultValue;
+	}
+
+	return '<span class="' + teamName.toLowerCase() + '"></span>';
+}
 
 
 

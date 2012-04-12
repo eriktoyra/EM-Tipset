@@ -67,29 +67,6 @@ var util = (function() {
 	util.convertUnixTimeToMilliseconds = function(unixTime) {
 		return unixTime * 1000;
 	}
-	
-	/**
-	 * Converts a field value from a model to lowercase.
-	 */
-	util.convertFieldValueToLowerCase = function(value, record) {
-		return record.get(value).toLowerCase();
-	}	
-	
-	/**
-	 * Returns either the requested field value of a model or a default value if the field does not exist. 
-	 * The defaultValue will fallback to &nbsp; if no other defaultValue is passed in. 
-	 */
-	util.toFieldValueOrDefault = function(value, record, defaultValue) {
-		if (typeof record.get(value) != 'undefined') {
-			return record.get(value);
-		}
-		else {
-			if (typeof defaultValue == 'undefined') {
-				defaultValue = '&nbsp';
-			}
-			return defaultValue;
-		}	
-	}
 
 	/**
      * Filter the Round store by the passed in round name.

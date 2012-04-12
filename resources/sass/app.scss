@@ -193,7 +193,7 @@ body.x-desktop {
       background-size: 46px 118px;      
       position: absolute;
       height: 28px;
-      width: 28px;
+      width: 26px;
       top: 0;
 
       span {
@@ -203,26 +203,26 @@ body.x-desktop {
         background-size: 426px 36px;
         display: inline-block;      
         height: 28px;
-        width: 27px;        
+        width: 26px;        
       }
     } 
 
-    .flag.pol span { background-position-x: -5px; }
-    .flag.gre span { background-position-x: -32px; }
-    .flag.rus span { background-position-x: -57px; }
-    .flag.cze span { background-position-x: -84px; }
-    .flag.ned span { background-position-x: -109px; }    
-    .flag.den span { background-position-x: -136px; } 
-    .flag.ger span { background-position-x: -161px; }           
-    .flag.por span { background-position-x: -188px; }    
-    .flag.spa span { background-position-x: -213px; }
-    .flag.ita span { background-position-x: -240px; } 
-    .flag.irl span { background-position-x: -265px; }
-    .flag.cro span { background-position-x: -292px; }
-    .flag.fra span { background-position-x: -317px; }
-    .flag.eng span { background-position-x: -344px; }                       
-    .flag.ukr span { background-position-x: -369px; }
-    .flag.swe span { background-position-x: -396px; }     
+    .flag span.pol { background-position-x: -5px; }
+    .flag span.gre { background-position-x: -31px; }
+    .flag span.rus { background-position-x: -57px; }
+    .flag span.cze { background-position-x: -83px; }
+    .flag span.ned { background-position-x: -109px; }    
+    .flag span.den { background-position-x: -135px; } 
+    .flag span.ger { background-position-x: -161px; }           
+    .flag span.por { background-position-x: -187px; }    
+    .flag span.spa { background-position-x: -213px; }
+    .flag span.ita { background-position-x: -239px; } 
+    .flag span.irl { background-position-x: -265px; }
+    .flag span.cro { background-position-x: -291px; }
+    .flag span.fra { background-position-x: -317px; }
+    .flag span.eng { background-position-x: -343px; }                       
+    .flag span.ukr { background-position-x: -369px; }
+    .flag span.swe { background-position-x: -395px; }     
     
     .goals-scored {
       background: url(../images/result-background.png) top left no-repeat;

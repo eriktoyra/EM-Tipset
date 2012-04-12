@@ -21,8 +21,6 @@ Ext.define('EM.controller.Rounds', {
                         matchStore.add(match);
                     });
                 });
-
-
             }
         });
     },

@@ -4,186 +4,50 @@
 		"selected_items":
 		[
 			[
-				"di",
-				"division"
+				"roun",
+				"roundsStore"
 			],
 			[
-				"divis",
-				"divisionStore"
-			],
-			[
-				"lo",
-				"log"
-			],
-			[
-				"team",
-				"teamStore"
-			],
-			[
-				"MA",
-				"Matches"
-			],
-			[
-				"Ma",
-				"Matches"
-			],
-			[
-				"roud",
-				"Rounds"
-			],
-			[
-				"ma",
-				"matchesStore"
-			],
-			[
-				"get",
-				"getStore"
-			],
-			[
-				"suc",
-				"success"
-			],
-			[
-				"filter",
-				"filterButton"
-			],
-			[
-				"for",
-				"for	for (…) {…}"
-			],
-			[
-				"t",
-				"titlebar"
-			],
-			[
-				"init",
-				"initialize"
+				"matc",
+				"match-list"
 			],
 			[
 				"match",
-				"MatchList"
+				"matchStore"
 			],
 			[
-				"ass",
-				"associationKey"
+				"Mach",
+				"matchStore"
 			],
 			[
-				"M",
-				"Match"
+				"ma",
+				"matchStore"
 			],
 			[
-				"firstTeam",
-				"firstTeamClass"
-			],
-			[
-				"re",
-				"record"
-			],
-			[
-				"Run",
+				"ROun",
 				"Rounds"
 			],
 			[
-				"class",
-				"className"
+				"divi",
+				"divisionStore"
 			],
 			[
-				"point",
-				"points-earned"
-			],
-			[
-				"ba",
-				"background"
-			],
-			[
-				"back",
-				"background-size"
-			],
-			[
-				"smal",
-				"small-font-size"
-			],
-			[
-				"font",
-				"font-size"
-			],
-			[
-				"p",
-				"points"
-			],
-			[
-				"in",
-				"inline-block"
-			],
-			[
-				"backg",
-				"background-position"
-			],
-			[
-				"im",
-				"images"
-			],
-			[
-				"default",
-				"default-gradient-type"
-			],
-			[
-				"def",
-				"default-gradient-type"
-			],
-			[
-				"de",
-				"default-gradient-active-color"
-			],
-			[
-				"a",
-				"away-team"
-			],
-			[
-				"border-le",
-				"border-left-color"
-			],
-			[
-				"border-",
-				"border-top-color"
-			],
-			[
-				"web",
-				"webkit-borderradius"
-			],
-			[
-				"dea",
-				"default-padding"
-			],
-			[
-				"marg",
-				"margin-top"
-			],
-			[
-				"fo",
-				"format"
-			],
-			[
-				"red",
-				"record1"
+				"di",
+				"divisionStore"
 			]
 		]
 	},
 	"buffers":
 	[
 	],
-	"build_system": "",
+	"build_system": "Packages/SASS/SASS (OSX).sublime-build",
 	"command_palette":
 	{
 		"height": 392.0,
 		"selected_items":
 		[
-			[
-				"In",
-				"Indentation: Reindent Lines"
-			]
 		],
-		"width": 467.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -200,31 +64,24 @@
 	},
 	"file_history":
 	[
-		"/Users/erik/Sites/Sandbox/EM/app.js",
-		"/Users/erik/Sites/Sandbox/EM/app/view/MatchList.js",
-		"/Users/erik/Sites/Sandbox/EM/app/view/RoundSelector.js",
-		"/Users/erik/Sites/Sandbox/EM/app/view/MainNav.js",
-		"/Users/erik/Sites/Sandbox/EM/index.html",
-		"/Users/erik/Sites/Sandbox/EM/resources/sass/app.scss",
-		"/Users/erik/Sites/Sandbox/EM/app/view/ResultsPage.js",
-		"/Users/erik/Sites/Sandbox/EM/app/store/Rounds.js",
-		"/Users/erik/Sites/Sandbox/EM/app/model/Round.js",
-		"/Users/erik/Sites/Sandbox/EM/app/store/Matches.js",
-		"/Users/erik/Sites/Sandbox/EM/app/model/Match.js",
-		"/Users/erik/Sites/Sandbox/EM/resources/json/matches.json",
-		"/Users/erik/Sites/Sandbox/EM/app/controller/MainNav.js",
-		"/Users/erik/Sites/Sandbox/EM/resources/js/dateFormat.js"
+		"/Users/eriktoyra/Sites/EM/app/store/Matches.js",
+		"/Users/eriktoyra/Sites/EM/app/view/MatchList.js",
+		"/Users/eriktoyra/Sites/EM/app/store/Rounds.js",
+		"/Users/eriktoyra/Sites/EM/app/model/Round.js",
+		"/Users/eriktoyra/Sites/EM/app/model/Match.js",
+		"/Users/eriktoyra/Sites/EM/app/view/ResultsPage.js",
+		"/Users/eriktoyra/Sites/EM/resources/sass/app.scss",
+		"/Users/eriktoyra/Sites/EM/app.json"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 0.0
 	},
 	"find_in_files":
 	{
 		"height": 0.0,
 		"where_history":
 		[
-			""
 		]
 	},
 	"find_state":
@@ -232,15 +89,6 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"store",
-			"matchList",
-			", $flag-position-x",
-			"'matte'",
-			"vertical-background",
-			"default-dark-section",
-			"default-inset-drop-shadow",
-			"$flag-position-y",
-			"-10px"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -248,10 +96,6 @@
 		"regex": false,
 		"replace_history":
 		[
-			"divisionStore",
-			"",
-			"$flag-position-x",
-			"$flag-position-y"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -273,7 +117,7 @@
 	},
 	"input":
 	{
-		"height": 31.0
+		"height": 0.0
 	},
 	"layout":
 	{
@@ -300,7 +144,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 64.0
+		"height": 0.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -309,24 +153,36 @@
 		"selected_items":
 		[
 			[
-				"app.sc",
+				"app.c",
 				"resources/sass/app.scss"
+			],
+			[
+				"app.js",
+				"app.json"
+			],
+			[
+				"matc",
+				"app/store/Matches.js"
 			]
 		],
 		"width": 0.0
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/Users/eriktoyra/Sites/EM/EM.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 242.0,
+	"side_bar_width": 256.0,
 	"status_bar_visible": true
 }
