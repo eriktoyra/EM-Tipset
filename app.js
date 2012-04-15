@@ -15,7 +15,7 @@ Ext.application({
 	
 	controllers: [
 		'MainNav',
-		'Rounds'
+		'MatchList'
 	],
 	models: [
 		'Match', 
