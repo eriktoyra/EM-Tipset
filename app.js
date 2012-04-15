@@ -8,9 +8,7 @@ Ext.application({
 	name: 'EM',
 
 	requires: [
-	'Ext.MessageBox',
-	'Ext.Anim',
-	'Ext.data.proxy.Rest',	
+		'Ext.SegmentedButton',
 	],
 	
 	controllers: [
@@ -68,20 +66,5 @@ var util = (function() {
 		return unixTime * 1000;
 	}
 
-	/**
-     * Filter the Round store by the passed in round name.
-     */
-    util.doFilter = function(filterOption) {
-        var store = Ext.getStore('Matches');
-
-        // Clear all existing filters first...
-        store.clearFilter();
-
-        // ... then apply the selected filter
-        store.filterBy(function(record, id) {
-                return record.getRound().get('name') == filterOption;
-            }, this);
-    }	
-		
 	return util;
 })();

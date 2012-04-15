@@ -13,68 +13,6 @@ Ext.define('EM.view.MatchList', {
 		store: 'Matches',
 		grouped: true,
 		scrollable: false,
-		
-		items: [
-			{
-				xtype: 'titlebar',
-
-				scrollable: {
-				    direction: 'horizontal',
-				    directionLock: true
-				},
-
-				items: [
-					{
-						xtype: 'button',
-						text: 'Omgång 1',
-						handler: function() {
-							return util.doFilter('Omgång 1');
-						}
-					},
-					{
-						xtype: 'button',						
-						text: 'Omgång 2',
-						handler: function() {
-							return util.doFilter('Omgång 2');
-						}
-					},
-					{
-						xtype: 'button',
-						text: 'Omgång 3',
-						handler: function() {
-							return util.doFilter('Omgång 3');
-						}
-					},
-					{
-						xtype: 'button',						
-						text: 'Kvart',
-						handler: function() {
-							return util.doFilter('Kvart');
-						}
-					},
-					{
-						xtype: 'button',						
-						text: 'Semi',
-						handler: function() {
-							return util.doFilter('Semi');
-						}
-					},
-					{
-						xtype: 'button',						
-						text: 'Final',
-						handler: function() {
-							return util.doFilter('Final');
-						}
-					}							
-
-				],
-			},
-			/*{
-				xtype: 'panel',
-				html: 'Senast uppdaterad: Idag kl 20:12'
-			}*/
-		],
-
 		itemTpl: [
 
 			'<div class="match-meta-data">',			

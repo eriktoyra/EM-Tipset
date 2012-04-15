@@ -1,17 +1,16 @@
 Ext.define('EM.view.RoundSelector', {
-	extend: 'Ext.List',
+	extend: 'Ext.Toolbar',
 	xtype: 'roundselector',
 
-	requires: ['EM.store.Rounds'],
-
+	requires: ['Ext.SegmentedButton'],
+	
 	config: {
-		id: 'round-selector',
-		store: 'Rounds',
-		scrollable: true,
-		inline: true,
-
-		itemTpl: [
-			'<div>{name}</div>'
-		].join(''),
+		id: 'round-selector',	
+		//scrollable: true,
+		//inline: true,
+		scrollable: {
+		    direction: 'horizontal',
+		    directionLock: true
+		}
 	}
 });

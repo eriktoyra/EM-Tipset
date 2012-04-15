@@ -90,8 +90,7 @@ $small-font-size: 11px;
 
 // *** =Custom SASS below ***
 body,
-body.x-desktop {
-}
+body.x-desktop {}
 
 #top-toolbar {
   @include default-dark-section;
@@ -151,7 +150,7 @@ body.x-desktop {
 }
 
 #my-stats {
-  @include background-image-with-vertical-gradient-overlay('../images/graph-paper.png', rgba(255, 255, 255, 0.2), rgba(225, 232, 234, 0.5));
+  @include background-image-with-vertical-gradient-overlay('../images/graph-paper.png', rgba(255, 255, 255, 0.2), rgba(225, 232, 234, 0.5));  
   border-top: 1px solid rgb(223, 238, 240);
   border-left: 1px solid rgb(223, 238, 240);
   height: 70px;
@@ -171,6 +170,33 @@ body.x-desktop {
   
   .total-contestants {
     color: #bcc7c8;
+  }
+}
+
+#round-selector {
+  @include default-dark-section;
+  border-top: rgb(184, 184, 184);
+  height: 50px;
+
+  .x-segmentedbutton {
+    height: 50px;
+
+    .x-button.x-last {
+      -webkit-borderradius: 0;
+         -moz-borderradius: 0;
+             border-radius: 0;
+    }
+  }
+
+  .x-button-normal.x-button {
+    background: transparent;
+    border-right: 1px dashed rgb(184, 184, 184);
+    width: 139px;
+
+      .x-button-label {
+        font-size: 0.8em;
+        line-height: 1.3em;
+      }
   }
 }
 

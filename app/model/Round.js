@@ -10,7 +10,14 @@ Ext.define('EM.model.Round', {
 			'id',
 			'name', 
 			'lockedDate',
-			'matches'
+			{
+				name: 'isLocked',
+				type: 'boolean',
+				convert: function(value, record) {
+					return record.get('lockedDate') > Date.now();
+				}
+			},			
+			'matches',
 		],
 		associations: [{ 
 			type: 'hasMany', 
