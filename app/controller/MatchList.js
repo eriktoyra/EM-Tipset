@@ -28,7 +28,8 @@ Ext.define('EM.controller.MatchList', {
                     rounds.push({
                         id: 'round-' + data.id + '-selector',
                         text: data.name,
-                        cls: (data.isLocked ? 'round-locked' : 'round-open'),
+                        iconAlign: 'right',
+                        iconCls: (data.isLocked ? 'round-locked' : 'round-open'),
                     });
 
                     round.matches().each(function(match) {
@@ -78,6 +79,9 @@ Ext.define('EM.controller.MatchList', {
      */
     doRoundFilter: function(button, event, eventOpts) {
         var store = Ext.getStore('Matches');
+
+        // Deselect any previous selections made in the list to avoid flickering
+        this.getMatchList().deselectAll();
 
         // Clear all existing filters first...
         store.clearFilter();

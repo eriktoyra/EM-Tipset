@@ -88,6 +88,14 @@ $small-font-size: 11px;
   background:          linear-gradient(top, $dark-color, $light-color), url($image-url) 1px 1px repeat;
 }
 
+/* TODO: Investigate how this should be properly used. Unable to reference correct directory.
+@mixin custom-iconmask($name) {
+  .x-tab img.\#{$name}, .x-button img.x-icon-mask.\#{$name} {
+    -webkit-mask-image: inline-image('icons/' + $name + '.png');
+  }
+}
+*/
+
 // *** =Custom SASS below ***
 body,
 body.x-desktop {}
@@ -192,6 +200,17 @@ body.x-desktop {}
     background: transparent;
     border-right: 1px dashed rgb(184, 184, 184);
     width: 139px;
+
+      .x-button-icon {
+        background-image: url(../images/lock-icons.png);
+        background-position: -31px 7px;
+        background-repeat: no-repeat;
+        background-size: 69px 25px;
+      }
+
+      .x-button-icon.round-locked {
+        background-position-x: 13px;
+      }
 
       .x-button-label {
         font-size: 0.8em;

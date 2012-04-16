@@ -85,7 +85,7 @@ var matchExt = (function() {
 	 * Return the markup needed to display the team flag or else an empty string.
 	 */
 	matchExt.getTeamFlagOrElse = function(teamName, defaultValue) {
-		if (teamName == "TBA") {
+		if (teamName == "TBD") {
 			return defaultValue;
 		}
 

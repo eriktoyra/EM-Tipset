@@ -6478,14 +6478,21 @@ input[type="search"]::-webkit-search-cancel-button {
   border: 0.1em solid rgba(25, 133, 208, 0.9);
 }
 
-/* line 96, ../sass/app.scss */
+/* TODO: Investigate how this should be properly used. Unable to reference correct directory.
+@mixin custom-iconmask($name) {
+  .x-tab img.#{$name}, .x-button img.x-icon-mask.#{$name} {
+    -webkit-mask-image: inline-image('icons/' + $name + '.png');
+  }
+}
+*/
+/* line 103, ../sass/app.scss */
 #top-toolbar {
   background: url(../images/black-background.png) top left repeat;
   color: white;
   font-size: 11px;
   padding: 5px;
 }
-/* line 101, ../sass/app.scss */
+/* line 108, ../sass/app.scss */
 #top-toolbar .user.name {
   border-left: 1px solid rgba(255, 255, 255, 0.25);
   float: left;
@@ -6493,7 +6500,7 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-left: 15px;
   padding-left: 10px;
 }
-/* line 109, ../sass/app.scss */
+/* line 116, ../sass/app.scss */
 #top-toolbar .settings {
   float: left;
   height: 15px;
@@ -6501,7 +6508,7 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 15px;
 }
 
-/* line 117, ../sass/app.scss */
+/* line 124, ../sass/app.scss */
 #main-nav {
   background-color: #e6e6e6;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f8f8f8), color-stop(100%, #d4d4d4));
@@ -6514,7 +6521,7 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-right: 0;
   padding-right: 0;
 }
-/* line 124, ../sass/app.scss */
+/* line 131, ../sass/app.scss */
 #main-nav .x-button {
   background: transparent;
   border: 0;
@@ -6526,7 +6533,7 @@ input[type="search"]::-webkit-search-cancel-button {
   display: inline-block;
   padding: 15px 10px;
 }
-/* line 136, ../sass/app.scss */
+/* line 143, ../sass/app.scss */
 #main-nav .x-button-pressed {
   background-color: #548820;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a1db66), color-stop(2%, #66a527), color-stop(100%, #426b19));
@@ -6538,17 +6545,17 @@ input[type="search"]::-webkit-search-cancel-button {
   text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
 }
 
-/* line 145, ../sass/app.scss */
+/* line 152, ../sass/app.scss */
 #main-nav.x-toolbar {
   height: 2.5em;
 }
 
-/* line 149, ../sass/app.scss */
+/* line 156, ../sass/app.scss */
 .x-toolbar.x-docked-top {
   border: 0;
 }
 
-/* line 153, ../sass/app.scss */
+/* line 160, ../sass/app.scss */
 #my-stats {
   background: white;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(225, 232, 234, 0.5)), to(rgba(255, 255, 255, 0.2)), url("../images/graph-paper.png") 1px 1px repeat);
@@ -6562,57 +6569,68 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 70px;
   padding: 10px 15px;
 }
-/* line 160, ../sass/app.scss */
+/* line 167, ../sass/app.scss */
 #my-stats #leage-select {
   color: #333;
   font-size: 14px;
 }
-/* line 165, ../sass/app.scss */
+/* line 172, ../sass/app.scss */
 #my-stats #my-ranking {
   color: #448202;
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -0.05em;
 }
-/* line 172, ../sass/app.scss */
+/* line 179, ../sass/app.scss */
 #my-stats .total-contestants {
   color: #bcc7c8;
 }
 
-/* line 177, ../sass/app.scss */
+/* line 184, ../sass/app.scss */
 #round-selector {
   background: url(../images/black-background.png) top left repeat;
   color: white;
   border-top: #b8b8b8;
   height: 50px;
 }
-/* line 182, ../sass/app.scss */
+/* line 189, ../sass/app.scss */
 #round-selector .x-segmentedbutton {
   height: 50px;
 }
-/* line 185, ../sass/app.scss */
+/* line 192, ../sass/app.scss */
 #round-selector .x-segmentedbutton .x-button.x-last {
   -webkit-borderradius: 0;
   -moz-borderradius: 0;
   border-radius: 0;
 }
-/* line 192, ../sass/app.scss */
+/* line 199, ../sass/app.scss */
 #round-selector .x-button-normal.x-button {
   background: transparent;
   border-right: 1px dashed #b8b8b8;
   width: 139px;
 }
-/* line 197, ../sass/app.scss */
+/* line 204, ../sass/app.scss */
+#round-selector .x-button-normal.x-button .x-button-icon {
+  background-image: url(../images/lock-icons.png);
+  background-position: -31px 7px;
+  background-repeat: no-repeat;
+  background-size: 69px 25px;
+}
+/* line 211, ../sass/app.scss */
+#round-selector .x-button-normal.x-button .x-button-icon.round-locked {
+  background-position-x: 13px;
+}
+/* line 215, ../sass/app.scss */
 #round-selector .x-button-normal.x-button .x-button-label, #round-selector .x-button-normal.x-button .x-hasbadge .x-badge, .x-hasbadge #round-selector .x-button-normal.x-button .x-badge {
   font-size: 0.8em;
   line-height: 1.3em;
 }
 
-/* line 204, ../sass/app.scss */
+/* line 222, ../sass/app.scss */
 .match-meta-data {
   .margin-top: 2px;
 }
-/* line 207, ../sass/app.scss */
+/* line 225, ../sass/app.scss */
 .match-meta-data .team-wrapper {
   float: left;
   font-weight: bold;
@@ -6622,7 +6640,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-transform: uppercase;
   width: 40%;
 }
-/* line 216, ../sass/app.scss */
+/* line 234, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag {
   background-image: url(../images/flags-bg-32x32.png);
   background-position: -10px -9px;
@@ -6633,7 +6651,7 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 26px;
   top: 0;
 }
-/* line 226, ../sass/app.scss */
+/* line 244, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span {
   background-image: url(../images/flags-32x32.png);
   background-position: 5px -4px;
@@ -6643,71 +6661,71 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 28px;
   width: 26px;
 }
-/* line 237, ../sass/app.scss */
+/* line 255, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.pol {
   background-position-x: -5px;
 }
-/* line 238, ../sass/app.scss */
+/* line 256, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.gre {
   background-position-x: -31px;
 }
-/* line 239, ../sass/app.scss */
+/* line 257, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.rus {
   background-position-x: -57px;
 }
-/* line 240, ../sass/app.scss */
+/* line 258, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.cze {
   background-position-x: -83px;
 }
-/* line 241, ../sass/app.scss */
+/* line 259, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ned {
   background-position-x: -109px;
 }
-/* line 242, ../sass/app.scss */
+/* line 260, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.den {
   background-position-x: -135px;
 }
-/* line 243, ../sass/app.scss */
+/* line 261, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ger {
   background-position-x: -161px;
 }
-/* line 244, ../sass/app.scss */
+/* line 262, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.por {
   background-position-x: -187px;
 }
-/* line 245, ../sass/app.scss */
+/* line 263, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.spa {
   background-position-x: -213px;
 }
-/* line 246, ../sass/app.scss */
+/* line 264, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ita {
   background-position-x: -239px;
 }
-/* line 247, ../sass/app.scss */
+/* line 265, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.irl {
   background-position-x: -265px;
 }
-/* line 248, ../sass/app.scss */
+/* line 266, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.cro {
   background-position-x: -291px;
 }
-/* line 249, ../sass/app.scss */
+/* line 267, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.fra {
   background-position-x: -317px;
 }
-/* line 250, ../sass/app.scss */
+/* line 268, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.eng {
   background-position-x: -343px;
 }
-/* line 251, ../sass/app.scss */
+/* line 269, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ukr {
   background-position-x: -369px;
 }
-/* line 252, ../sass/app.scss */
+/* line 270, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.swe {
   background-position-x: -395px;
 }
-/* line 254, ../sass/app.scss */
+/* line 272, ../sass/app.scss */
 .match-meta-data .team-wrapper .goals-scored {
   background: url(../images/result-background.png) top left no-repeat;
   padding: 1px 0 3px 0;
@@ -6717,32 +6735,32 @@ input[type="search"]::-webkit-search-cancel-button {
   top: -1px;
   width: 31px;
 }
-/* line 266, ../sass/app.scss */
+/* line 284, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team,
 .match-meta-data .team-wrapper.away-team {
   text-align: left;
 }
-/* line 271, ../sass/app.scss */
+/* line 289, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team .flag {
   left: 50px;
 }
-/* line 275, ../sass/app.scss */
+/* line 293, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team .goals-scored {
   left: 90px;
 }
-/* line 280, ../sass/app.scss */
+/* line 298, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team {
   text-align: right;
 }
-/* line 283, ../sass/app.scss */
+/* line 301, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team .flag {
   right: 50px;
 }
-/* line 287, ../sass/app.scss */
+/* line 305, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team .goals-scored {
   right: 90px;
 }
-/* line 292, ../sass/app.scss */
+/* line 310, ../sass/app.scss */
 .match-meta-data .kick-off-time {
   background: url(../images/lock-closed.png) top center no-repeat;
   float: left;
@@ -6752,7 +6770,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 20%;
 }
-/* line 302, ../sass/app.scss */
+/* line 320, ../sass/app.scss */
 .match-meta-data .bet-meta-data {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6768,7 +6786,7 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-top: 10px;
   position: relative;
 }
-/* line 316, ../sass/app.scss */
+/* line 334, ../sass/app.scss */
 .match-meta-data .bet-meta-data img.user-icon {
   height: 13px;
   left: 10px;
@@ -6776,7 +6794,7 @@ input[type="search"]::-webkit-search-cancel-button {
   top: 8px;
   width: 11px;
 }
-/* line 324, ../sass/app.scss */
+/* line 342, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet {
   color: #7f7f7f;
   font-weight: bold;
@@ -6786,7 +6804,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 28px;
 }
-/* line 335, ../sass/app.scss */
+/* line 353, ../sass/app.scss */
 .match-meta-data .bet-meta-data .points-earned,
 .match-meta-data .bet-meta-data .no-points-earned {
   background-image: url(../images/round-background.png);
@@ -6803,20 +6821,20 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 28px;
 }
-/* line 351, ../sass/app.scss */
+/* line 369, ../sass/app.scss */
 .match-meta-data .bet-meta-data .no-points-earned {
   background-position-x: -51px;
 }
-/* line 355, ../sass/app.scss */
+/* line 373, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.home-team {
   left: 90px;
 }
-/* line 359, ../sass/app.scss */
+/* line 377, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.away-team {
   right: 93px;
 }
 
-/* line 365, ../sass/app.scss */
+/* line 383, ../sass/app.scss */
 .x-list-normal .x-list-header {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6825,7 +6843,7 @@ input[type="search"]::-webkit-search-cancel-button {
   font-size: 11px;
 }
 
-/* line 372, ../sass/app.scss */
+/* line 390, ../sass/app.scss */
 .x-list .x-list-item {
   background-color: #e6e6e6;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f8f8f8), color-stop(100%, #d4d4d4));
@@ -6833,7 +6851,7 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: linear-gradient(#ffffff, #f8f8f8 2%, #d4d4d4);
 }
 
-/* line 376, ../sass/app.scss */
+/* line 394, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label {
   background-color: #548820;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a1db66), color-stop(2%, #66a527), color-stop(100%, #426b19));
@@ -6842,18 +6860,18 @@ input[type="search"]::-webkit-search-cancel-button {
   border-bottom-color: #74ad35;
   border-top-color: #7a8c6b;
 }
-/* line 381, ../sass/app.scss */
+/* line 399, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .team-wrapper .flag {
   background-position-y: -45px;
 }
-/* line 385, ../sass/app.scss */
+/* line 403, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .bet-meta-data {
   border: 1px solid #85b353;
   border-left-color: #3c6e11;
   border-top-color: #3c6e11;
 }
 
-/* line 392, ../sass/app.scss */
+/* line 410, ../sass/app.scss */
 .x-list-normal .x-list-item .x-list-item-label {
   border-bottom-color: #fafafa;
   border-top-color: #d1d1d1;
