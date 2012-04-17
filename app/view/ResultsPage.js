@@ -13,6 +13,9 @@ Ext.define('EM.view.ResultsPage', {
 				xtype: 'roundselector',
 			},
 			{
+				xtype: 'lastupdated',
+			},
+			{
 				xtype: 'matchlist',
 			}			
 		]

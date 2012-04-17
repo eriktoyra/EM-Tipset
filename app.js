@@ -23,7 +23,7 @@ Ext.application({
 		'Matches', 
 		'Rounds'
 	],	
-	views: ['Main', 'Viewport', 'TopToolbar', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage', 'RoundSelector', 'MatchList'],
+	views: ['Main', 'Viewport', 'TopToolbar', 'LastUpdated', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage', 'RoundSelector', 'MatchList'],
 
 	icon: {
 		57: 'resources/icons/Icon.png',

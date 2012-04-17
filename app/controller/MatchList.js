@@ -43,10 +43,12 @@ Ext.define('EM.controller.MatchList', {
     
     launch: function() {
         this.getRoundSelector().add(roundMenu);
+        this.doUpdateLastUpdated();
     },
 
     config: {
         refs: {
+            lastUpdated: '#last-updated',
             matchList: '#match-list',
             resultsPage: '#results-page',
             roundSelector: '#round-selector'
@@ -74,6 +76,18 @@ Ext.define('EM.controller.MatchList', {
         }
     },    
 
+    /**
+     * Update information about when the data was last updated.
+     */
+    doUpdateLastUpdated: function() {
+        var timestamp = new Date(Date.now());
+        var data = {
+            lastUpdated: timestamp.format('d mmmm yyyy, H:M')
+        }
+
+        this.getLastUpdated().setData(data);
+    },
+     
     /**
      * Filter the Round store by the passed in round name.
      */
