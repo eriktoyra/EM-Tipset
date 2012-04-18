@@ -41,6 +41,9 @@ $default-gradient-type: 'matte';
 $list-color: #333;
 $list-active-color: #fff;
 
+$correct-bet-background: rgba(68, 130, 2, 1);
+$correct-bet-foreground: rgb(255, 255, 255);
+
 // =Layout
 $default-padding: 5px;
 
@@ -394,6 +397,24 @@ body.x-desktop {}
     .goals-bet.away-team {
       right: 93px;
     }
+  }
+
+  .first-team-win .home-team {
+    background: $correct-bet-background;
+    color: $correct-bet-foreground;
+  }
+
+  .second-team-win .away-team {
+    background: $correct-bet-background;
+    color: $correct-bet-foreground;
+  }
+
+  .drawed .home-team,
+  .drawed .away-team,
+  .correct-result .home-team,
+  .correct-result .away-team {
+    background: $correct-bet-background;
+    color: $correct-bet-foreground;
   }
 }
 

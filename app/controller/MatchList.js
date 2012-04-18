@@ -55,6 +55,12 @@ Ext.define('EM.controller.MatchList', {
         },
 
         control: {
+            matchList: {
+                itemtap: function(a, index, target, record, e, eOpts ) {
+                    //TODO: Handle tap events.
+                }
+            },
+
             '#round-1-selector': {
                 tap: 'doRoundFilter'
             },

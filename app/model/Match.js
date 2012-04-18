@@ -65,6 +65,19 @@ Ext.define('EM.model.Match', {
 					return matchExt.getPointsEarnedOrElse(record.get('points'), '');	
 				}
 			},
+			{
+				name: 'bettingOutcome',
+				type: 'string',
+				convert: function(value, record) {
+					return matchExt.correctBettedResults(
+									record.get('points'), 
+									record.get('firstTeamGoals'), 
+									record.get('secondTeamGoals'), 
+									record.get('firstTeamGoalsBet'), 
+									record.get('secondTeamGoalsBet')
+								);
+				}
+			}, 
 		],
 		associations: {
 			type: 'belongsTo',
@@ -81,51 +94,67 @@ Ext.define('EM.model.Match', {
 var matchExt = (function() {
 	var matchExt = {};
 
-	matchExt.correctResults = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
-
-		// http://www.excelforum.com/excel-worksheet-functions/694027-formula-required-to-calculate-points-for-football-results-prediction.html
-		if ((firstTeamGoals - secondTeamGoals) == (firstTeamGoalsBet - secondTeamGoalsBet)) {
-			// A correct difference between goals for first and second team has been bet
-			console.log("user has a correct goal bet");
-
-		}
-		else {
-			// Determine if the bet is on first team win, a draw or second team win
-			var goalDiff = firstTeamGoals - secondTeamGoals;
-			var goalDiffBet = firstTeamGoalsBet - secondTeamGoalsBet;
-			console.log("goalDiff = " + goalDiff);
-			
-			if (goalDiffBet < 0) {
-				console.log("bet home team as winner");
-			}
-			else if (goalDiffBet == 0) {
-				console.log("bet a draw");
-			}
-			else if (goalDiffBet > 0) {
-				console.log("bet away team as winner");
-			}
-
-			//if (firstTeamGoalsBet >= firstTeamGoals && secondTeamGoalsBet )
+	/**
+	 * Verifies the betted result agains the actual result.
+	 */
+	matchExt.correctBettedResults = function(points, firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
+		if (typeof points == 'undefined' || points == 0) {
+			// No points given for this match, so no need to continue.
+			return '';
 		}
 
+		if (this.checkForCorrectResultBet(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet)) {
+			return 'correct-result';
+		}
+
+		if (this.checkFirstTeamWin(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet)) {
+			return 'first-team-win';
+		}
+
+		if (this.checkSecondTeamWin(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet)) {
+			return 'second-team-win';
+		}
+
+		if (this.checkDraw(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet)) {
+			return 'drawed';
+		}
 	}
 
-	matchExt.checkForCorrectResultBet = function() {
-		
+	/**
+	 * Returns true if the goal difference between first and second team is correct.
+	 */
+	matchExt.checkForCorrectGoalDifference = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
+		return (firstTeamGoals - secondTeamGoals) == (firstTeamGoalsBet - secondTeamGoalsBet);
 	}
 
-	matchExt.checkFirstTeamWin = function() {
-
+	/**
+	 * Returns true if the betted result exactly matches the actual result. 
+	 */
+	matchExt.checkForCorrectResultBet = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
+		return (firstTeamGoalsBet == firstTeamGoals) && (secondTeamGoalsBet == secondTeamGoals);
 	}
 
-	matchExt.checkSecondTeamWin = function() {
-		
+	/**
+	 * Returns true if the betted result had more first team goals than second team goals and the actual result had the same.
+	 */
+	matchExt.checkFirstTeamWin = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
+		//console.log(firstTeamGoals + ' == ' + secondTeamGoals + ' && ' + firstTeamGoalsBet + ' == ' + secondTeamGoalsBet);
+		return (firstTeamGoals > secondTeamGoals) && (firstTeamGoalsBet > secondTeamGoalsBet);
 	}
 
-	matchExt.checkDraw = function() {
-		
+	/**
+	 * Returns true if the betted result had more second team goals than first team goals and the actual result had the same.
+	 */
+	matchExt.checkSecondTeamWin = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
+		return (firstTeamGoals < secondTeamGoals) && (firstTeamGoalsBet < secondTeamGoalsBet);	
 	}
 
+	/**
+	 * Returns true if the betted result were a drawed result and the actual result also was a drawed result.
+	 */
+	matchExt.checkDraw = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
+		return (firstTeamGoals == secondTeamGoals) && (firstTeamGoalsBet == secondTeamGoalsBet);	
+	}
 
 	/**
 	 * Return the markup needed to display the team flag or else an empty string.
@@ -157,11 +186,6 @@ var matchExt = (function() {
 
 	return matchExt;
 })();
-
-matchExt.correctResults(0, 0, 0, 0);
-matchExt.correctResults(0, 3, 0, 1);
-matchExt.correctResults(4, 3, 2, 1);
-matchExt.correctResults(4, 3, 2, 3);
 
 
 
