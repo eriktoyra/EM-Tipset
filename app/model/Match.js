@@ -37,7 +37,7 @@ Ext.define('EM.model.Match', {
 			{
 				name: 'kickOffHour',
 				convert: function(value, record) {
-					var timestamp = new Date(util.convertUnixTimeToMilliseconds(record.get('kickOff')));
+					var timestamp = new Date(EM.app.convertUnixTimeToMilliseconds(record.get('kickOff')));
 					
 					return Ext.Date.format(timestamp, 'H:i');					
 				}
@@ -58,11 +58,11 @@ Ext.define('EM.model.Match', {
 			{ 
 				name: 'secondTeamGoalsBet', 
 			 },
-			'points',
+			'matchPoints',
 			{
 				name: 'pointsEarned',
 				convert: function(value, record) {
-					return matchExt.getPointsEarnedOrElse(record.get('points'), '');	
+					return matchExt.getPointsEarnedOrElse(record.get('matchPoints'), '');	
 				}
 			},
 			{
@@ -70,7 +70,7 @@ Ext.define('EM.model.Match', {
 				type: 'string',
 				convert: function(value, record) {
 					return matchExt.correctBettedResults(
-									record.get('points'), 
+									record.get('matchPoints'), 
 									record.get('firstTeamGoals'), 
 									record.get('secondTeamGoals'), 
 									record.get('firstTeamGoalsBet'), 

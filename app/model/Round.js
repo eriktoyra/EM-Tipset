@@ -7,7 +7,7 @@ Ext.define('EM.model.Round', {
 
 	config: {
 		fields: [
-			'id',
+			'roundId',
 			'name', 
 			'lockedDate',
 			{
@@ -26,11 +26,12 @@ Ext.define('EM.model.Round', {
 			autoLoad: true,
 		}],
 		proxy: {
-	        type: 'rest',
-	        url : 'resources/json/matches.json',
-	        reader: {
-	            type: 'json',
-	        }
-	    },
+			type: 'rest',
+			url : 'http://172.20.60.179/~eriktoyra/EM/resources/json/matches.json',
+			//TODO: Find an alternative solution where I can send a correct JSONP header back together with the JSON document. http://dl.dropbox.com/u/10768459/json/matches.json
+			reader: {
+				type: 'json',
+			}
+		},
 	},
 });

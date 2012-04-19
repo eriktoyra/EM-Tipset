@@ -1,11 +1,11 @@
 [
-    {   
-        "id": 1,
+    {
+    	"roundId" : 1,
         "name": "Omgång 1",
         "lockedDate": 1325420111,
         "matches": [
             {
-                "gameId": 1,
+                "matchId": 1,
                 "firstTeam": "Pol",
                 "secondTeam": "Gre",
                 "kickOff": 1339178400,
@@ -13,10 +13,11 @@
                 "secondTeamGoals": 3,
                 "firstTeamGoalsBet": 0,
                 "secondTeamGoalsBet": 3,
-                "points": 3
+                "matchPoints": 3,
+                "totalPoints": 4.2
             },
             {
-                "gameId": 2,
+                "matchId": 2,
                 "firstTeam": "Rus",
                 "secondTeam": "Cze",
                 "kickOff": 1339188300,
@@ -24,9 +25,10 @@
                 "secondTeamGoals": 1,
                 "firstTeamGoalsBet": 1,
                 "secondTeamGoalsBet": 2,
-                "points": 0
+                "matchPoints": 0,
+                "totalPoints": 0
             },{
-                "gameId": 3,
+                "matchId": 3,
                 "firstTeam": "Ned",
                 "secondTeam": "Den",
                 "kickOff": 1339264800,
@@ -34,10 +36,11 @@
                 "secondTeamGoals": 1,
                 "firstTeamGoalsBet": 4,
                 "secondTeamGoalsBet": 2,
-                "points": 2
+                "matchPoints": 2	,
+                "totalPoints": 0
             },
             {
-                "gameId": 4,
+                "matchId": 4,
                 "firstTeam": "Ger",
                 "secondTeam": "Por",
 				"firstTeamGoalsBet": 4,
@@ -45,7 +48,7 @@
                 "kickOff": 1339274700
             },
             {
-                "gameId": 5,
+                "matchId": 5,
                 "firstTeam": "Spa",
                 "secondTeam": "Ita",
                 "firstTeamGoalsBet": 3,
@@ -53,19 +56,19 @@
                 "kickOff": 1339351200
             },  
             {
-                "gameId": 6,
+                "matchId": 6,
                 "firstTeam": "Irl",
                 "secondTeam": "Cro",
                 "kickOff": 1339361100
             },
             {
-                "gameId": 7,
+                "matchId": 7,
                 "firstTeam": "Fra",
                 "secondTeam": "Eng",
                 "kickOff": 1339437600
             },
                         {
-                "gameId": 8,
+                "matchId": 8,
                 "firstTeam": "Ukr",
                 "secondTeam": "Swe",
                 "kickOff": 1339447500
@@ -73,61 +76,59 @@
         ]
     },
     {
-        "id": 2,
-        "name": "Omgång 2",
-        "matches": [
-            {
-                "gameId": 1,
+	     "roundId" : 2,
+         "name": "Omgång 2",
+         "matches": [
+	         {
+                "matchId": 4,
                 "firstTeam": "Gre",
-                "secondTeam": "Pol",
-                "kickOff": 1339178400,
-                "firstTeamGoals": 0,
-                "secondTeamGoals": 3,
-                "firstTeamGoalsBet": 0,
-                "secondTeamGoalsBet": 3,
-                "points": 3
+                "secondTeam": "Cze",
+                "kickOff": 1339524000,
+                "firstTeamGoalsBet": 4,
+                "secondTeamGoalsBet": 2
             },
             {
-                "gameId": 2,
-                "firstTeam": "Cze",
+                "matchId": 5,
+                "firstTeam": "Pol",
                 "secondTeam": "Rus",
-                "kickOff": 1339188300,
-                "firstTeamGoals": 4,
-                "secondTeamGoals": 1,
-                "firstTeamGoalsBet": 1,
-                "secondTeamGoalsBet": 2,
-                "points": 0
-            },{
-                "gameId": 3,
-                "firstTeam": "Den",
-                "secondTeam": "Ned",
-                "kickOff": 1339264800,
-                "firstTeamGoals": 2,
-                "secondTeamGoals": 1,
-                "firstTeamGoalsBet": 4,
-                "secondTeamGoalsBet": 2,
-                "points": 2
+                "kickOff": 1339524000
             },
-        ]
+            {
+                "matchId": 6,
+                "firstTeam": "Den",
+                "secondTeam": "Por",
+                "kickOff": 1339524000,
+                "firstTeamGoalsBet": 2,
+                "secondTeamGoalsBet": 2
+            },
+            {
+                "matchId": 7,
+                "firstTeam": "Ned",
+                "secondTeam": "Ger",
+                "kickOff": 1339524000,
+                "firstTeamGoalsBet": 0,
+                "secondTeamGoalsBet": 2
+            }
+         ]
     },
     {
-        "id": 3,
-        "name": "Omgång 3",
-        "matches": [
+	     "roundId" : 3,
+         "name": "Omgång 3",
+         "matches": [
 	         {
-                "gameId": 4,
-                "firstTeam": "Swe",
-                "secondTeam": "Ger",
+                "matchId": 4,
+                "firstTeam": "Gre",
+                "secondTeam": "Rus",
                 "kickOff": 1339869600
             }
          ]
     },
     {
-        "id": 4,
-        "name": "Kvart",
-        "matches": [
+    	 "roundId" : 4,
+         "name": "Kvart",
+         "matches": [
 	         {
-                "gameId": 4,
+                "matchId": 4,
                 "firstTeam": "TBD",
                 "secondTeam": "TBD",
                 "kickOff": 1340311500
@@ -135,11 +136,11 @@
          ]
     },
     {
-        "id": 5,
-        "name": "Semi",
-        "matches": [
+	     "roundId" : 5,
+         "name": "Semi",
+         "matches": [
 	         {
-                "gameId": 4,
+                "matchId": 4,
                 "firstTeam": "TBD",
                 "secondTeam": "TBD",
                 "kickOff": 1340829900
@@ -147,11 +148,11 @@
          ]
     },
     {
-        "id": 6,
-        "name": "Final",
-        "matches": [
+	     "roundId" : 6,
+         "name": "Final",
+         "matches": [
 	         {
-                "gameId": 4,
+                "matchId": 4,
                 "firstTeam": "TBD",
                 "secondTeam": "TBD",
                 "kickOff": 1341175500

@@ -50,21 +50,25 @@ Ext.application({
 				window.location.reload();
 			}
 		);
+	},
+
+	// Custom global functions
+	convertUnixTimeToMilliseconds: function(unixTime) {
+		return unixTime * 1000;
 	}
 });
 
 /**
  * Utility functions that is useful throughout the app
  */ 
+/* 
 var util = (function() {
 	var util = {};
 
-	/**
-	 * Converts a unix timestamp to millisecond.
-	 */ 
+	
 	util.convertUnixTimeToMilliseconds = function(unixTime) {
 		return unixTime * 1000;
 	}
 
 	return util;
-})();
+})();*/

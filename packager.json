@@ -5,7 +5,7 @@
 	 * This is the name of your application, which is displayed on the device when the app is installed. On IOS, this should match
 	 * the name of your application in the Apple Provisioning Portal.
 	 */
-	"applicationName":"EM Tipset 2012",
+	"applicationName":"EM Tipset",
 
 	/**
 	 * @cfg {String} applicationId
@@ -63,7 +63,7 @@
 	 *  - Android
 	 *  - AndroidEmulator
 	 */
-	"platform":"iOSSimulator",
+	"platform":"iOS",
 
 	/**
 	 * @cfg {String} deviceType
@@ -77,7 +77,7 @@
 	 *  - iPad
 	 *  - Universal
 	 */
-	"deviceType":"iPad",
+	"deviceType":"Universal",
 
 	/**
 	 * @cfg {String} certificatePath

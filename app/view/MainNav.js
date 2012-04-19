@@ -18,12 +18,12 @@ Ext.define('EM.view.MainNav', {
 					items: [
 						{
 							id: "results-nav-item",
-							text: 'Resultat',
+							text: 'Mitt tips',
 							pressed: true, 
 						},
 						{
 							id: 'standings-nav-item',
-							text: 'Tabeller'
+							text: 'Deltagare'
 						}
 					],
 			}

@@ -26,7 +26,7 @@ Ext.define('EM.controller.MatchList', {
                     var data = round.data;
 
                     rounds.push({
-                        id: 'round-' + data.id + '-selector',
+                        id: 'round-' + data.roundId + '-selector',
                         text: data.name,
                         iconAlign: 'right',
                         iconCls: (data.isLocked ? 'round-locked' : 'round-open'),
