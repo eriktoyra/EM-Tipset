@@ -6485,77 +6485,83 @@ input[type="search"]::-webkit-search-cancel-button {
   }
 }
 */
-/* line 109, ../sass/app.scss */
+/* line 112, ../sass/app.scss */
 #top-toolbar {
   background: url(../images/black-background.png) top left repeat;
   color: white;
   font-size: 11px;
+  height: 40px;
   padding: 5px;
 }
-/* line 114, ../sass/app.scss */
+/* line 118, ../sass/app.scss */
 #top-toolbar .user.name {
-  border-left: 1px solid rgba(255, 255, 255, 0.25);
   float: left;
   font-weight: bold;
-  margin-left: 15px;
-  padding-left: 10px;
+  height: 30px;
+  line-height: 30px;
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  padding-right: 15px;
 }
-/* line 122, ../sass/app.scss */
+/* line 127, ../sass/app.scss */
 #top-toolbar .settings {
-  float: left;
+  float: right;
   height: 15px;
-  margin-left: 10px;
+  margin: 5px 10px;
+  margin-top: 7px;
+  margin-left: 15px;
   width: 15px;
 }
 
-/* line 130, ../sass/app.scss */
+/* line 137, ../sass/app.scss */
 #main-nav {
-  background-color: #e6e6e6;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f8f8f8), color-stop(100%, #d4d4d4));
-  background-image: -webkit-linear-gradient(#ffffff, #f8f8f8 2%, #d4d4d4);
-  background-image: linear-gradient(#ffffff, #f8f8f8 2%, #d4d4d4);
+  background-color: #74ad35;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bfe09b), color-stop(2%, #86c541), color-stop(100%, #62922d));
+  background-image: -webkit-linear-gradient(#bfe09b, #86c541 2%, #62922d);
+  background-image: linear-gradient(#bfe09b, #86c541 2%, #62922d);
   -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
   z-index: 1000;
-  margin-right: 0;
-  padding-right: 0;
+  margin-left: 0;
+  padding-left: 0;
 }
-/* line 137, ../sass/app.scss */
+/* line 144, ../sass/app.scss */
 #main-nav .x-button {
   background: transparent;
   border: 0;
-  border-left: 1px solid transparent;
   border-bottom: 1px solid #fff;
   -webkit-borderradius: 0;
   border-radius: 0;
-  color: #333333;
+  color: white;
   display: inline-block;
   padding: 15px 10px;
-}
-/* line 149, ../sass/app.scss */
-#main-nav .x-button-pressed {
-  background-color: #548820;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a1db66), color-stop(2%, #66a527), color-stop(100%, #426b19));
-  background-image: -webkit-linear-gradient(#a1db66, #66a527 2%, #426b19);
-  background-image: linear-gradient(#a1db66, #66a527 2%, #426b19);
-  border-left-color: rgba(133, 171, 94, 0.75);
-  border-right-color: rgba(186, 201, 173, 0.75);
-  color: white;
   text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
 }
+/* line 155, ../sass/app.scss */
+#main-nav .x-button .x-button-label, #main-nav .x-button .x-hasbadge .x-badge, .x-hasbadge #main-nav .x-button .x-badge {
+  font-size: 0.7em;
+  line-height: 1.35em;
+}
+/* line 161, ../sass/app.scss */
+#main-nav .x-button-pressed {
+  background-color: #375f12;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #82d832), color-stop(2%, #487d18), color-stop(100%, #26410c));
+  background-image: -webkit-linear-gradient(#82d832, #487d18 2%, #26410c);
+  background-image: linear-gradient(#82d832, #487d18 2%, #26410c);
+  text-shadow: 0 -1px 1px rgba(22, 38, 7, 0.75);
+}
 
-/* line 158, ../sass/app.scss */
+/* line 167, ../sass/app.scss */
 #main-nav.x-toolbar {
   height: 2.5em;
 }
 
-/* line 162, ../sass/app.scss */
+/* line 171, ../sass/app.scss */
 .x-toolbar.x-docked-top {
   border: 0;
 }
 
-/* line 166, ../sass/app.scss */
+/* line 175, ../sass/app.scss */
 #my-stats {
   background: white;
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(225, 232, 234, 0.5)), to(rgba(255, 255, 255, 0.2)), url("../images/graph-paper.png") 1px 1px repeat);
@@ -6566,67 +6572,62 @@ input[type="search"]::-webkit-search-cancel-button {
   background: linear-gradient(top, rgba(225, 232, 234, 0.5), rgba(255, 255, 255, 0.2)), url("../images/graph-paper.png") 1px 1px repeat;
   border-top: 1px solid #dfeef0;
   border-left: 1px solid #dfeef0;
-  height: 70px;
+  height: 60px;
   padding: 10px 15px;
 }
-/* line 173, ../sass/app.scss */
-#my-stats #leage-select {
-  color: #333;
-  font-size: 14px;
-}
-/* line 178, ../sass/app.scss */
+/* line 182, ../sass/app.scss */
 #my-stats #my-ranking {
   color: #448202;
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -0.05em;
 }
-/* line 185, ../sass/app.scss */
+/* line 189, ../sass/app.scss */
 #my-stats .total-contestants {
   color: #bcc7c8;
 }
 
-/* line 190, ../sass/app.scss */
+/* line 194, ../sass/app.scss */
 #round-selector {
   background: url(../images/black-background.png) top left repeat;
   color: white;
   border-top: #b8b8b8;
   height: 50px;
 }
-/* line 195, ../sass/app.scss */
+/* line 199, ../sass/app.scss */
 #round-selector .x-segmentedbutton {
   height: 50px;
 }
-/* line 198, ../sass/app.scss */
+/* line 202, ../sass/app.scss */
 #round-selector .x-segmentedbutton .x-button.x-last {
   -webkit-borderradius: 0;
   -moz-borderradius: 0;
   border-radius: 0;
 }
-/* line 205, ../sass/app.scss */
+/* line 209, ../sass/app.scss */
 #round-selector .x-button-normal.x-button {
   background: transparent;
   border-right: 1px dashed #b8b8b8;
   width: 139px;
 }
-/* line 210, ../sass/app.scss */
+/* line 214, ../sass/app.scss */
 #round-selector .x-button-normal.x-button .x-button-icon {
   background-image: url(../images/lock-icons.png);
   background-position: -31px 7px;
   background-repeat: no-repeat;
   background-size: 69px 25px;
 }
-/* line 217, ../sass/app.scss */
+/* line 221, ../sass/app.scss */
 #round-selector .x-button-normal.x-button .x-button-icon.round-locked {
   background-position-x: 13px;
 }
-/* line 221, ../sass/app.scss */
+/* line 225, ../sass/app.scss */
 #round-selector .x-button-normal.x-button .x-button-label, #round-selector .x-button-normal.x-button .x-hasbadge .x-badge, .x-hasbadge #round-selector .x-button-normal.x-button .x-badge {
   font-size: 0.8em;
-  line-height: 1.3em;
+  line-height: 1.35em;
 }
 
-/* line 228, ../sass/app.scss */
+/* line 232, ../sass/app.scss */
 #last-updated {
   background: #626262;
   background-color: #626262;
@@ -6639,7 +6640,7 @@ input[type="search"]::-webkit-search-cancel-button {
   font-size: 11px;
   padding: 5px 10px;
 }
-/* line 234, ../sass/app.scss */
+/* line 238, ../sass/app.scss */
 #last-updated img#clock {
   float: left;
   height: 13px;
@@ -6647,11 +6648,11 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 13px;
 }
 
-/* line 242, ../sass/app.scss */
+/* line 246, ../sass/app.scss */
 .match-meta-data {
   .margin-top: 2px;
 }
-/* line 245, ../sass/app.scss */
+/* line 249, ../sass/app.scss */
 .match-meta-data .team-wrapper {
   float: left;
   font-weight: bold;
@@ -6661,7 +6662,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-transform: uppercase;
   width: 40%;
 }
-/* line 254, ../sass/app.scss */
+/* line 258, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag {
   background-image: url(../images/flags-bg-32x32.png);
   background-position: -10px -9px;
@@ -6672,7 +6673,7 @@ input[type="search"]::-webkit-search-cancel-button {
   width: 26px;
   top: 0;
 }
-/* line 264, ../sass/app.scss */
+/* line 268, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span {
   background-image: url(../images/flags-32x32.png);
   background-position: 5px -4px;
@@ -6682,71 +6683,71 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 28px;
   width: 26px;
 }
-/* line 275, ../sass/app.scss */
+/* line 279, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.pol {
   background-position-x: -5px;
 }
-/* line 276, ../sass/app.scss */
+/* line 280, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.gre {
   background-position-x: -31px;
 }
-/* line 277, ../sass/app.scss */
+/* line 281, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.rus {
   background-position-x: -57px;
 }
-/* line 278, ../sass/app.scss */
+/* line 282, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.cze {
   background-position-x: -83px;
 }
-/* line 279, ../sass/app.scss */
+/* line 283, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ned {
   background-position-x: -109px;
 }
-/* line 280, ../sass/app.scss */
+/* line 284, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.den {
   background-position-x: -135px;
 }
-/* line 281, ../sass/app.scss */
+/* line 285, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ger {
   background-position-x: -161px;
 }
-/* line 282, ../sass/app.scss */
+/* line 286, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.por {
   background-position-x: -187px;
 }
-/* line 283, ../sass/app.scss */
+/* line 287, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.spa {
   background-position-x: -213px;
 }
-/* line 284, ../sass/app.scss */
+/* line 288, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ita {
   background-position-x: -239px;
 }
-/* line 285, ../sass/app.scss */
+/* line 289, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.irl {
   background-position-x: -265px;
 }
-/* line 286, ../sass/app.scss */
+/* line 290, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.cro {
   background-position-x: -291px;
 }
-/* line 287, ../sass/app.scss */
+/* line 291, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.fra {
   background-position-x: -317px;
 }
-/* line 288, ../sass/app.scss */
+/* line 292, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.eng {
   background-position-x: -343px;
 }
-/* line 289, ../sass/app.scss */
+/* line 293, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ukr {
   background-position-x: -369px;
 }
-/* line 290, ../sass/app.scss */
+/* line 294, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.swe {
   background-position-x: -395px;
 }
-/* line 292, ../sass/app.scss */
+/* line 296, ../sass/app.scss */
 .match-meta-data .team-wrapper .goals-scored {
   background: url(../images/result-background.png) top left no-repeat;
   padding: 1px 0 3px 0;
@@ -6756,32 +6757,32 @@ input[type="search"]::-webkit-search-cancel-button {
   top: -1px;
   width: 31px;
 }
-/* line 304, ../sass/app.scss */
+/* line 308, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team,
 .match-meta-data .team-wrapper.away-team {
   text-align: left;
 }
-/* line 309, ../sass/app.scss */
+/* line 313, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team .flag {
   left: 50px;
 }
-/* line 313, ../sass/app.scss */
+/* line 317, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team .goals-scored {
   left: 90px;
 }
-/* line 318, ../sass/app.scss */
+/* line 322, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team {
   text-align: right;
 }
-/* line 321, ../sass/app.scss */
+/* line 325, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team .flag {
   right: 50px;
 }
-/* line 325, ../sass/app.scss */
+/* line 329, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team .goals-scored {
   right: 90px;
 }
-/* line 330, ../sass/app.scss */
+/* line 334, ../sass/app.scss */
 .match-meta-data .kick-off-time {
   background: url(../images/lock-closed.png) top center no-repeat;
   float: left;
@@ -6791,7 +6792,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 20%;
 }
-/* line 340, ../sass/app.scss */
+/* line 344, ../sass/app.scss */
 .match-meta-data .bet-meta-data {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6807,7 +6808,7 @@ input[type="search"]::-webkit-search-cancel-button {
   margin-top: 10px;
   position: relative;
 }
-/* line 354, ../sass/app.scss */
+/* line 358, ../sass/app.scss */
 .match-meta-data .bet-meta-data img.user-icon {
   height: 13px;
   left: 10px;
@@ -6815,7 +6816,7 @@ input[type="search"]::-webkit-search-cancel-button {
   top: 8px;
   width: 11px;
 }
-/* line 362, ../sass/app.scss */
+/* line 366, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet {
   color: #7f7f7f;
   font-weight: bold;
@@ -6825,7 +6826,7 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 28px;
 }
-/* line 373, ../sass/app.scss */
+/* line 377, ../sass/app.scss */
 .match-meta-data .bet-meta-data .points-earned,
 .match-meta-data .bet-meta-data .no-points-earned {
   background-image: url(../images/round-background.png);
@@ -6842,29 +6843,29 @@ input[type="search"]::-webkit-search-cancel-button {
   text-align: center;
   width: 28px;
 }
-/* line 389, ../sass/app.scss */
+/* line 393, ../sass/app.scss */
 .match-meta-data .bet-meta-data .no-points-earned {
   background-position-x: -51px;
 }
-/* line 393, ../sass/app.scss */
+/* line 397, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.home-team {
   left: 90px;
 }
-/* line 397, ../sass/app.scss */
+/* line 401, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.away-team {
   right: 93px;
 }
-/* line 402, ../sass/app.scss */
+/* line 406, ../sass/app.scss */
 .match-meta-data .first-team-win .home-team {
   background: #448202;
   color: white;
 }
-/* line 407, ../sass/app.scss */
+/* line 411, ../sass/app.scss */
 .match-meta-data .second-team-win .away-team {
   background: #448202;
   color: white;
 }
-/* line 415, ../sass/app.scss */
+/* line 419, ../sass/app.scss */
 .match-meta-data .drawed .home-team,
 .match-meta-data .drawed .away-team,
 .match-meta-data .correct-result .home-team,
@@ -6873,7 +6874,7 @@ input[type="search"]::-webkit-search-cancel-button {
   color: white;
 }
 
-/* line 422, ../sass/app.scss */
+/* line 425, ../sass/app.scss */
 .x-list-normal .x-list-header {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6882,7 +6883,7 @@ input[type="search"]::-webkit-search-cancel-button {
   font-size: 11px;
 }
 
-/* line 429, ../sass/app.scss */
+/* line 432, ../sass/app.scss */
 .x-list .x-list-item {
   background-color: #e6e6e6;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f8f8f8), color-stop(100%, #d4d4d4));
@@ -6890,7 +6891,7 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: linear-gradient(#ffffff, #f8f8f8 2%, #d4d4d4);
 }
 
-/* line 433, ../sass/app.scss */
+/* line 436, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label {
   background-color: #548820;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a1db66), color-stop(2%, #66a527), color-stop(100%, #426b19));
@@ -6899,18 +6900,18 @@ input[type="search"]::-webkit-search-cancel-button {
   border-bottom-color: #74ad35;
   border-top-color: #7a8c6b;
 }
-/* line 438, ../sass/app.scss */
+/* line 441, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .team-wrapper .flag {
   background-position-y: -45px;
 }
-/* line 442, ../sass/app.scss */
+/* line 445, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .bet-meta-data {
   border: 1px solid #85b353;
   border-left-color: #3c6e11;
   border-top-color: #3c6e11;
 }
 
-/* line 449, ../sass/app.scss */
+/* line 452, ../sass/app.scss */
 .x-list-normal .x-list-item .x-list-item-label {
   border-bottom-color: #fafafa;
   border-top-color: #d1d1d1;

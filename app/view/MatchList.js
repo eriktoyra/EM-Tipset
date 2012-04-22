@@ -5,7 +5,8 @@ Ext.define('EM.view.MatchList', {
 	requires: [
 		'Ext.TitleBar',
 		'EM.store.Rounds',
-		'EM.store.Matches'
+		'EM.store.Matches',
+		'Ext.plugin.PullRefresh'
 	],
 
 	config: {
@@ -13,6 +14,12 @@ Ext.define('EM.view.MatchList', {
 		store: 'Matches',
 		grouped: true,
 		scrollable: false,
+		/*plugins: [
+			{
+				xclass: 'Ext.plugin.PullRefresh',
+				pullRefreshText: 'Dra nedåt för att uppdatera matchresultat.'
+			}
+		],*/
 		itemTpl: [
 
 			'<div class="match-meta-data">',			

@@ -6,8 +6,8 @@
         "matches": [
             {
                 "matchId": 1,
-                "firstTeam": "Pol",
-                "secondTeam": "Gre",
+                "firstTeam": "pol",
+                "secondTeam": "gre",
                 "kickOff": 1339178400,
                 "firstTeamGoals": 0,
                 "secondTeamGoals": 3,
@@ -18,8 +18,8 @@
             },
             {
                 "matchId": 2,
-                "firstTeam": "Rus",
-                "secondTeam": "Cze",
+                "firstTeam": "rus",
+                "secondTeam": "cze",
                 "kickOff": 1339188300,
                 "firstTeamGoals": 4,
                 "secondTeamGoals": 1,
@@ -29,8 +29,8 @@
                 "totalPoints": 0
             },{
                 "matchId": 3,
-                "firstTeam": "Ned",
-                "secondTeam": "Den",
+                "firstTeam": "ned",
+                "secondTeam": "den",
                 "kickOff": 1339264800,
                 "firstTeamGoals": 2,
                 "secondTeamGoals": 1,
@@ -41,36 +41,36 @@
             },
             {
                 "matchId": 4,
-                "firstTeam": "Ger",
-                "secondTeam": "Por",
+                "firstTeam": "ger",
+                "secondTeam": "por",
 				"firstTeamGoalsBet": 4,
                 "secondTeamGoalsBet": 0,
                 "kickOff": 1339274700
             },
             {
                 "matchId": 5,
-                "firstTeam": "Spa",
-                "secondTeam": "Ita",
+                "firstTeam": "spa",
+                "secondTeam": "ita",
                 "firstTeamGoalsBet": 3,
                 "secondTeamGoalsBet": 2,
                 "kickOff": 1339351200
             },  
             {
                 "matchId": 6,
-                "firstTeam": "Irl",
-                "secondTeam": "Cro",
+                "firstTeam": "irl",
+                "secondTeam": "cro",
                 "kickOff": 1339361100
             },
             {
                 "matchId": 7,
-                "firstTeam": "Fra",
-                "secondTeam": "Eng",
+                "firstTeam": "fra",
+                "secondTeam": "eng",
                 "kickOff": 1339437600
             },
                         {
                 "matchId": 8,
-                "firstTeam": "Ukr",
-                "secondTeam": "Swe",
+                "firstTeam": "ukr",
+                "secondTeam": "swe",
                 "kickOff": 1339447500
             }
         ]
@@ -81,30 +81,30 @@
          "matches": [
 	         {
                 "matchId": 4,
-                "firstTeam": "Gre",
-                "secondTeam": "Cze",
+                "firstTeam": "gre",
+                "secondTeam": "cze",
                 "kickOff": 1339524000,
                 "firstTeamGoalsBet": 4,
                 "secondTeamGoalsBet": 2
             },
             {
                 "matchId": 5,
-                "firstTeam": "Pol",
-                "secondTeam": "Rus",
+                "firstTeam": "pol",
+                "secondTeam": "rus",
                 "kickOff": 1339524000
             },
             {
                 "matchId": 6,
-                "firstTeam": "Den",
-                "secondTeam": "Por",
+                "firstTeam": "den",
+                "secondTeam": "por",
                 "kickOff": 1339524000,
                 "firstTeamGoalsBet": 2,
                 "secondTeamGoalsBet": 2
             },
             {
                 "matchId": 7,
-                "firstTeam": "Ned",
-                "secondTeam": "Ger",
+                "firstTeam": "ned",
+                "secondTeam": "ner",
                 "kickOff": 1339524000,
                 "firstTeamGoalsBet": 0,
                 "secondTeamGoalsBet": 2
@@ -117,8 +117,8 @@
          "matches": [
 	         {
                 "matchId": 4,
-                "firstTeam": "Gre",
-                "secondTeam": "Rus",
+                "firstTeam": "gre",
+                "secondTeam": "rus",
                 "kickOff": 1339869600
             }
          ]
@@ -129,8 +129,8 @@
          "matches": [
 	         {
                 "matchId": 4,
-                "firstTeam": "TBD",
-                "secondTeam": "TBD",
+                "firstTeam": "tbd",
+                "secondTeam": "tbd",
                 "kickOff": 1340311500
             }
          ]
@@ -141,8 +141,8 @@
          "matches": [
 	         {
                 "matchId": 4,
-                "firstTeam": "TBD",
-                "secondTeam": "TBD",
+                "firstTeam": "tbd",
+                "secondTeam": "tbd",
                 "kickOff": 1340829900
             }
          ]
@@ -153,8 +153,8 @@
          "matches": [
 	         {
                 "matchId": 4,
-                "firstTeam": "TBD",
-                "secondTeam": "TBD",
+                "firstTeam": "tbd",
+                "secondTeam": "tbd",
                 "kickOff": 1341175500
             }
          ]

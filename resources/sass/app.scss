@@ -26,7 +26,10 @@ $dark-gradient-light-color: rgba(127, 127, 127, 1);
 $active-gradient-light-color: rgba(116, 173, 53, 1);
 $active-gradient-dark-color: rgba(51, 99, 11, 1);
 
-$main-nav-foreground-color: #333;
+$main-nav-gradient-color: rgba(116, 173, 53, 1);
+$main-nav-gradient-color-active: rgba(55, 95, 18, 1);
+
+$main-nav-foreground-color: #fff;
 $main-nav-foreground-color-active: #fff;
 
 $default-text-color-on-light-background: #333;
@@ -109,49 +112,55 @@ body.x-desktop {}
 #top-toolbar {
   @include default-dark-section;
   font-size: $small-font-size;
+  height: 40px;
   padding: $default-padding;
   
-  .user.name {
-	border-left: 1px solid rgba(255, 255, 255, 0.25);  
-	float: left;
+  .user.name {  
+  	float: left;
     font-weight: bold;
-    margin-left: $default-padding * 3;
-    padding-left: $default-padding * 2;
+    height: 30px;
+    line-height: 30px;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+    padding-right: $default-padding * 3;
   }
   
-  .settings {
-	float: left;
-	height: 15px;
-    margin-left: $default-padding * 2;	
-	width: 15px;	
+  .settings {    
+    float: right;
+    height: 15px;
+    margin: $default-padding $default-padding * 2;
+    margin-top: 7px;
+    margin-left: $default-padding * 3;
+    width: 15px;	
   }
 }
 
 #main-nav {
-  @include background-gradient($default-gradient-base-color, $default-gradient-type);
+  @include background-gradient($main-nav-gradient-color, $default-gradient-type);
   @include default-vertical-box-shadow;
   z-index: 1000;
-  margin-right: 0;
-  padding-right: 0;
+  margin-left: 0;
+  padding-left: 0;
       
   .x-button {
     background: transparent;
     border: 0;
-    border-left: 1px solid transparent;
     border-bottom: 1px solid #fff; 
     -webkit-borderradius: 0;
     border-radius: 0;
-    color: $default-text-color-on-light-background;
+    color: $default-text-color-on-dark-background;
     display: inline-block;
     padding: $default-padding * 3 $default-padding * 2;
+    text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
+
+    .x-button-label {
+        font-size: 0.7em;
+        line-height: 1.35em;
+    }
   }
   
   .x-button-pressed {
-    @include background-gradient($default-gradient-active-color, $default-gradient-type);
-    border-left-color: rgba(133, 171, 94, 0.75);
-    border-right-color: rgba(186, 201, 173, 0.75);
-    color: $main-nav-foreground-color-active;
-    text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75); 
+    @include background-gradient($main-nav-gradient-color-active, $default-gradient-type);
+    text-shadow: 0 -1px 1px rgba(22, 38, 7, 0.75); 
   }
 }
 
@@ -167,13 +176,8 @@ body.x-desktop {}
   @include background-image-with-vertical-gradient-overlay('../images/graph-paper.png', rgba(255, 255, 255, 0.2), rgba(225, 232, 234, 0.5));  
   border-top: 1px solid rgb(223, 238, 240);
   border-left: 1px solid rgb(223, 238, 240);
-  height: 70px;
+  height: 60px;
   padding: $default-padding * 2 $default-padding * 3;
-  
-  #leage-select {
-    color: #333;
-    font-size: 14px;
-  }
     
   #my-ranking {
     color: #448202;
@@ -220,7 +224,7 @@ body.x-desktop {}
 
       .x-button-label {
         font-size: 0.8em;
-        line-height: 1.3em;
+        line-height: 1.35em;
       }
   }
 }

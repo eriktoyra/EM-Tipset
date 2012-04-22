@@ -160,7 +160,7 @@ var matchExt = (function() {
 	 * Return the markup needed to display the team flag or else an empty string.
 	 */
 	matchExt.getTeamFlagOrElse = function(teamName, defaultValue) {
-		if (teamName == "TBD") {
+		if (teamName == "tbd") {
 			return defaultValue;
 		}
 
@@ -181,7 +181,7 @@ var matchExt = (function() {
 			className = 'points-earned';
 		}
 		
-		return '<div class="' + className + '">' + points + '</div>'
+		return '<div class="' + className + '">' + points + 'p</div>'
 	}	
 
 	return matchExt;

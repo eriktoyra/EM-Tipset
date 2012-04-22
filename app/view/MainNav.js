@@ -11,7 +11,7 @@ Ext.define('EM.view.MainNav', {
 		items: [
 			{
 				xtype: 'segmentedbutton',
-				docked: 'right',
+				docked: 'left',
 				allowDepress: false,				
 				cls: 'nav-item',				
 
@@ -26,6 +26,10 @@ Ext.define('EM.view.MainNav', {
 							text: 'Deltagare'
 						}
 					],
+			},
+			{
+				docked: 'right',
+				html: '<div id="league-select">Alla ligor</div>'
 			}
 		]		
 	}

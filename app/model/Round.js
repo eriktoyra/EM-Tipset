@@ -27,7 +27,8 @@ Ext.define('EM.model.Round', {
 		}],
 		proxy: {
 			type: 'rest',
-			url : 'http://172.20.60.179/~eriktoyra/EM/resources/json/matches.json',
+			url: 'http://10.0.0.13/~erik/Sandbox/EM/resources/json/matches.json',
+			//'http://172.20.60.179/~eriktoyra/EM/resources/json/matches.json',
 			//TODO: Find an alternative solution where I can send a correct JSONP header back together with the JSON document. http://dl.dropbox.com/u/10768459/json/matches.json
 			reader: {
 				type: 'json',

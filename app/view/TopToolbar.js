@@ -12,11 +12,10 @@ Ext.define('EM.view.TopToolbar', {
 		items: [
 		{
 			xtype: 'container',
-			left: 0,
-			top: '2px',
+			docked: 'right',
 				
 			html: [
-				'<img class="settings" src="resources/images/cog" /> <div class="user name">Christofer Falkman</div>'
+				'<div class="user name"></div><img class="settings" src="resources/images/cog.png" />'
 			]
 		}		
 		]		
