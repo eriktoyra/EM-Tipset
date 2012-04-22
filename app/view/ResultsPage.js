@@ -8,10 +8,7 @@ Ext.define('EM.view.ResultsPage', {
 			direction: 'right'
 		}),
 		
-		items: [
-			{
-				xtype: 'mystats'
-			},				
+		items: [				
 			{
 				xtype: 'roundselector',
 			},

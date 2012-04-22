@@ -10,9 +10,6 @@ Ext.define('EM.view.StandingsPage', {
 		
 		items: [
 			{
-				xtype: 'mystats'
-			},		
-			{
 				xtype: 'container',
 
 				html: [

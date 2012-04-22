@@ -14,8 +14,7 @@ Ext.define('EM.controller.MainPanel', {
 			forgotPasswordButton: '#login-form #forgot-password',
 			loginButton: '#login-form #login',
 			loginForm: '#login-form',
-			mainPanel:'#main-panel',			
-			//matchList : '#match-list'
+			mainPanel:'#main-panel',
 		},
 		control: {
 			forgotPasswordButton: {
@@ -26,16 +25,7 @@ Ext.define('EM.controller.MainPanel', {
 			},			
 		}
 	},
-/*
-	slideInDetailsPanel: function() {
-		Ext.Anim.run(this.getDetails(), 'slide', {
-			out: false,
-			direction:'left',
-			duration: 500
-		});
-		this.getDetails().setLeft(52);
-	},
-*/
+	
 	doForgotPassword: function() {
 		// TODO: Forgot password functionality.
 		console.log("User pressed the Glömt ditt lösenord? button.")

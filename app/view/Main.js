@@ -3,7 +3,7 @@ Ext.define('EM.view.Main', {
 	xtype: 'main',
 	id: 'main',
 
-	items: [	
+	items: [
 		{
 			xtype: 'resultspage'		
 		}
