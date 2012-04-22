@@ -1,7 +1,8 @@
 Ext.define('EM.view.Viewport', {
-	extend: 'Ext.Container',		
+	extend: 'Ext.Panel',		
 	
 	config: {
+		id: 'main-viewport-panel',
 		fullscreen: true, 
 		scrollable: 'vertical',
 		
@@ -13,9 +14,6 @@ Ext.define('EM.view.Viewport', {
 			{
 				xtype: 'mainnav',
 				docked:'top'				
-			},
-			{
-				xtype: 'mystats'
 			},
 			{
 				xtype: 'main'

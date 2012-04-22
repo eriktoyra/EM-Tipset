@@ -9,7 +9,7 @@ var roundMenu =  Ext.create('Ext.SegmentedButton', {
 /**
  * MatchList controller
  */
-Ext.define('EM.controller.MatchList', {
+Ext.define('EM.controller.ResultsPage', {
 	extend: 'Ext.app.Controller',
 
     init: function() {
@@ -17,6 +17,8 @@ Ext.define('EM.controller.MatchList', {
         var roundsStore = Ext.create('EM.store.Rounds', {});
         var matchStore = Ext.create('EM.store.Matches', {});
         var rounds = [];
+
+        console.log("Init in ResultsPage controller");
 
        	//	Load the Rounds store which holds all of the data read from matches.json.
         //	After the data has been loaded we add the match data to the matchStore.
@@ -47,6 +49,8 @@ Ext.define('EM.controller.MatchList', {
     },
 
     config: {
+        views: ['MatchList', 'MyStats', 'ResultsPage', 'RoundSelector'],
+
         refs: {
             lastUpdated: '#last-updated',
             matchList: '#match-list',

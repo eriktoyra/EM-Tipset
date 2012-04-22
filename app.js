@@ -13,17 +13,19 @@ Ext.application({
 	
 	controllers: [
 		'MainNav',
-		'MatchList'
+		'MainPanel',		
+		'ResultsPage'
 	],
 	models: [
 		'Match', 
-		'Round'
+		'Round',
+		'User'
 	],
 	stores: [
 		'Matches', 
 		'Rounds'
 	],	
-	views: ['Main', 'Viewport', 'TopToolbar', 'LastUpdated', 'MainNav', 'MyStats', 'StandingsPage', 'ResultsPage', 'RoundSelector', 'MatchList'],
+	views: ['Main', 'Viewport', 'TopToolbar', 'LastUpdated', 'LoginForm', 'MainNav', 'StandingsPage'],
 
 	icon: {
 		57: 'resources/icons/Icon.png',
@@ -39,7 +41,23 @@ Ext.application({
 		// Destroy the #appLoadingIndicator element
 		Ext.fly('appLoadingIndicator').destroy();
 
-		Ext.create('EM.view.Viewport', {});	
+		var loginForm = Ext.create('EM.view.LoginForm', {});
+		var viewport = Ext.create('EM.view.Viewport', {});
+//Ext.Viewport.setMask({message:"Wait!"});
+		var mainPanel = new Ext.Panel({
+			id: 'main-panel',
+			layout: {
+				type: 'card',
+				animation: 'flip'
+			},
+			'fullscreen': true,
+			items: [
+				loginForm,
+				viewport
+			],
+		});
+
+		//Ext.create('EM.view.Viewport', {});
 	},
 
 	onUpdated: function() {

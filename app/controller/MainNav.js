@@ -1,21 +1,24 @@
 Ext.define('EM.controller.MainNav', {
 	extend: 'Ext.app.Controller',
-	
+
 	init: function() {
 		// Init operations if needed
-		var currentVisiblePage = {};
+		console.log("Init in MainNav controller");
 	},
 	
 	launch: function() {
 		// Launch operations if needed
 		this.addNewPageInMainIfNotAlreadyExists('#results-page', 'EM.view.ResultsPage');
+		this.setCurrentVisiblePage(this.getMain().child('#results-page'));
 	},
 	
 	config: {
+		views: ['EM.view.MainNav'],
+
 		refs: {
 			resultsNav: '#results-nav-item',
 			standingsNav: '#standings-nav-item',
-			main: '#main'
+			main: '#main',
 		},
 		
 		control: {
