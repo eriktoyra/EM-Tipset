@@ -11,27 +11,23 @@ Ext.define('EM.view.LoginForm', {
 	],
 
 	config: {
-		id: 'login-form',
-		defaults: {
-            required: true,
-            labelAlign: 'left'
-        },		
-
+		id: 'login-form',		
 		items: [
 			{
 				xtype: 'fieldset',
+				defaults: {
+		            required: true,	            
+		        },
 				items: [
 		            {
 		                xtype: 'emailfield',
 		                name: 'email',
-		                label: 'Epostadress',
-		                placeHolder: 'Din epostadress'
+		                placeHolder: 'Epostadress'
 		            },
 		            {
 		                xtype: 'passwordfield',
 		                name: 'password',
-		                label: 'Lösenord',
-		                placeHolder: 'Ditt lösnord'                
+		                placeHolder: 'Lösenord'                
 		            },				
 				]
 			},
@@ -42,6 +38,7 @@ Ext.define('EM.view.LoginForm', {
 		            	xtype: 'checkboxfield',
 		            	name: 'remember-me',
 		            	label: 'Kom ihåg mig',
+		            	labelWidth: '77.5%',
 		            	required: false
 		            },
 				]

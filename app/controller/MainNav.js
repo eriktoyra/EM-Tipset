@@ -9,7 +9,6 @@ Ext.define('EM.controller.MainNav', {
 	launch: function() {
 		// Launch operations if needed
 		this.addNewPageInMainIfNotAlreadyExists('#results-page', 'EM.view.ResultsPage');
-		this.setCurrentVisiblePage(this.getMain().child('#results-page'));
 	},
 	
 	config: {
@@ -62,6 +61,7 @@ Ext.define('EM.controller.MainNav', {
 				})
 			)
 		}
+		
 		this.setCurrentVisiblePage(child);
 		child.show();
 	},
