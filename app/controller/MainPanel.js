@@ -34,6 +34,46 @@ Ext.define('EM.controller.MainPanel', {
 	doLogin: function() {
 		console.log("Login...");
 		// TODO: Validate the login to decide if the user has a valid login or not. If it has, show the application.
-		this.getMainPanel().setActiveItem(1);
-	}
+		// TODO: Move everything related to login to a Login controller?
+		if (this.doLoginRequest()) { // ! (not) this line to open the app for now
+			this.getMainPanel().setActiveItem(1);
+		}
+	},
+
+	doLoginRequest: function() {
+		console.log(this.getLoginForm());
+		var loginForm = this.getLoginForm();
+
+		loginForm.setMasked({
+            xtype: 'loadmask',
+            message: 'Laddar EM-Tipset...'
+        });
+
+		Ext.Ajax.request({
+		    url: '/login',
+		    method: 'POST',
+		    timeout: 10000,
+
+		    headers: {
+		        "Content-Type": "application/json"
+		    },
+
+		    params: JSON.stringify({
+		    	"Username": "tjalle",
+		    	"Password": "mittpwd"
+		    }),
+
+		    callback: function(response, successful) {
+		        if (successful) {
+		            console.log("Successfylly authenticated.");
+		            loginForm.unmask();
+		            return true;
+		        } else {
+					console.log("Failed authentication.");
+					loginForm.unmask();
+					return false;
+				}
+        	}
+		})
+	},
 });
