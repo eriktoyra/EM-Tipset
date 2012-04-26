@@ -14,6 +14,9 @@ Ext.define('EM.view.LoginForm', {
 		id: 'login-form',		
 		items: [
 			{
+				html: '<img id="app-logo" src="resources/images/uefa-tips-logo.png"/>'
+			},
+			{
 				xtype: 'fieldset',
 				defaults: {
 		            required: true,	            

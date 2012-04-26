@@ -27,7 +27,7 @@ $active-gradient-light-color: rgba(116, 173, 53, 1);
 $active-gradient-dark-color: rgba(51, 99, 11, 1);
 
 $main-nav-gradient-color: rgba(116, 173, 53, 1);
-$main-nav-gradient-color-active: rgba(55, 95, 18, 1);
+$main-nav-gradient-color-active: rgba(90, 133, 41, 1);
 
 $main-nav-foreground-color: #fff;
 $main-nav-foreground-color-active: #fff;
@@ -48,18 +48,26 @@ $correct-bet-background: rgba(68, 130, 2, 1);
 $correct-bet-foreground: rgb(255, 255, 255);
 
 // =Layout
-$default-padding: 5px;
+$default-distance: 5px;
 
 $flag-position-x: -10px;
 $flag-position-y: -10px;
 
-$default-border-radius: 10px;
+$default-border-radius: 0.4em;
 
 // =Typography
 $default-font-size: 12px;
+$large-font-size: 16px;
 $small-font-size: 11px;
 
 // =Mixins
+@mixin default-rounded-corners {
+    -webkit-borderradius: $default-border-radius;
+    -moz-border-radius:   $default-border-radius;
+    -ms-border-radius:    $default-border-radius;
+    border-radius:        $default-border-radius;
+}
+
 @mixin default-vertical-box-shadow {
   -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
   -moz-box-shadow:    0px 5px 6px rgba(0, 0, 0, 0.25);
@@ -70,6 +78,19 @@ $small-font-size: 11px;
   -webkit-box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
   -moz-box-shadow:    inset 0px 3px 4px rgba(0, 0, 0, 0.25);
   box-shadow:         inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+@mixin secondary-drop-shadow($use-inset) {
+  @if $use-inset == true {
+    -webkit-box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow:    inset 0px 0px 2px rgba(0, 0, 0, 0.75);
+    box-shadow:         inset 0px 0px 2px rgba(0, 0, 0, 0.75);
+  } @else {
+    -webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow:    0px 0px 2px rgba(0, 0, 0, 0.75);
+    box-shadow:         0px 0px 2px rgba(0, 0, 0, 0.75);
+  }
 }
 
 @mixin default-dark-section {
@@ -109,11 +130,85 @@ $small-font-size: 11px;
 body,
 body.x-desktop {}
 
+input.x-input-el,
+.x-field.x-field-labeled .x-form-label {
+  padding-left: $default-distance * 3;
+}
+
+#login-form.x-layout-card-item {
+  background: #3c820d;
+  background-image: url(../images/login-background.png);
+  background-size: 60px 60px;
+  background-repeat: repeat;
+
+  .x-innerhtml {
+    text-align: center;
+  }
+
+  #app-logo {
+    height: 124px;
+    margin: $default-distance * 5 auto; 
+    width: 205px;
+  }
+
+  .x-form-fieldset .x-form-fieldset-inner { border: 0; }
+
+  #login,
+  #forgot-password {
+    @include background-gradient($main-nav-gradient-color, $default-gradient-type);
+    @include secondary-drop-shadow(false);
+    border: 0;
+    color: $default-text-color-on-dark-background;
+    font-size: $large-font-size;
+    margin-bottom: $default-distance * 3;
+    padding: $default-distance * 3;
+    text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
+  }
+
+  #login.x-button-pressed,
+  #login.x-button-pressing {
+    @include background-gradient($main-nav-gradient-color-active, $default-gradient-type);
+    text-shadow: 0 -1px 1px rgba(22, 38, 7, 0.75); 
+  }
+
+  #forgot-password {
+    background: #3a7710;
+    border: 0;
+    border-bottom: 1px solid rgba(116, 173, 53, 0.75);
+    border-left: 1px solid rgba(116, 173, 53, 0.5);
+    border-right: 1px solid rgba(116, 173, 53, 0.5);
+    @include secondary-drop-shadow(true);
+    margin-top: $default-distance * 3;
+  }
+
+  hr {
+    background: #214e06;
+    border: 0;
+    border-bottom: 1px solid #53921b;
+    border-top: 1px solid #39700c;
+  }
+
+  .x-body {
+    /* Safari 4-5, Chrome 1-9 */
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(112, 168, 51, 0.55)), to(rgba(112, 168, 51, 0.25)));
+    
+    /* Safari 5.1+, Chrome 10+ */
+    background: -webkit-radial-gradient(circle, rgba(112, 168, 51, 0.75), rgba(112, 168, 51, 0.25));
+    
+    /* Firefox 3.6+ */ 
+    background: -moz-radial-gradient(circle, rgba(112, 168, 51, 0.75), rgba(112, 168, 51, 0.25));
+  }
+
+  .x-scroll-container {
+    background: none;
+  }
+}
+
 #top-toolbar {
   @include default-dark-section;
   font-size: $small-font-size;
   height: 40px;
-  padding: $default-padding;
+  padding: $default-distance;
   
   .user.name {  
   	float: left;
@@ -121,15 +216,15 @@ body.x-desktop {}
     height: 30px;
     line-height: 30px;
     border-right: 1px solid rgba(255, 255, 255, 0.25);
-    padding-right: $default-padding * 3;
+    padding-right: $default-distance * 3;
   }
   
   .settings {    
     float: right;
     height: 15px;
-    margin: $default-padding $default-padding * 2;
+    margin: $default-distance $default-distance * 2;
     margin-top: 7px;
-    margin-left: $default-padding * 3;
+    margin-left: $default-distance * 3;
     width: 15px;	
   }
 }
@@ -149,7 +244,7 @@ body.x-desktop {}
     border-radius: 0;
     color: $default-text-color-on-dark-background;
     display: inline-block;
-    padding: $default-padding * 3 $default-padding * 2;
+    padding: $default-distance * 3 $default-distance * 2;
     text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
 
     .x-button-label {
@@ -177,7 +272,7 @@ body.x-desktop {}
   border-top: 1px solid rgb(223, 238, 240);
   border-left: 1px solid rgb(223, 238, 240);
   height: 60px;
-  padding: $default-padding * 2 $default-padding * 3;
+  padding: $default-distance * 2 $default-distance * 3;
     
   #my-ranking {
     color: #448202;
@@ -233,12 +328,12 @@ body.x-desktop {}
   @include vertical-gradient-background($dark-gradient-light-color, $dark-gradient-dark-color);
   color: $default-text-color-on-dark-background;
   font-size: $small-font-size;
-  padding: $default-padding $default-padding * 2;
+  padding: $default-distance $default-distance * 2;
 
   img#clock {
     float: left;
     height: 13px;
-    margin-right: $default-padding;
+    margin-right: $default-distance;
     width: 13px;
   }
 }
@@ -336,28 +431,25 @@ body.x-desktop {}
     float: left;
     font-size: $small-font-size;
     margin-top: 1px;
-    padding-top: $default-padding * 3;
+    padding-top: $default-distance * 3;
     text-align: center;
     width: 20%;
   }
 
   .bet-meta-data {
     @include default-dark-section;
+    @include default-rounded-corners;
     border: 1px solid rgb(255, 255, 255);
     border-left-color: rgb(142, 142, 142);    
     border-top-color: rgb(142, 142, 142); 
-    -webkit-borderradius: $default-border-radius;
-    -moz-border-radius:   $default-border-radius;
-    -ms-border-radius:    $default-border-radius;
-    border-radius:        $default-border-radius;    
     clear: both;
     height: 32px;
-    margin-top: $default-padding * 2;
+    margin-top: $default-distance * 2;
     position: relative; 
 
     img.user-icon {
       height: 13px;
-      left: $default-padding * 2;
+      left: $default-distance * 2;
       position: absolute;      
       top: 8px;
       width: 11px;
@@ -385,7 +477,7 @@ body.x-desktop {}
       height: 28px;
       line-height: 1.65;
       margin-top: 2px;
-      margin-right: $default-padding;
+      margin-right: $default-distance;
       text-align: center;
       width: 28px;
     }
