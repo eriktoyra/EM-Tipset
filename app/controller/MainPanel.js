@@ -41,7 +41,7 @@ Ext.define('EM.controller.MainPanel', {
 	},
 
 	doLoginRequest: function() {
-		console.log(this.getLoginForm());
+		//console.log(this.getLoginForm());
 		var loginForm = this.getLoginForm();
 
 		loginForm.setMasked({
@@ -49,31 +49,39 @@ Ext.define('EM.controller.MainPanel', {
             message: 'Laddar EM-Tipset...'
         });
 
-		Ext.Ajax.request({
-		    url: '/login',
+		var result = Ext.Ajax.request({
+		    url: 'http://emtipset.dev.stendahls.se/api/formlogin',
+		    //url: 'http://emtipset.dev.stendahls.se/api/login',
+		    withCredentials: false,
+    		useDefaultXhrHeader: false,
+    		disableCaching: true,
 		    method: 'POST',
 		    timeout: 10000,
 
 		    headers: {
-		        "Content-Type": "application/json"
+		        //'Content-Type': 'application/json',
+		        'Content-Type': 'application/x-www-form-urlencoded',
+		        //'X-Requested-With': null
 		    },
 
-		    params: JSON.stringify({
-		    	"Username": "tjalle",
-		    	"Password": "mittpwd"
-		    }),
+		   	// JSON.stringify()
+		    params: {
+		    	'Username': 'apitest',
+		    	'Password': 'apitest',
+		    },
 
-		    callback: function(response, successful) {
-		        if (successful) {
-		            console.log("Successfylly authenticated.");
-		            loginForm.unmask();
-		            return true;
-		        } else {
-					console.log("Failed authentication.");
+		    callback: function(opt, success, response) {
+		        if (success) {
+		            //console.log("Successfylly authenticated.");
+		            //console.log(response);
+		            //Ext.Msg.alert('Authorization', respon.getResponseHeader('Authorization'), Ext.emptyFn);
 					loginForm.unmask();
-					return false;
+		        } else {
+					//console.log("Failed authentication.");
+					loginForm.unmask();
 				}
         	}
-		})
+		});
+
 	},
 });

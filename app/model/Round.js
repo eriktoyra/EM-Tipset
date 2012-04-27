@@ -26,9 +26,14 @@ Ext.define('EM.model.Round', {
 			autoLoad: true,
 		}],
 		proxy: {
-			type: 'rest',
-			//url: 'http://10.0.0.13/~erik/Sandbox/EM/resources/json/matches.json',
-			url: 'http://172.20.60.179/~eriktoyra/EM/resources/json/matches.json',
+			type: 'ajax',
+			url: 'http://emtipset.dev.stendahls.se/api/rounds',
+			method: 'GET',
+			
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': 'Basic YXBpdGVzdDphcGl0ZXN0'
+			},
 			reader: {
 				type: 'json',
 			}

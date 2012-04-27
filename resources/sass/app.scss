@@ -135,6 +135,11 @@ input.x-input-el,
   padding-left: $default-distance * 3;
 }
 
+.x-field .x-input-radio:checked::after, 
+.x-field .x-input-checkbox:checked::after {
+  background-color: #1E9FD9;
+}
+
 #login-form.x-layout-card-item {
   background: #3c820d;
   background-image: url(../images/login-background.png);
