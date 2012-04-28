@@ -550,3 +550,22 @@ input.x-input-el,
   border-bottom-color: $default-gradient-light-color;
   border-top-color: $default-gradient-dark-color;
 }
+
+.x-panel.message.top.x-floating {
+  display: block;
+  margin: 0 $default-distance;
+  position: relative !important; 
+}
+
+.x-panel.x-floating.message {
+  @include default-rounded-corners;
+  background-color: #f7f6c2;
+  border: 1px solid #c9c96e;
+  color: $default-text-color-on-light-background;
+  font-size: $small-font-size;
+  padding: $default-distance * 2 $default-distance * 3;
+
+  .x-inner.x-panel-inner {
+    background: none;
+  }
+}

@@ -25,7 +25,7 @@ Ext.application({
 		'Matches', 
 		'Rounds'
 	],	
-	views: ['Main', 'Viewport', 'TopToolbar', 'LastUpdated', 'LoginForm', 'MainNav', 'StandingsPage'],
+	views: ['Main', 'Viewport', 'TopToolbar', 'LastUpdated', 'LoginForm', 'MainNav', 'MessageAtTop', 'StandingsPage'],
 
 	icon: {
 		57: 'resources/icons/Icon.png',

@@ -14,14 +14,18 @@ Ext.define('EM.controller.MainPanel', {
 			forgotPasswordButton: '#login-form #forgot-password',
 			loginButton: '#login-form #login',
 			loginForm: '#login-form',
+			loginFormFields: '#login-form field',
 			mainPanel:'#main-panel',
 		},
 		control: {
+			loginFormFields: {
+				focus: 'hideValidationErrorMessage'
+			},
 			forgotPasswordButton: {
 				tap: 'doForgotPassword'
 			},
 			loginButton: {
-				tap: 'doLogin'
+				tap: 'doValidateForm'
 			},			
 		}
 	},
@@ -31,54 +35,118 @@ Ext.define('EM.controller.MainPanel', {
 		console.log("User pressed the Glömt ditt lösenord? button.")
 	},
 
-	doLogin: function() {
-		console.log("Login...");
-		// TODO: Validate the login to decide if the user has a valid login or not. If it has, show the application.
+	/**
+	 * Validate the form data before doing a login attempt.
+	 */ 
+	doValidateForm: function() {
+		var loginForm = this.getLoginForm();
+		var userModel = Ext.create('EM.model.User'),
+			errors, 
+			errorMessage = '<h5>Gult kort!</h5>';
+		
+		loginForm.updateRecord(userModel);
+		errors = userModel.validate();		
+		
+		if (!errors.isValid()) {
+			// At least one form field did not validate
+            errors.each(function (err) {
+                errorMessage += err.getMessage() + ' ';
+            });
+
+            this.showValidationErrorMessage(errorMessage);
+        } else {
+        	// All form fields are valid, so do a login request
+			this.doLoginRequest();
+        }
+
+		//console.log(loginForm.getValues());
 		// TODO: Move everything related to login to a Login controller?
-		if (this.doLoginRequest()) { // ! (not) this line to open the app for now
-			this.getMainPanel().setActiveItem(1);
+	},
+
+	/**
+	 * Show the validation message if the login form contains form fields that 
+	 * does not validate against the model.
+	 */
+	showValidationErrorMessage: function(errorMessage) {
+		if (Ext.getCmp('message-at-top')) {
+			this.destroyValidationErrorMessage();
+		} 
+
+		var message = Ext.create('EM.view.MessageAtTop', {});
+		message.setData({errorMessage: errorMessage});
+		message.setListeners({
+			tap: {
+                element: 'element',
+                fn: this.hideValidationErrorMessage
+            },
+            hide: {
+            	element: 'element',
+            	fn: this.destroyValidationErrorMessage
+            }
+		});
+
+		this.getMainPanel().add(message);
+	},
+
+	/**
+	 * Hide the validation error message.
+	 */
+	hideValidationErrorMessage: function() {
+		console.log("hiding the validation message");
+		var message = Ext.getCmp('message-at-top');
+		if (message) {
+			message.hide();	
 		}
 	},
 
+	/**
+	 * Destroy the validation error message.
+	 */
+	destroyValidationErrorMessage: function() {
+		Ext.getCmp('message-at-top').destroy();	
+	},	
+
 	doLoginRequest: function() {
-		//console.log(this.getLoginForm());
 		var loginForm = this.getLoginForm();
+		var formFieldValues = loginForm.getValues();
 
 		loginForm.setMasked({
             xtype: 'loadmask',
-            message: 'Laddar EM-Tipset...'
+            message: 'Loggar in...'
         });
 
-		var result = Ext.Ajax.request({
+		Ext.Ajax.request({
 		    url: 'http://emtipset.dev.stendahls.se/api/formlogin',
-		    //url: 'http://emtipset.dev.stendahls.se/api/login',
 		    withCredentials: false,
     		useDefaultXhrHeader: false,
     		disableCaching: true,
 		    method: 'POST',
 		    timeout: 10000,
-
+			scope : this, // To be able to reach the controller functions from within the callback function
+		    
 		    headers: {
-		        //'Content-Type': 'application/json',
 		        'Content-Type': 'application/x-www-form-urlencoded',
-		        //'X-Requested-With': null
 		    },
 
-		   	// JSON.stringify()
 		    params: {
-		    	'Username': 'apitest',
-		    	'Password': 'apitest',
+		    	'Username': formFieldValues.email,
+		    	'Password': formFieldValues.password,
 		    },
 
 		    callback: function(opt, success, response) {
 		        if (success) {
-		            //console.log("Successfylly authenticated.");
-		            //console.log(response);
-		            //Ext.Msg.alert('Authorization', respon.getResponseHeader('Authorization'), Ext.emptyFn);
-					loginForm.unmask();
+		        	loginForm.unmask();
+
+		        	if (true || response.status == 200) { // TODO: hardcoded true until changes are made on the server
+						this.getMainPanel().setActiveItem(1);
+		        	} else {
+		        		this.showValidationErrorMessage('Inloggningen misslyckades. Kontrollera dina loginuppgifter.');	
+		        	}
+		        	//console.log(response);
 		        } else {
-					//console.log("Failed authentication.");
+					// TODO: This should display the message we get in return from the server when the login attempt fails.
 					loginForm.unmask();
+					this.showValidationErrorMessage('Kunde inte kontakta servern. Försök igen lite senare.');
 				}
         	}
 		});

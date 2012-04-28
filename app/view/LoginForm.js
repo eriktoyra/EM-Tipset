@@ -12,7 +12,7 @@ Ext.define('EM.view.LoginForm', {
 
 	config: {
 		id: 'login-form',		
-		items: [
+		items: [		
 			{
 				html: '<img id="app-logo" src="resources/images/uefa-tips-logo.png"/>'
 			},
@@ -46,18 +46,23 @@ Ext.define('EM.view.LoginForm', {
 		            },
 				]
 			},
+/*			{
+				id: 'login-validation-message',
+				html: '<div class="message">This is a message.</div>'
+			},
+*/			
             {
+				id: 'login',            	
             	xtype: 'button',
             	text: 'Logga in',
-				id: 'login',
             },
             {
             	html: '<hr />'
             },
             {
+				id: 'forgot-password',            	
             	xtype: 'button',
-            	text: 'Glömt ditt lösnord?',
-				id: 'forgot-password',
+            	text: 'Glömt ditt lösenord?',
             }           
 
         ],
