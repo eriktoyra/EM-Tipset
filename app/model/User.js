@@ -25,7 +25,8 @@ Ext.define('EM.model.User', {
 			*/			
 			{
 				field: 'email',
-				type: 'email',
+				//type: 'email',
+				type: 'presence',
 				message: 'Epostadressen är inte giltig.'
 			},
 			{
