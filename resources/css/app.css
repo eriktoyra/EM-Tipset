@@ -6566,11 +6566,11 @@ input.x-input-el,
 /* line 196, ../sass/app.scss */
 #login-form.x-layout-card-item .x-body {
   /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(112, 168, 51, 0.55)), to(rgba(112, 168, 51, 0.25)));
+  background: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(128, 194, 58, 0.55)), to(rgba(128, 194, 58, 0.25)));
   /* Safari 5.1+, Chrome 10+ */
-  background: -webkit-radial-gradient(circle, rgba(112, 168, 51, 0.75), rgba(112, 168, 51, 0.25));
+  background: -webkit-radial-gradient(circle, rgba(128, 194, 58, 0.75), rgba(128, 194, 58, 0.25));
   /* Firefox 3.6+ */
-  background: -moz-radial-gradient(circle, rgba(112, 168, 51, 0.75), rgba(112, 168, 51, 0.25));
+  background: -moz-radial-gradient(circle, rgba(128, 194, 58, 0.75), rgba(128, 194, 58, 0.25));
 }
 /* line 207, ../sass/app.scss */
 #login-form.x-layout-card-item .x-scroll-container {
