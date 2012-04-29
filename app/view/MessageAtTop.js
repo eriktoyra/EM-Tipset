@@ -10,8 +10,7 @@ Ext.define('EM.view.MessageAtTop', {
 		hideAnimation: 'slideOut',
 		tpl: [
 			'<div>{errorMessage}</div>'
-		],
-		//listeners: {},		
+		],		
 		data: {},		
 	},
 });

@@ -92,7 +92,7 @@ Ext.define('EM.controller.ResultsPage', {
     doUpdateLastUpdated: function() {
         var timestamp = new Date(Date.now());
         var data = {
-            lastUpdated: timestamp.format('d mmmm yyyy, H:M')
+            lastUpdated: timestamp.format('d mmmm yyyy, HH:MM')
         }
 
         this.getLastUpdated().setData(data);
