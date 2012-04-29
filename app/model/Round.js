@@ -14,7 +14,11 @@ Ext.define('EM.model.Round', {
 				name: 'isLocked',
 				type: 'boolean',
 				convert: function(value, record) {
-					return record.get('lockedDate') > Date.now();
+					var lockedDate = record.get('lockedDate').replace(/\/|Date\(|\)/g, '');
+					console.log(lockedDate);
+						lockedDate = new Date(lockedDate);
+					console.log(lockedDate);
+					return lockedDate > Date.now();
 				}
 			},			
 			'matches',
