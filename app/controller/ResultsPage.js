@@ -65,22 +65,22 @@ Ext.define('EM.controller.ResultsPage', {
                 }
             },
 
-            '#round-1-selector': {
-                tap: 'doRoundFilter'
-            },
-            '#round-2-selector': {
-                tap: 'doRoundFilter'
-            },
-            '#round-3-selector': {
-                tap: 'doRoundFilter'
-            },
-            '#round-4-selector': {
-                tap: 'doRoundFilter'
-            },
             '#round-5-selector': {
                 tap: 'doRoundFilter'
             },
             '#round-6-selector': {
+                tap: 'doRoundFilter'
+            },
+            '#round-7-selector': {
+                tap: 'doRoundFilter'
+            },
+            '#round-8-selector': {
+                tap: 'doRoundFilter'
+            },
+            '#round-9-selector': {
+                tap: 'doRoundFilter'
+            },
+            '#round-10-selector': {
                 tap: 'doRoundFilter'
             }
         }

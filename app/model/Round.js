@@ -9,16 +9,22 @@ Ext.define('EM.model.Round', {
 		fields: [
 			'roundId',
 			'name', 
-			'lockedDate',
+			{
+				name: 'lockedDate',
+				convert: function(value, record) {
+					var lockedDate = value.replace(/\/|Date\(|\+0200\)/g, '');
+					lockedDate = new Date(parseInt(lockedDate));
+
+					return lockedDate < Date.now();
+				}
+			},
 			{
 				name: 'isLocked',
 				type: 'boolean',
 				convert: function(value, record) {
-					var lockedDate = record.get('lockedDate').replace(/\/|Date\(|\)/g, '');
-					console.log(lockedDate);
-						lockedDate = new Date(lockedDate);
-					console.log(lockedDate);
-					return lockedDate > Date.now();
+					var lockedDate = new Date(record.get('lockedDate'));
+
+					return lockedDate < Date.now();
 				}
 			},			
 			'matches',

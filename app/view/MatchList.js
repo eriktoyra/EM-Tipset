@@ -23,13 +23,13 @@ Ext.define('EM.view.MatchList', {
 		itemTpl: [
 
 			'<div class="match-meta-data">',			
-				'<div class="team-wrapper home-team">{firstTeam} <div class="flag">{firstTeamFlag}</div> <span class="goals-scored">{firstTeamGoals}</span></div>',
+				'<div class="team-wrapper home-team">{firstTeam} <div class="flag">{firstTeamFlag}</div> <span class="goals-scored">{result.homeTeamScore}</span></div>',
 				'<div class="kick-off-time">{kickOffHour}</div>',
-				'<div class="team-wrapper away-team"><span class="goals-scored">{secondTeamGoals}</span> <div class="flag">{secondTeamFlag}</div> {secondTeam}</div>',
+				'<div class="team-wrapper away-team"><span class="goals-scored">{result.awayTeamScore}</span> <div class="flag">{secondTeamFlag}</div> {secondTeam}</div>',
 				'<div class="bet-meta-data {bettingOutcome}">',
 					'<img class="user-icon" src="resources/images/user-22x26.png" />',
-					'<div class="home-team goals-bet">{firstTeamGoalsBet}</div>',
-					'<div class="away-team goals-bet">{secondTeamGoalsBet}</div>',
+					'<div class="home-team goals-bet">{bet.homeTeamScore}</div>',
+					'<div class="away-team goals-bet">{bet.homeTeamScore}</div>',
 					'{pointsEarned}',	
 				'</div>',
 			'</div>',

@@ -79,14 +79,12 @@ Ext.application({
 /**
  * Utility functions that is useful throughout the app
  */ 
-/* 
 var util = (function() {
 	var util = {};
 
-	
 	util.convertUnixTimeToMilliseconds = function(unixTime) {
 		return unixTime * 1000;
 	}
 
 	return util;
-})();*/
+})();

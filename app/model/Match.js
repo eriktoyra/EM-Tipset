@@ -8,7 +8,7 @@ Ext.define('EM.model.Match', {
 	config: {
 		fields: [
 			{ 
-				name: 'gameId', 
+				name: 'matchId', 
 				type: 'int'
 			}, 
 			{
@@ -33,31 +33,52 @@ Ext.define('EM.model.Match', {
 					return matchExt.getTeamFlagOrElse(record.get('secondTeam'), '');
 				}
 			},
-			'kickOff',
+			{
+				name: 'kickOff',
+				convert: function(value, record) {
+					var kickOff = value.replace(/\/|Date\(|\+0200\)/g, '');
+
+					return kickOff;
+				}				
+			},
 			{
 				name: 'kickOffHour',
 				convert: function(value, record) {
-					var timestamp = new Date(EM.app.convertUnixTimeToMilliseconds(record.get('kickOff')));
-					
-					return Ext.Date.format(timestamp, 'H:i');					
+					var timestamp = record.get('kickOff');
+					timestamp = new Date(util.convertUnixTimeToMilliseconds(timestamp));
+	
+					return Ext.Date.format(timestamp, 'H:i');
+				}			
+			},
+			{
+				name: 'result',
+				convert: function(value, record) {
+					var result = value;
+
+					if (result.homeTeamScore == null) {
+						result.homeTeamScore = 0;
+					}
+					if (result.awayTeamScore == null) {
+						result.awayTeamScore = 0;
+					}
+
+					return result;
 				}
 			},
-			{ 
-				name: 'firstTeamGoals', 
-			 	type: 'int', 
-			 	defaultValue: 0 
-			 },
-			{ 
-				name: 'secondTeamGoals', 
-			 	type: 'int', 
-			 	defaultValue: 0 
-			 },			 
-			{ 
-				name: 'firstTeamGoalsBet', 
-			 }, 
-			{ 
-				name: 'secondTeamGoalsBet', 
-			 },
+			{
+				name: 'bet',
+				convert: function(value, record) {
+					var bet = value;
+
+					if (bet == null) {
+						bet = {
+							homeTeamScore: '',
+							awayTeamScore: '',
+						}
+					}
+					return bet;
+				}
+			},
 			'matchPoints',
 			{
 				name: 'pointsEarned',
@@ -160,7 +181,7 @@ var matchExt = (function() {
 	 * Return the markup needed to display the team flag or else an empty string.
 	 */
 	matchExt.getTeamFlagOrElse = function(teamName, defaultValue) {
-		if (teamName == "tbd") {
+		if (teamName == "tbd" || teamName == "tbd2") {
 			return defaultValue;
 		}
 
