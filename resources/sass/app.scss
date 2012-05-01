@@ -215,6 +215,13 @@ input.x-input-el,
   height: 40px;
   padding: $default-distance;
   
+  #em-tipset-logo {
+    height: 23px; 
+    margin-left: 15px;
+    margin-top: 2px;   
+    width: 164px;
+  }
+
   .user.name {  
   	float: left;
     font-weight: bold;
