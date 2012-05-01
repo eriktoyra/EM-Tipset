@@ -59,7 +59,6 @@ Ext.define('EM.controller.MainPanel', {
 			this.doLoginRequest();
         }
 
-		//console.log(loginForm.getValues());
 		// TODO: Move everything related to login to a Login controller?
 	},
 
@@ -138,6 +137,9 @@ Ext.define('EM.controller.MainPanel', {
 		        	loginForm.unmask();
 
 		        	if (true || response.status == 200) { // TODO: hardcoded true until changes are made on the server
+						if (formFieldValues.rememberMe) {
+							this.rememberMe(formFieldValues.email, formFieldValues.password, response);
+						}
 						this.getMainPanel().setActiveItem(1);
 		        	} else {
 		        		this.showValidationErrorMessage('Inloggningen misslyckades. Kontrollera dina loginuppgifter.');	
@@ -152,4 +154,34 @@ Ext.define('EM.controller.MainPanel', {
 		});
 
 	},
+
+	/**
+	 * Attempt to store the users login credentials in localStorage for the "Remember Me" functionality.
+	 */
+	rememberMe: function(email, password, response) {
+		var rememberMe = Ext.getStore("RememberMe");
+		var user = Ext.create('EM.model.User', {});
+
+		user.set('userId', null); // TODO: Do not hardcode
+		user.set('name', 'John Doe'); // TODO: Do not hardcode
+		user.set('email', email);
+		user.set('password', password);
+
+	    if (rememberMe.findRecord('email', email) == null) {
+	        rememberMe.add(user);
+	    }
+
+    	rememberMe.sync();
+	},
+
+	/**
+	 * Whenever a user's login credentials doesn't match, i.e. the password is changed, we will have to 
+	 * reset the "Remember Me" functionality.
+	 */
+	dirtyRememberMe: function() {
+		var rememberMe = Ext.getStore("RememberMe");
+		
+		rememberMe.removeAll();
+    	rememberMe.sync();
+	}
 });

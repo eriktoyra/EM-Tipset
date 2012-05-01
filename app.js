@@ -23,7 +23,8 @@ Ext.application({
 	],
 	stores: [
 		'Matches', 
-		'Rounds'
+		'RememberMe',
+		'Rounds',
 	],	
 	views: ['Main', 'Viewport', 'TopToolbar', 'LastUpdated', 'LoginForm', 'MainNav', 'MessageAtTop', 'StandingsPage'],
 
@@ -41,9 +42,11 @@ Ext.application({
 		// Destroy the #appLoadingIndicator element
 		Ext.fly('appLoadingIndicator').destroy();
 
+
+
 		var loginForm = Ext.create('EM.view.LoginForm', {});
 		var viewport = Ext.create('EM.view.Viewport', {});
-//Ext.Viewport.setMask({message:"Wait!"});
+
 		var mainPanel = new Ext.Panel({
 			id: 'main-panel',
 			layout: {
@@ -57,7 +60,8 @@ Ext.application({
 			],
 		});
 
-		//Ext.create('EM.view.Viewport', {});
+		//TODO: If the user has a "Remember Me" post, show the viewport first, followed by the loginForm, otherwise the other way around
+		mainPanel.setActiveItem(1);
 	},
 
 	onUpdated: function() {

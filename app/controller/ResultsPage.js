@@ -46,6 +46,19 @@ Ext.define('EM.controller.ResultsPage', {
     launch: function() {
         this.getRoundSelector().add(roundMenu);
         this.doUpdateLastUpdated();
+
+        var store = Ext.getStore('Matches');
+
+        // Deselect any previous selections made in the list to avoid flickering
+        this.getMatchList().deselectAll();
+
+        // Clear all existing filters first...
+        store.clearFilter();
+
+        // ... then apply the selected filter
+        store.filterBy(function(record, id) {
+            return record.getRound().get('roundId') == 5
+        }, this);        
     },
 
     config: {

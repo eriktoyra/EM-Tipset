@@ -39,18 +39,13 @@ Ext.define('EM.view.LoginForm', {
 				items: [
 		            {
 		            	xtype: 'checkboxfield',
-		            	name: 'remember-me',
+		            	name: 'rememberMe',
 		            	label: 'Kom ihåg mig',
 		            	labelWidth: '77.5%',
 		            	required: false
 		            },
 				]
-			},
-/*			{
-				id: 'login-validation-message',
-				html: '<div class="message">This is a message.</div>'
-			},
-*/			
+			},	
             {
 				id: 'login',            	
             	xtype: 'button',
