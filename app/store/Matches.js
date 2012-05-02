@@ -22,7 +22,8 @@ Ext.define('EM.store.Matches', {
 			 * Instead of a Unix timestamp from field 'kickOff' we will display the group header as '27 May 2012'.
 			 */
 			groupFn: function (item) {
-				var kickOff = new Date(EM.app.convertUnixTimeToMilliseconds(item.get('kickOff')));
+				var kickOff = new Date(parseInt(item.get('kickOff')));
+				
 				return kickOff.format('d mmmm yyyy');
 			},
 			sortProperty: 'kickOff'

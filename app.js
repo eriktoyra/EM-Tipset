@@ -53,7 +53,6 @@ Ext.application({
 				loginForm
 			];
 		} else {
-			console.log("may NOT login");
 			items =  [
 				loginForm,
 				viewport
