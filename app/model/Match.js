@@ -45,7 +45,7 @@ Ext.define('EM.model.Match', {
 				name: 'kickOffHour',
 				convert: function(value, record) {
 					var timestamp = record.get('kickOff');
-					timestamp = new Date(util.convertUnixTimeToMilliseconds(timestamp));
+					timestamp = new Date(EM.app.convertUnixTimeToMilliseconds(timestamp));
 	
 					return Ext.Date.format(timestamp, 'H:i');
 				}			

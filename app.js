@@ -42,10 +42,23 @@ Ext.application({
 		// Destroy the #appLoadingIndicator element
 		Ext.fly('appLoadingIndicator').destroy();
 
-
-
-		var loginForm = Ext.create('EM.view.LoginForm', {});
-		var viewport = Ext.create('EM.view.Viewport', {});
+		var loginForm = Ext.create('EM.view.LoginForm', {}),
+			viewport = Ext.create('EM.view.Viewport', {}),
+			items = [];
+		
+		// If we have "Remember Me" data for the user we could safely let the user automatically login
+		if (this.mayLoginUsingRememberMe()) {
+			items = [
+				viewport,
+				loginForm
+			];
+		} else {
+			console.log("may NOT login");
+			items =  [
+				loginForm,
+				viewport
+			]
+		}
 
 		var mainPanel = new Ext.Panel({
 			id: 'main-panel',
@@ -54,14 +67,8 @@ Ext.application({
 				animation: 'flip'
 			},
 			'fullscreen': true,
-			items: [
-				loginForm,
-				viewport
-			],
+			items: items
 		});
-
-		//TODO: If the user has a "Remember Me" post, show the viewport first, followed by the loginForm, otherwise the other way around
-		mainPanel.setActiveItem(1);
 	},
 
 	onUpdated: function() {
@@ -74,21 +81,23 @@ Ext.application({
 		);
 	},
 
+	/**
+	 * Loads the RememberMe store and checks if we have any stored information. 
+	 * If we do, it means we have what we need to let the user automatically login.
+	 */
+	mayLoginUsingRememberMe: function() {
+		var rememberMe = Ext.getStore("RememberMe");
+		rememberMe.load();
+
+		if (rememberMe.getCount() > 0) {
+	        return true;
+	    }
+
+	    return false;
+	},
+
 	// Custom global functions
 	convertUnixTimeToMilliseconds: function(unixTime) {
 		return unixTime * 1000;
 	}
 });
-
-/**
- * Utility functions that is useful throughout the app
- */ 
-var util = (function() {
-	var util = {};
-
-	util.convertUnixTimeToMilliseconds = function(unixTime) {
-		return unixTime * 1000;
-	}
-
-	return util;
-})();

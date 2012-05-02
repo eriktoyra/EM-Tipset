@@ -23,7 +23,7 @@ Ext.define('EM.view.TopToolbar', {
 			docked: 'right',
 				
 			html: [
-				'<div class="user name"></div><img class="settings" src="resources/images/cog.png" />'
+				'<div class="user name"></div><img id="settings" class="settings" src="resources/images/cog.png" />'
 			]
 		}		
 		]		

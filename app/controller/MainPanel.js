@@ -15,7 +15,7 @@ Ext.define('EM.controller.MainPanel', {
 			loginButton: '#login-form #login',
 			loginForm: '#login-form',
 			loginFormFields: '#login-form field',
-			mainPanel:'#main-panel',
+			mainPanel: '#main-panel',
 		},
 		control: {
 			loginFormFields: {
@@ -26,7 +26,7 @@ Ext.define('EM.controller.MainPanel', {
 			},
 			loginButton: {
 				tap: 'doValidateForm'
-			},			
+			},
 		}
 	},
 	
@@ -91,7 +91,6 @@ Ext.define('EM.controller.MainPanel', {
 	 * Hide the validation error message.
 	 */
 	hideValidationErrorMessage: function() {
-		console.log("hiding the validation message");
 		var message = Ext.getCmp('message-at-top');
 		if (message) {
 			message.hide();	
@@ -104,6 +103,12 @@ Ext.define('EM.controller.MainPanel', {
 	destroyValidationErrorMessage: function() {
 		Ext.getCmp('message-at-top').destroy();	
 	},	
+
+	doLogout: function() {
+		console.log("logging out");
+		this.dirtyRememberMe();
+		this.getMainPanel().setActiveItem(0);
+	},
 
 	doLoginRequest: function() {
 		var loginForm = this.getLoginForm();
@@ -136,7 +141,7 @@ Ext.define('EM.controller.MainPanel', {
 		        if (success) {
 		        	loginForm.unmask();
 
-		        	if (true || response.status == 200) { // TODO: hardcoded true until changes are made on the server
+		        	if (response.status == 200) {
 						if (formFieldValues.rememberMe) {
 							this.rememberMe(formFieldValues.email, formFieldValues.password, response);
 						}
@@ -144,7 +149,6 @@ Ext.define('EM.controller.MainPanel', {
 		        	} else {
 		        		this.showValidationErrorMessage('Inloggningen misslyckades. Kontrollera dina loginuppgifter.');	
 		        	}
-		        	//console.log(response);
 		        } else {
 					// TODO: This should display the message we get in return from the server when the login attempt fails.
 					loginForm.unmask();
@@ -160,6 +164,7 @@ Ext.define('EM.controller.MainPanel', {
 	 */
 	rememberMe: function(email, password, response) {
 		var rememberMe = Ext.getStore("RememberMe");
+		//var rememberMe = Ext.create("EM.store.RememberMe");
 		var user = Ext.create('EM.model.User', {});
 
 		user.set('userId', null); // TODO: Do not hardcode
