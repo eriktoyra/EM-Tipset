@@ -43,22 +43,10 @@ Ext.define('EM.controller.ResultsPage', {
         });
     },
     
-    launch: function() {
+    launch: function() {       
         this.getRoundSelector().add(roundMenu);
         this.doUpdateLastUpdated();
-
-        var store = Ext.getStore('Matches');
-
-        // Deselect any previous selections made in the list to avoid flickering
-        this.getMatchList().deselectAll();
-
-        // Clear all existing filters first...
-        store.clearFilter();
-
-        // ... then apply the selected filter
-        store.filterBy(function(record, id) {
-            return record.getRound().get('roundId') == 5
-        }, this);        
+        this.roundFilterByKey('roundId', 5); // Filter the matchlist and display the first round of matches.
     },
 
     config: {
@@ -115,6 +103,13 @@ Ext.define('EM.controller.ResultsPage', {
      * Filter the Round store by the passed in round name.
      */
     doRoundFilter: function(button, event, eventOpts) {
+        this.roundFilterByKey('name', button.config.text);
+    },
+
+    /**
+     * Filter the Round store by the passed in key/value pair.
+     */
+    roundFilterByKey: function(filterKey, filterValue) {
         var store = Ext.getStore('Matches');
 
         // Deselect any previous selections made in the list to avoid flickering
@@ -125,7 +120,7 @@ Ext.define('EM.controller.ResultsPage', {
 
         // ... then apply the selected filter
         store.filterBy(function(record, id) {
-            return record.getRound().get('name') == button.config.text
-        }, this);
+            return record.getRound().get(filterKey) == filterValue
+        }, this);     
     }
 });
