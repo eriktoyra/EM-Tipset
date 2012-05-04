@@ -1,11 +1,3 @@
-var roundMenu =  Ext.create('Ext.SegmentedButton', {
-    config: {
-        allowDepress: false,
-        cls: 'round-selector-items',
-        docked: 'top'
-    },
-});
-
 /**
  * MatchList controller
  */
@@ -58,7 +50,7 @@ Ext.define('EM.controller.ResultsPage', {
 
         refs: {
             lastUpdated: '#last-updated',
-            matchList: '#match-list',
+            //matchList: '#match-list',
             resultsPage: '#results-page',
             roundSelector: '#round-selector'
         },
@@ -92,13 +84,24 @@ Ext.define('EM.controller.ResultsPage', {
     },    
 
     doRoundsRequest: function() {
-        console.log("diRoundsRequest called from MainPanel controller");
         // Create the stores that we need for the match list
         var roundsStore = Ext.create('EM.store.Rounds', {});
         var matchStore = Ext.create('EM.store.Matches', {});
         var rounds = [];
 
-        console.log("Init in ResultsPage controller");
+        roundsStore.setProxy({
+            type: 'ajax',
+            url: 'http://emtipset.dev.stendahls.se/api/rounds',
+            method: 'GET',
+            
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': EM.app.getUserData('auth')
+            },
+            reader: {
+                type: 'json',
+            }
+        });
 
         //  Load the Rounds store which holds all of the data read from matches.json.
         //  After the data has been loaded we add the match data to the matchStore.
@@ -106,6 +109,7 @@ Ext.define('EM.controller.ResultsPage', {
             scope : this, // To be able to reach the controller functions from within the callback function
 
             callback: function() {
+                console.log("roundsStore: ", roundsStore);
                 roundsStore.each(function(round) {
                     var data = round.data;
 
@@ -120,13 +124,41 @@ Ext.define('EM.controller.ResultsPage', {
                         matchStore.add(match);
                     });
                 });
-                roundMenu.setItems(rounds);
 
-                this.getRoundSelector().add(roundMenu);
+                this.addRoundFilterMenu(rounds);
+                this.addMatchList();
+
                 this.doUpdateLastUpdated();
                 this.roundFilterByKey('roundId', 5); // Filter the matchlist and display the first round of matches.                        
             }
         });
+    },
+
+    /**
+     * Adds the match list to the results page.
+     */
+    addMatchList: function() {      
+        var matchList = Ext.create('EM.view.MatchList', {
+
+        });
+//        console.log('matchList', matchList);
+        this.getResultsPage().add(matchList);
+    },
+
+    /**
+     * Adds the rounds filter menu options as a segmented button to the round selector.
+     */
+    addRoundFilterMenu: function(rounds) {
+        var roundMenu =  Ext.create('Ext.SegmentedButton', {
+            config: {
+                allowDepress: false,
+                cls: 'round-selector-items',
+                docked: 'top'
+            },
+        });
+
+        roundMenu.setItems(rounds);
+        this.getRoundSelector().add(roundMenu);
     }, 
 
     /**

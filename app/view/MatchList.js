@@ -6,7 +6,7 @@ Ext.define('EM.view.MatchList', {
 		'Ext.TitleBar',
 		'EM.store.Rounds',
 		'EM.store.Matches',
-		'Ext.plugin.PullRefresh'
+		//'Ext.plugin.PullRefresh'
 	],
 
 	config: {

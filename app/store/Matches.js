@@ -3,7 +3,8 @@
  */
 var initialFilter = new Ext.util.Filter({
     filterFn: function(item) {
-        return item.getRound().get('name') == 'Omgång 1';
+    	console.log('item', item);
+        return item.getRound().get('roundId') == 5;
     }
 });
 

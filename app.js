@@ -138,6 +138,7 @@ Ext.application({
 	 * does not exist we return null,
 	 */
 	getUserData: function(key) {
+		console.log("getUserData['" + key + "']", this.userData[key]);
 		if(typeof key == 'undefined') {
 			return this.userData;
 		}

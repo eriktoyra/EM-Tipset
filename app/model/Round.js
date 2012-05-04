@@ -42,6 +42,7 @@ Ext.define('EM.model.Round', {
 			name: 'matches',
 			autoLoad: true,
 		}],
+		/*
 		proxy: {
 			type: 'ajax',
 			url: 'http://emtipset.dev.stendahls.se/api/rounds',
@@ -55,5 +56,6 @@ Ext.define('EM.model.Round', {
 				type: 'json',
 			}
 		},
+		*/
 	},
 });
