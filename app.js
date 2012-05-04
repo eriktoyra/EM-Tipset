@@ -7,6 +7,16 @@ Ext.Loader.setPath({
 Ext.application({
 	name: 'EM',
 
+	/**
+	 * API token that are used to communicate with the ReST API.
+	 */
+	apiToken: '',
+
+	/**
+	 * Holds data about the currently logged in user.
+	 */
+	userData: {},
+
 	requires: [
 		'Ext.SegmentedButton',
 	],
@@ -17,7 +27,8 @@ Ext.application({
 		'ResultsPage'
 	],
 	models: [
-		'Match', 
+		'Match',
+		'RememberMe', 
 		'Round',
 		'User'
 	],
@@ -63,7 +74,7 @@ Ext.application({
 			id: 'main-panel',
 			layout: {
 				type: 'card',
-				animation: 'flip'
+				//animation: 'flip' Removed temprary to avoid crashing OSX.
 			},
 			'fullscreen': true,
 			items: items
@@ -95,8 +106,46 @@ Ext.application({
 	    return false;
 	},
 
-	// Custom global functions
-	convertUnixTimeToMilliseconds: function(unixTime) {
-		return unixTime * 1000;
-	}
+	/**
+	 * Sets the API token that we use to communicate with the ReST API.
+	 */
+	setApiToken: function(token) {
+		this.apiToken = token;
+	},
+
+	/**
+	 * Returns the API token that we use to communicate with the ReST API.
+	 */
+	getApiToken: function() {
+		return this.apiToken;
+	},
+
+	/**
+	 * Sets user data, such as userId and name. Used to keep information about 
+	 * the currently logged in user while he/she is logged in.
+	 */
+	setUserData: function(userData) {
+		this.userData = userData;
+
+		if (userData.auth) {
+			this.setApiToken(userData.auth);
+		}
+	},
+
+	/**
+	 * Returns the user data. If a 'key' is passed in that matches one of the existing user data
+	 * keys only data for that key is returned. Otherwise the full user data object. If the 'key'
+	 * does not exist we return null,
+	 */
+	getUserData: function(key) {
+		if(typeof key == 'undefined') {
+			return this.userData;
+		}
+
+		if (typeof this.userData[key] != 'undefined') {
+			return this.userData[key];
+		}
+
+		return null;
+	},
 });

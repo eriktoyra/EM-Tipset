@@ -3,7 +3,7 @@ Ext.define('EM.store.RememberMe', {
     requires: 'Ext.data.proxy.LocalStorage',
 
     config: {
-        model: 'EM.model.User',
+        model: 'EM.model.RememberMe',
         proxy: {
             type: 'localstorage',
             id: 'remember-me-store'

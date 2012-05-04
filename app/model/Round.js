@@ -49,7 +49,7 @@ Ext.define('EM.model.Round', {
 			
 			headers: {
 				'Content-Type': 'application/json',
-				'Authorization': 'Basic YXBpdGVzdDphcGl0ZXN0'
+				'Authorization': EM.app.getUserData('auth')
 			},
 			reader: {
 				type: 'json',

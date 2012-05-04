@@ -106,6 +106,7 @@ Ext.define('EM.controller.MainPanel', {
 
 	doLogout: function() {
 		console.log("logging out");
+		EM.app.setUserData({});
 		this.dirtyRememberMe();
 		this.getMainPanel().setActiveItem(0);
 	},
@@ -138,21 +139,32 @@ Ext.define('EM.controller.MainPanel', {
 		    },
 
 		    callback: function(opt, success, response) {
+		    	loginForm.unmask();
+		        
 		        if (success) {
-		        	loginForm.unmask();
+					if (response.status == 200) { // User is authorized to login
+						// Store data about the user while he/she is logged in...
+						EM.app.setUserData(JSON.parse(response.responseText));
 
-		        	if (response.status == 200) {
 						if (formFieldValues.rememberMe) {
-							this.rememberMe(formFieldValues.email, formFieldValues.password, response);
+							this.rememberMe(formFieldValues.email);
 						}
+						
+						var resultsPageController = this.getApplication().getController('ResultsPage');
+						resultsPageController.doRoundsRequest();
+						 
+						// ...and then display the first page of the app after the user has been granted login access.	
 						this.getMainPanel().setActiveItem(1);
-		        	} else {
-		        		this.showValidationErrorMessage('Inloggningen misslyckades. Kontrollera dina loginuppgifter.');	
-		        	}
+					}
 		        } else {
-					// TODO: This should display the message we get in return from the server when the login attempt fails.
-					loginForm.unmask();
-					this.showValidationErrorMessage('Kunde inte kontakta servern. Försök igen lite senare.');
+		        	switch(response.status) {					
+						case 401: // User is not authorized to login
+							this.showValidationErrorMessage('Inloggningen misslyckades. Kontrollera dina loginuppgifter.');	
+							break;
+
+						default: // All other kinds of errors
+							this.showValidationErrorMessage('Kunde inte kontakta servern. Försök igen lite senare.');		
+					}
 				}
         	}
 		});
@@ -162,17 +174,16 @@ Ext.define('EM.controller.MainPanel', {
 	/**
 	 * Attempt to store the users login credentials in localStorage for the "Remember Me" functionality.
 	 */
-	rememberMe: function(email, password, response) {
+	rememberMe: function(email) {
 		var rememberMe = Ext.getStore("RememberMe");
-		//var rememberMe = Ext.create("EM.store.RememberMe");
-		var user = Ext.create('EM.model.User', {});
+		var user = Ext.create('EM.model.RememberMe', {});
+		var userData = EM.app.getUserData();
 
-		user.set('userId', null); // TODO: Do not hardcode
-		user.set('name', 'John Doe'); // TODO: Do not hardcode
-		user.set('email', email);
-		user.set('password', password);
+		user.set('userId', userData.userId);
+		user.set('name', userData.name);
+		user.set('auth', userData.auth);
 
-	    if (rememberMe.findRecord('email', email) == null) {
+	    if (rememberMe.findRecord('userId', userData.userId) == null) {
 	        rememberMe.add(user);
 	    }
 

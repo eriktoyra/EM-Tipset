@@ -13,6 +13,7 @@ Ext.define('EM.controller.ResultsPage', {
 	extend: 'Ext.app.Controller',
 
     init: function() {
+        /*
     	// Create the stores that we need for the match list
         var roundsStore = Ext.create('EM.store.Rounds', {});
         var matchStore = Ext.create('EM.store.Matches', {});
@@ -41,12 +42,15 @@ Ext.define('EM.controller.ResultsPage', {
                 roundMenu.setItems(rounds);
             }
         });
+        */
     },
     
     launch: function() {       
+        /*
         this.getRoundSelector().add(roundMenu);
         this.doUpdateLastUpdated();
         this.roundFilterByKey('roundId', 5); // Filter the matchlist and display the first round of matches.
+        */
     },
 
     config: {
@@ -86,6 +90,44 @@ Ext.define('EM.controller.ResultsPage', {
             }
         }
     },    
+
+    doRoundsRequest: function() {
+        console.log("diRoundsRequest called from MainPanel controller");
+        // Create the stores that we need for the match list
+        var roundsStore = Ext.create('EM.store.Rounds', {});
+        var matchStore = Ext.create('EM.store.Matches', {});
+        var rounds = [];
+
+        console.log("Init in ResultsPage controller");
+
+        //  Load the Rounds store which holds all of the data read from matches.json.
+        //  After the data has been loaded we add the match data to the matchStore.
+        roundsStore.load({
+            scope : this, // To be able to reach the controller functions from within the callback function
+
+            callback: function() {
+                roundsStore.each(function(round) {
+                    var data = round.data;
+
+                    rounds.push({
+                        id: 'round-' + data.roundId + '-selector',
+                        text: data.name,
+                        iconAlign: 'right',
+                        iconCls: (data.isLocked ? 'round-locked' : 'round-open'),
+                    });
+
+                    round.matches().each(function(match) {
+                        matchStore.add(match);
+                    });
+                });
+                roundMenu.setItems(rounds);
+
+                this.getRoundSelector().add(roundMenu);
+                this.doUpdateLastUpdated();
+                this.roundFilterByKey('roundId', 5); // Filter the matchlist and display the first round of matches.                        
+            }
+        });
+    }, 
 
     /**
      * Update information about when the data was last updated.

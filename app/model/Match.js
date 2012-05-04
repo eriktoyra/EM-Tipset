@@ -59,7 +59,7 @@ Ext.define('EM.model.Match', {
 							awayTeamScore: 0
 						};
 					}
-					console.log("result = ", result);
+
 					return result;
 				}
 			},
@@ -74,7 +74,7 @@ Ext.define('EM.model.Match', {
 							awayTeamScore: '',
 						}
 					}
-					console.log("prediction = ", prediction);
+
 					return prediction;
 				}
 			},
