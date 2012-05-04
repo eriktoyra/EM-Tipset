@@ -516,12 +516,12 @@ input.x-input-el,
     }
   }
 
-  .first-team-win .home-team {
+  .home-team-win .home-team {
     background: $correct-bet-background;
     color: $correct-bet-foreground;
   }
 
-  .second-team-win .away-team {
+  .away-team-win .away-team {
     background: $correct-bet-background;
     color: $correct-bet-foreground;
   }

@@ -8,12 +8,19 @@ Ext.define('EM.model.Round', {
 	config: {
 		fields: [
 			'roundId',
-			'name', 
+			'name',
+			{
+				name: 'startDate',
+				convert: function(value, record) {
+					var startDate = new Date(parseInt(value));
+
+					return startDate < Date.now();
+				}
+			},			 
 			{
 				name: 'lockedDate',
 				convert: function(value, record) {
-					var lockedDate = value.replace(/\/|Date\(|\+0200\)/g, '');
-					lockedDate = new Date(parseInt(lockedDate));
+					var lockedDate = new Date(parseInt(value));
 
 					return lockedDate < Date.now();
 				}

@@ -36,9 +36,7 @@ Ext.define('EM.model.Match', {
 			{
 				name: 'kickOff',
 				convert: function(value, record) {
-					var kickOff = value.replace(/\/|Date\(|\+0200\)/g, '');
-
-					return kickOff;
+					return parseInt(value);
 				}				
 			},
 			{
@@ -55,35 +53,36 @@ Ext.define('EM.model.Match', {
 				convert: function(value, record) {
 					var result = value;
 
-					if (result.homeTeamScore == null) {
-						result.homeTeamScore = 0;
+					if (typeof result == 'undefined') {
+						result = {
+							homeTeamScore: 0,
+							awayTeamScore: 0
+						};
 					}
-					if (result.awayTeamScore == null) {
-						result.awayTeamScore = 0;
-					}
-
+					console.log("result = ", result);
 					return result;
 				}
 			},
 			{
-				name: 'bet',
+				name: 'prediction',
 				convert: function(value, record) {
-					var bet = value;
+					var prediction = value;
 
-					if (bet == null) {
-						bet = {
+					if (typeof prediction  == 'undefined') {
+						prediction = {
 							homeTeamScore: '',
 							awayTeamScore: '',
 						}
 					}
-					return bet;
+					console.log("prediction = ", prediction);
+					return prediction;
 				}
 			},
-			'matchPoints',
+			'score',
 			{
 				name: 'pointsEarned',
 				convert: function(value, record) {
-					return matchExt.getPointsEarnedOrElse(record.get('matchPoints'), '');	
+					return matchExt.getPointsEarnedOrElse(record.get('score'), '');	
 				}
 			},
 			{
@@ -91,12 +90,10 @@ Ext.define('EM.model.Match', {
 				type: 'string',
 				convert: function(value, record) {
 					return matchExt.correctBettedResults(
-									record.get('matchPoints'), 
-									record.get('firstTeamGoals'), 
-									record.get('secondTeamGoals'), 
-									record.get('firstTeamGoalsBet'), 
-									record.get('secondTeamGoalsBet')
-								);
+									record.get('score'), 
+									record.get('result'), 
+									record.get('prediction')
+					);
 				}
 			}, 
 		],
@@ -118,25 +115,25 @@ var matchExt = (function() {
 	/**
 	 * Verifies the betted result agains the actual result.
 	 */
-	matchExt.correctBettedResults = function(points, firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
+	matchExt.correctBettedResults = function(points, result, prediction) {
 		if (typeof points == 'undefined' || points == 0) {
 			// No points given for this match, so no need to continue.
 			return '';
 		}
 
-		if (this.checkForCorrectResultBet(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet)) {
+		if (this.checkForCorrectResultBet(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
 			return 'correct-result';
 		}
 
-		if (this.checkFirstTeamWin(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet)) {
-			return 'first-team-win';
+		if (this.checkFirstTeamWin(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
+			return 'home-team-win';
 		}
 
-		if (this.checkSecondTeamWin(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet)) {
-			return 'second-team-win';
+		if (this.checkSecondTeamWin(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
+			return 'away-team-win';
 		}
 
-		if (this.checkDraw(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet)) {
+		if (this.checkDraw(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
 			return 'drawed';
 		}
 	}
@@ -144,37 +141,36 @@ var matchExt = (function() {
 	/**
 	 * Returns true if the goal difference between first and second team is correct.
 	 */
-	matchExt.checkForCorrectGoalDifference = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
-		return (firstTeamGoals - secondTeamGoals) == (firstTeamGoalsBet - secondTeamGoalsBet);
+	matchExt.checkForCorrectGoalDifference = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
+		return (homeTeamGoals - awayTeamGoals) == (homeTeamGoals - awayTeamGoals);
 	}
 
 	/**
 	 * Returns true if the betted result exactly matches the actual result. 
 	 */
-	matchExt.checkForCorrectResultBet = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
-		return (firstTeamGoalsBet == firstTeamGoals) && (secondTeamGoalsBet == secondTeamGoals);
+	matchExt.checkForCorrectResultBet = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
+		return (homeTeamGoals == homeTeamGoals) && (awayTeamGoals == awayTeamGoals);
 	}
 
 	/**
 	 * Returns true if the betted result had more first team goals than second team goals and the actual result had the same.
 	 */
-	matchExt.checkFirstTeamWin = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
-		//console.log(firstTeamGoals + ' == ' + secondTeamGoals + ' && ' + firstTeamGoalsBet + ' == ' + secondTeamGoalsBet);
-		return (firstTeamGoals > secondTeamGoals) && (firstTeamGoalsBet > secondTeamGoalsBet);
+	matchExt.checkFirstTeamWin = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
+		return (homeTeamGoals > awayTeamGoals) && (homeTeamGoals > awayTeamGoals);
 	}
 
 	/**
 	 * Returns true if the betted result had more second team goals than first team goals and the actual result had the same.
 	 */
-	matchExt.checkSecondTeamWin = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
-		return (firstTeamGoals < secondTeamGoals) && (firstTeamGoalsBet < secondTeamGoalsBet);	
+	matchExt.checkSecondTeamWin = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
+		return (homeTeamGoals < awayTeamGoals) && (homeTeamGoals < awayTeamGoals);	
 	}
 
 	/**
 	 * Returns true if the betted result were a drawed result and the actual result also was a drawed result.
 	 */
-	matchExt.checkDraw = function(firstTeamGoals, secondTeamGoals, firstTeamGoalsBet, secondTeamGoalsBet) {
-		return (firstTeamGoals == secondTeamGoals) && (firstTeamGoalsBet == secondTeamGoalsBet);	
+	matchExt.checkDraw = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
+		return (homeTeamGoals == awayTeamGoals) && (homeTeamGoals == awayTeamGoals);	
 	}
 
 	/**

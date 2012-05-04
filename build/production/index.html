@@ -73,7 +73,7 @@ w.appendChild(c);w.removeChild(e)}delete a.content;0==--f&&g()}function g(){func
 p(o,function(b){t=l=new r(b);var d;l.assets.forEach(function(b){d=a.getAsset(b.uri);(!d||b.version!==d.version)&&e.push(b)});m=e.length;0==m?g?c():k=c:e.forEach(function(b){function c(){C(b,function(a){b.content=a;0==--m&&(g?f():k=f)})}var d=a.getAsset(b.uri),e=b.path,h=b.update;!d||!h||null===u(b.key)||"delta"!=h?c():p("deltas/"+e+"/"+d.version+".json",function(a){try{var c=b,d;var e=u(b.key),h=z(a),a=[],j,i,l;if(0===h.length)d=e;else{for(i=0,l=h.length;i<l;i++)j=h[i],"number"===typeof j?a.push(e.substring(j,
 j+h[++i])):a.push(j);d=a.join("")}c.content=d;0==--m&&(g?f():k=f)}catch(n){E("Malformed delta content received for "+b.uri)}},c)})})}var d=a.assets,f=d.length,l;t=a;H("message",D,!1);0==f?g():d.forEach(function(a){var c=u(a.key);null===c?C(a,function(c){s(a.key,c);b(a,c)},function(){b(a,"")}):b(a,c)})}function I(a){null!==i.readyState.match(/interactive|complete|loaded/)?G(a):H("DOMContentLoaded",function(){G(a)},!1)}var B=function(){},m=[],i=n.document,w=i.head,H=n.addEventListener,l=n.localStorage,
 h=n.applicationCache,z=JSON.parse,y=i.createElement("a"),x=i.location,A=x.origin+x.pathname+x.search,o="app.json",F=!1,t;if("undefined"===typeof q)var q=n.Ext={};q.blink=function(a){var b=u(a.id+"-"+A+o);v("viewport","width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no");v("apple-mobile-web-app-capable","yes");v("apple-touch-fullscreen","yes");b?(a=new r(b),I(a)):p(o,function(b){a=new r(b);a.store();I(a)})}})(this);
-;Ext.blink({"id":"3238db50-6b9d-11e1-9b3e-53adb305a13a"})</script>   
+;Ext.blink({"id":"3238db50-6b9d-11e1-9b3e-53adb305a13a"})</script>  
 </head>
 <body>
     <div id="appLoadingIndicator">
