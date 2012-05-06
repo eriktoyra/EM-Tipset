@@ -4,53 +4,20 @@
 Ext.define('EM.controller.ResultsPage', {
 	extend: 'Ext.app.Controller',
 
-    init: function() {
-        /*
-    	// Create the stores that we need for the match list
-        var roundsStore = Ext.create('EM.store.Rounds', {});
-        var matchStore = Ext.create('EM.store.Matches', {});
-        var rounds = [];
-
-        console.log("Init in ResultsPage controller");
-
-       	//	Load the Rounds store which holds all of the data read from matches.json.
-        //	After the data has been loaded we add the match data to the matchStore.
-        roundsStore.load({
-            callback: function() {
-                roundsStore.each(function(round) {
-                    var data = round.data;
-
-                    rounds.push({
-                        id: 'round-' + data.roundId + '-selector',
-                        text: data.name,
-                        iconAlign: 'right',
-                        iconCls: (data.isLocked ? 'round-locked' : 'round-open'),
-                    });
-
-                    round.matches().each(function(match) {
-                        matchStore.add(match);
-                    });
-                });
-                roundMenu.setItems(rounds);
-            }
-        });
-        */
-    },
+    init: function() {},
     
-    launch: function() {       
-        /*
-        this.getRoundSelector().add(roundMenu);
-        this.doUpdateLastUpdated();
-        this.roundFilterByKey('roundId', 5); // Filter the matchlist and display the first round of matches.
-        */
-    },
+    launch: function() {},
 
     config: {
         views: ['MatchList', 'MyStats', 'ResultsPage', 'RoundSelector'],
 
         refs: {
             lastUpdated: '#last-updated',
-            //matchList: '#match-list',
+            matchList: {
+                selector: 'match-list',
+                xtype: 'matchlist',
+                autoCreate: true
+            },
             resultsPage: '#results-page',
             roundSelector: '#round-selector'
         },
@@ -59,9 +26,9 @@ Ext.define('EM.controller.ResultsPage', {
             matchList: {
                 itemtap: function(a, index, target, record, e, eOpts ) {
                     //TODO: Handle tap events.
+                    console.log("Tapped on a list item");
                 }
             },
-
             '#round-5-selector': {
                 tap: 'doRoundFilter'
             },
@@ -109,7 +76,6 @@ Ext.define('EM.controller.ResultsPage', {
             scope : this, // To be able to reach the controller functions from within the callback function
 
             callback: function() {
-                console.log("roundsStore: ", roundsStore);
                 roundsStore.each(function(round) {
                     var data = round.data;
 
@@ -126,23 +92,12 @@ Ext.define('EM.controller.ResultsPage', {
                 });
 
                 this.addRoundFilterMenu(rounds);
-                this.addMatchList();
+                this.getResultsPage().add(this.getMatchList());
 
                 this.doUpdateLastUpdated();
                 this.roundFilterByKey('roundId', 5); // Filter the matchlist and display the first round of matches.                        
             }
         });
-    },
-
-    /**
-     * Adds the match list to the results page.
-     */
-    addMatchList: function() {      
-        var matchList = Ext.create('EM.view.MatchList', {
-
-        });
-//        console.log('matchList', matchList);
-        this.getResultsPage().add(matchList);
     },
 
     /**

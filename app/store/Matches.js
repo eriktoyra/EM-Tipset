@@ -3,7 +3,6 @@
  */
 var initialFilter = new Ext.util.Filter({
     filterFn: function(item) {
-    	console.log('item', item);
         return item.getRound().get('roundId') == 5;
     }
 });
