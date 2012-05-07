@@ -29,6 +29,9 @@ Ext.define('EM.controller.ResultsPage', {
                     console.log("Tapped on a list item");
                 }
             },
+            '#top-4-and-top-scorer': {
+                tap: 'doTop4AndTopScorer'
+            },
             '#round-5-selector': {
                 tap: 'doRoundFilter'
             },
@@ -54,7 +57,12 @@ Ext.define('EM.controller.ResultsPage', {
         // Create the stores that we need for the match list
         var roundsStore = Ext.create('EM.store.Rounds', {});
         var matchStore = Ext.create('EM.store.Matches', {});
-        var rounds = [];
+        var rounds = [{
+            id: 'top-4-and-top-scorer',
+            text: 'Topp 4 & skyttekung',
+            iconAlign: 'right',
+            iconCls: 'round-open',    
+        }];
 
         roundsStore.setProxy({
             type: 'ajax',
@@ -112,9 +120,11 @@ Ext.define('EM.controller.ResultsPage', {
             },
         });
 
+        rounds = this.calculateItem(rounds);
+
         roundMenu.setItems(rounds);
         roundMenu.setAllowDepress(false);
-        //TODO: Figure out which round to set as active roundMenu.setActiveItem();
+        //roundMenu.setActiveItem(this.calculateActiveItem(rounds));
         this.getRoundSelector().add(roundMenu);
         this.getRoundSelector().show(); // A must to make #round-selector scrollable
     }, 
@@ -136,6 +146,42 @@ Ext.define('EM.controller.ResultsPage', {
      */
     doRoundFilter: function(button, event, eventOpts) {
         this.roundFilterByKey('name', button.config.text);
+    },
+
+    /**
+     * Display the 'Topp 4 & skyttekung' page.
+     */
+    doTop4AndTopScorer: function(button, event, eventOpts) {
+        console.log("Tapped on Topp 4 & skyttekung");
+    },
+
+    /**
+     * Calculates which item shold be marked as currently selected by investigating 
+     * the startDate property of each round.
+     */
+    calculateActiveItem: function(rounds) {
+        var selectedItem = 0;
+        var now = new Date(Date.now());
+        
+        if (now < new Date('2012-06-08 00:00:01')) { // The competition has not started yet, so default to the first item
+            console.log('EM not started, so display Topp 4 & skyttekung');
+            return selectedItem;
+        }
+
+        for(round in rounds) {
+            if (round.startDate <= now && round.lockedDate >= now) {
+                console.log('Active round is: ', selectedItem);
+                return selectedItem;
+            }            
+            selectedItem++;
+        }
+/*
+        rounds.each(function(round) {
+            if (round.startDate <= now && round.lockedDate >= now) {
+                break;         
+            }
+        });
+*/    
     },
 
     /**
