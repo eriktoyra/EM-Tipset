@@ -68,6 +68,13 @@ $small-font-size: 11px;
     border-radius:        $default-border-radius;
 }
 
+@mixin rounded-corners($border-radius) {
+    -webkit-borderradius: $border-radius;
+    -moz-border-radius:   $border-radius;
+    -ms-border-radius:    $border-radius;
+    border-radius:        $border-radius;
+}
+
 @mixin default-vertical-box-shadow {
   -webkit-box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.25);
   -moz-box-shadow:    0px 5px 6px rgba(0, 0, 0, 0.25);
@@ -311,6 +318,7 @@ input.x-input-el,
   @include default-dark-section;
   border-top: rgb(184, 184, 184);
   height: 50px;
+  padding: 0;
 
   .x-segmentedbutton {
     height: 50px;
@@ -324,25 +332,46 @@ input.x-input-el,
 
   .x-button-normal.x-button {
     background: transparent;
-    border-right: 1px dashed rgb(184, 184, 184);
+    border: 0;
+    border-right: 1px dashed rgba(184, 184, 184, 0.5);
     width: 139px;
 
       .x-button-icon {
         background-image: url(../images/lock-icons.png);
-        background-position: -31px 7px;
+        background-position: 0 0;
         background-repeat: no-repeat;
-        background-size: 69px 25px;
+        background-size: 160px 25px;
+        height: 25px;
+        width: 25px;
       }
 
       .x-button-icon.round-locked {
-        background-position-x: 13px;
+        background-position-x: 0px;
       }
+
+      .x-button-icon.round-open {
+          background-position-x: -45px;
+      }      
 
       .x-button-label {
         font-size: 0.8em;
         line-height: 1.35em;
       }
   }
+
+  .x-button-normal.x-button-pressed {
+    @include background-gradient($main-nav-gradient-color-active, $default-gradient-type);
+    @include rounded-corners(0);
+    text-shadow: 0 -1px 1px rgba(22, 38, 7, 0.75);
+
+    .x-button-icon.round-locked {
+        background-position-x: -90px;
+    }
+
+    .x-button-icon.round-open {
+        background-position-x: -135px;
+    }
+  }  
 }
 
 #last-updated {

@@ -83,7 +83,7 @@ Ext.define('EM.controller.ResultsPage', {
                         id: 'round-' + data.roundId + '-selector',
                         text: data.name,
                         iconAlign: 'right',
-                        iconCls: (data.isLocked ? 'round-locked' : 'round-open'),
+                        iconCls: (data.isLocked? 'round-locked' : 'round-open'),
                     });
 
                     round.matches().each(function(match) {
