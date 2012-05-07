@@ -6,10 +6,10 @@ Ext.define('EM.view.RoundSelector', {
 	
 	config: {
 		id: 'round-selector',	
-
 		scrollable: {
 		    direction: 'horizontal',
 		    directionLock: true
-		}
+		},
+		hidden: true,
 	}
 });

@@ -184,12 +184,12 @@ input.x-input-el,
   }
 
   #forgot-password {
+    @include secondary-drop-shadow(true);    
     background: #3a7710;
     border: 0;
     border-bottom: 1px solid rgba(116, 173, 53, 0.75);
     border-left: 1px solid rgba(116, 173, 53, 0.5);
     border-right: 1px solid rgba(116, 173, 53, 0.5);
-    @include secondary-drop-shadow(true);
     margin-top: $default-distance * 3;
   }
 
@@ -202,13 +202,13 @@ input.x-input-el,
 
   .x-body {
     /* Safari 4-5, Chrome 1-9 */
-    background: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(128, 194, 58, 0.55)), to(rgba(128, 194, 58, 0.25)));
+    background: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(128, 194, 58, 0.55)), to(rgba(128, 194, 58, 0.15)));
     
     /* Safari 5.1+, Chrome 10+ */
-    background: -webkit-radial-gradient(circle, rgba(128, 194, 58, 0.75), rgba(128, 194, 58, 0.25));
+    background: -webkit-radial-gradient(circle, rgba(128, 194, 58, 0.75), rgba(128, 194, 58, 0.15));
     
     /* Firefox 3.6+ */ 
-    background: -moz-radial-gradient(circle, rgba(128, 194, 58, 0.75), rgba(128, 194, 58, 0.25));
+    background: -moz-radial-gradient(circle, rgba(128, 194, 58, 0.75), rgba(128, 194, 58, 0.15));
   }
 
   .x-scroll-container {
