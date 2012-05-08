@@ -61,7 +61,7 @@ Ext.define('EM.controller.ResultsPage', {
             id: 'top-4-and-top-scorer',
             text: 'Topp 4 & skyttekung',
             iconAlign: 'right',
-            iconCls: 'round-open',    
+            iconCls: 'round-open',  
         }];
 
         roundsStore.setProxy({
@@ -77,22 +77,32 @@ Ext.define('EM.controller.ResultsPage', {
                 type: 'json',
             }
         });
-
+        
         //  Load the Rounds store which holds all of the data read from matches.json.
         //  After the data has been loaded we add the match data to the matchStore.
         roundsStore.load({
-            scope : this, // To be able to reach the controller functions from within the callback function
+            scope: this, // To be able to reach the controller functions from within the callback function
 
             callback: function() {
+                var hasRoundBeenMarkedAsActive = false,
+                    activeRoundId = 5; // Default to the first roundId
+
                 roundsStore.each(function(round) {
                     var data = round.data;
+                    var isLocked = data.isLocked;
 
                     rounds.push({
                         id: 'round-' + data.roundId + '-selector',
                         text: data.name,
                         iconAlign: 'right',
-                        iconCls: (data.isLocked? 'round-locked' : 'round-open'),
+                        iconCls: (isLocked? 'round-locked' : 'round-open'),
+                        pressed: (!hasRoundBeenMarkedAsActive && !isLocked)
                     });
+
+                    if (!isLocked) {
+                        activeRoundId = data.roundId;
+                        hasRoundBeenMarkedAsActive = true;
+                    }
 
                     round.matches().each(function(match) {
                         matchStore.add(match);
@@ -103,7 +113,7 @@ Ext.define('EM.controller.ResultsPage', {
                 this.getResultsPage().add(this.getMatchList());
 
                 this.doUpdateLastUpdated();
-                this.roundFilterByKey('roundId', 5); // Filter the matchlist and display the first round of matches.                        
+                this.roundFilterByKey('roundId', activeRoundId); // Filter the matchlist and display the first round of matches.                        
             }
         });
     },
@@ -120,7 +130,7 @@ Ext.define('EM.controller.ResultsPage', {
             },
         });
 
-        rounds = this.calculateItem(rounds);
+        //rounds = this.calculateItem(rounds);
 
         roundMenu.setItems(rounds);
         roundMenu.setAllowDepress(false);
@@ -153,35 +163,6 @@ Ext.define('EM.controller.ResultsPage', {
      */
     doTop4AndTopScorer: function(button, event, eventOpts) {
         console.log("Tapped on Topp 4 & skyttekung");
-    },
-
-    /**
-     * Calculates which item shold be marked as currently selected by investigating 
-     * the startDate property of each round.
-     */
-    calculateActiveItem: function(rounds) {
-        var selectedItem = 0;
-        var now = new Date(Date.now());
-        
-        if (now < new Date('2012-06-08 00:00:01')) { // The competition has not started yet, so default to the first item
-            console.log('EM not started, so display Topp 4 & skyttekung');
-            return selectedItem;
-        }
-
-        for(round in rounds) {
-            if (round.startDate <= now && round.lockedDate >= now) {
-                console.log('Active round is: ', selectedItem);
-                return selectedItem;
-            }            
-            selectedItem++;
-        }
-/*
-        rounds.each(function(round) {
-            if (round.startDate <= now && round.lockedDate >= now) {
-                break;         
-            }
-        });
-*/    
     },
 
     /**

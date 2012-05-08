@@ -14,7 +14,7 @@ Ext.define('EM.model.Round', {
 				convert: function(value, record) {
 					var startDate = new Date(parseInt(value));
 
-					return startDate < Date.now();
+					return startDate;
 				}
 			},			 
 			{
@@ -22,16 +22,23 @@ Ext.define('EM.model.Round', {
 				convert: function(value, record) {
 					var lockedDate = new Date(parseInt(value));
 
-					return lockedDate < Date.now();
+					return lockedDate;
 				}
 			},
 			{
 				name: 'isLocked',
 				type: 'boolean',
 				convert: function(value, record) {
-					var lockedDate = new Date(record.get('lockedDate'));
+					var startDate = record.get('startDate'),
+						lockedDate = record.get('lockedDate'),
+						now = new Date();
 
-					return lockedDate < Date.now();
+					if (startDate > now || lockedDate < now) {
+						return true;
+					}
+					else if (startDate < now && lockedDate > now) {
+						return false;
+					}
 				}
 			},			
 			'matches',
