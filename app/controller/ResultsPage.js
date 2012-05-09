@@ -130,11 +130,9 @@ Ext.define('EM.controller.ResultsPage', {
             },
         });
 
-        //rounds = this.calculateItem(rounds);
-
         roundMenu.setItems(rounds);
         roundMenu.setAllowDepress(false);
-        //roundMenu.setActiveItem(this.calculateActiveItem(rounds));
+
         this.getRoundSelector().add(roundMenu);
         this.getRoundSelector().show(); // A must to make #round-selector scrollable
     }, 
