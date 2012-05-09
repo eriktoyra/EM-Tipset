@@ -13,6 +13,9 @@ Ext.define('EM.view.MatchList', {
 		store: 'Matches',
 		grouped: true,
 		scrollable: false,
+		showAnimation: Ext.create('Ext.fx.animation.Slide', {
+			direction: 'right'
+		}),		
 		/*plugins: [
 			{
 				xclass: 'Ext.plugin.PullRefresh',

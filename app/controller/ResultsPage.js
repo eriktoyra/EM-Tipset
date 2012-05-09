@@ -9,10 +9,15 @@ Ext.define('EM.controller.ResultsPage', {
     launch: function() {},
 
     config: {
-        views: ['MatchList', 'MyStats', 'ResultsPage', 'RoundSelector'],
+        views: ['MatchList', 'MyStats', 'ResultsPage', 'RoundSelector', 'Top4AndTopScorer'],
 
         refs: {
             lastUpdated: '#last-updated',
+            top4AndTopScorer: {
+                selector: 'top-4-and-top-scorer',
+                xtype: 'top4andtopscorer',
+                autoCreate: true
+            },            
             matchList: {
                 selector: 'match-list',
                 xtype: 'matchlist',
@@ -29,7 +34,7 @@ Ext.define('EM.controller.ResultsPage', {
                     console.log("Tapped on a list item");
                 }
             },
-            '#top-4-and-top-scorer': {
+            '#top-4-and-top-scorer-menu-item': {
                 tap: 'doTop4AndTopScorer'
             },
             '#round-5-selector': {
@@ -58,7 +63,7 @@ Ext.define('EM.controller.ResultsPage', {
         var roundsStore = Ext.create('EM.store.Rounds', {});
         var matchStore = Ext.create('EM.store.Matches', {});
         var rounds = [{
-            id: 'top-4-and-top-scorer',
+            id: 'top-4-and-top-scorer-menu-item',
             text: 'Topp 4 & skyttekung',
             iconAlign: 'right',
             iconCls: 'round-open',  
@@ -110,6 +115,7 @@ Ext.define('EM.controller.ResultsPage', {
                 });
 
                 this.addRoundFilterMenu(rounds);
+                this.getResultsPage().add(this.getTop4AndTopScorer());
                 this.getResultsPage().add(this.getMatchList());
 
                 this.doUpdateLastUpdated();
@@ -160,6 +166,8 @@ Ext.define('EM.controller.ResultsPage', {
      * Display the 'Topp 4 & skyttekung' page.
      */
     doTop4AndTopScorer: function(button, event, eventOpts) {
+        this.getMatchList().hide();
+        this.getTop4AndTopScorer().show();
         console.log("Tapped on Topp 4 & skyttekung");
     },
 
@@ -178,6 +186,9 @@ Ext.define('EM.controller.ResultsPage', {
         // ... then apply the selected filter
         store.filterBy(function(record, id) {
             return record.getRound().get(filterKey) == filterValue
-        }, this);     
+        }, this);
+
+        this.getTop4AndTopScorer().hide();
+        this.getMatchList().show();
     }
 });
