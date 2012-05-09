@@ -606,13 +606,13 @@ input.x-input-el,
 
 .x-panel.message.top.x-floating {
   display: block;
-  margin: 0 $default-distance;
+  margin: -5px 0 0 0;
   position: relative !important; 
 }
 
 .x-panel.x-floating.message {
-  @include default-rounded-corners;
-  background-color: #f7f6c2;
+  @include rounded-corners(0);
+  background: #f7f6c2;
   border: 1px solid #c9c96e;
   color: $default-text-color-on-light-background;
   font-size: $small-font-size;
@@ -620,5 +620,11 @@ input.x-input-el,
 
   .x-inner.x-panel-inner {
     background: none;
+
+    .x-innerhtml {
+      background: url(../images/close.png) top right no-repeat;
+      background-size: 19px 19px;
+      padding-right: 29px;
+    }
   }
 }

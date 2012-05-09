@@ -7058,17 +7058,17 @@ input.x-input-el,
 /* line 607, ../sass/app.scss */
 .x-panel.message.top.x-floating {
   display: block;
-  margin: 0 5px;
+  margin: -5px 0 0 0;
   position: relative !important;
 }
 
 /* line 613, ../sass/app.scss */
 .x-panel.x-floating.message {
-  -webkit-borderradius: 0.4em;
-  -moz-border-radius: 0.4em;
-  -ms-border-radius: 0.4em;
-  border-radius: 0.4em;
-  background-color: #f7f6c2;
+  -webkit-borderradius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  background: #f7f6c2;
   border: 1px solid #c9c96e;
   color: #333333;
   font-size: 11px;
@@ -7077,4 +7077,10 @@ input.x-input-el,
 /* line 621, ../sass/app.scss */
 .x-panel.x-floating.message .x-inner.x-panel-inner {
   background: none;
+}
+/* line 624, ../sass/app.scss */
+.x-panel.x-floating.message .x-inner.x-panel-inner .x-innerhtml {
+  background: url(../images/close.png) top right no-repeat;
+  background-size: 19px 19px;
+  padding-right: 29px;
 }
