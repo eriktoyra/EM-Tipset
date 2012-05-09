@@ -9,13 +9,18 @@ Ext.define('EM.controller.ResultsPage', {
     launch: function() {},
 
     config: {
-        views: ['MatchList', 'MyStats', 'ResultsPage', 'RoundSelector', 'Top4AndTopScorer'],
+        views: ['MatchList', 'MyStats', 'ResultsPage', 'RoundSelector', 'TopScorer', 'Top4'],
 
         refs: {
             lastUpdated: '#last-updated',
-            top4AndTopScorer: {
-                selector: 'top-4-and-top-scorer',
-                xtype: 'top4andtopscorer',
+            top4: {
+                selector: 'top-4',
+                xtype: 'top4',
+                autoCreate: true
+            },
+            topScorer: {
+                selector: 'top-scorer',
+                xtype: 'topscorer',
                 autoCreate: true
             },            
             matchList: {
@@ -34,8 +39,11 @@ Ext.define('EM.controller.ResultsPage', {
                     console.log("Tapped on a list item");
                 }
             },
-            '#top-4-and-top-scorer-menu-item': {
-                tap: 'doTop4AndTopScorer'
+            '#top-4-menu-item': {
+                tap: 'doTop4'
+            },
+            '#top-scorer-menu-item': {
+                tap: 'doTopScorer'
             },
             '#round-5-selector': {
                 tap: 'doRoundFilter'
@@ -63,8 +71,14 @@ Ext.define('EM.controller.ResultsPage', {
         var roundsStore = Ext.create('EM.store.Rounds', {});
         var matchStore = Ext.create('EM.store.Matches', {});
         var rounds = [{
-            id: 'top-4-and-top-scorer-menu-item',
-            text: 'Topp 4 & skyttekung',
+            id: 'top-4-menu-item',
+            text: 'Topp 4',
+            iconAlign: 'right',
+            iconCls: 'round-open',  
+        },
+        {
+            id: 'top-scorer-menu-item',
+            text: 'Skyttekung',
             iconAlign: 'right',
             iconCls: 'round-open',  
         }];
@@ -115,7 +129,8 @@ Ext.define('EM.controller.ResultsPage', {
                 });
 
                 this.addRoundFilterMenu(rounds);
-                this.getResultsPage().add(this.getTop4AndTopScorer());
+                this.getResultsPage().add(this.getTop4());
+                this.getResultsPage().add(this.getTopScorer());
                 this.getResultsPage().add(this.getMatchList());
 
                 this.doUpdateLastUpdated();
@@ -163,12 +178,23 @@ Ext.define('EM.controller.ResultsPage', {
     },
 
     /**
-     * Display the 'Topp 4 & skyttekung' page.
+     * Display the 'Topp 4' page.
      */
-    doTop4AndTopScorer: function(button, event, eventOpts) {
+    doTop4: function(button, event, eventOpts) {
         this.getMatchList().hide();
-        this.getTop4AndTopScorer().show();
-        console.log("Tapped on Topp 4 & skyttekung");
+        this.getTopScorer().hide();
+        this.getTop4().show();
+        console.log("Tapped on Topp 4");
+    },
+
+    /**
+     * Display the 'Skyttekung' page.
+     */
+    doTopScorer: function(button, event, eventOpts) {
+        this.getMatchList().hide();
+        this.getTop4().hide();
+        this.getTopScorer().show();
+        console.log("Tapped on Skyttekung");
     },
 
     /**
@@ -187,8 +213,9 @@ Ext.define('EM.controller.ResultsPage', {
         store.filterBy(function(record, id) {
             return record.getRound().get(filterKey) == filterValue
         }, this);
-
-        this.getTop4AndTopScorer().hide();
+        
+        this.getTop4().hide();
+        this.getTopScorer().hide();
         this.getMatchList().show();
     }
 });
