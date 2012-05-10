@@ -15,6 +15,7 @@
 @include sencha-carousel;
 @include sencha-form;
 @include sencha-msgbox;
+@include sencha-list-pullrefresh;
 
 // =Colors
 $default-gradient-light-color: rgba(250, 250, 250, 1);
@@ -404,6 +405,10 @@ input.x-input-el,
     margin-top: 1px;
     width: 13px;
   }
+}
+
+#match-list {
+  min-height: 600px;
 }
 
 .match-meta-data {

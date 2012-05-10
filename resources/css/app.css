@@ -6478,6 +6478,77 @@ input[type="search"]::-webkit-search-cancel-button {
   border: 0.1em solid rgba(25, 133, 208, 0.9);
 }
 
+/* line 342, ../../sdk/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
+.x-list-pullrefresh {
+  display: -webkit-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  box-pack: center;
+  position: absolute;
+  top: -5em;
+  left: 0;
+  width: 100%;
+  height: 4.5em;
+}
+/* line 353, ../../sdk/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
+.x-list-pullrefresh .x-loading-spinner {
+  display: none;
+}
+
+/* line 358, ../../sdk/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
+.x-list-pullrefresh-arrow {
+  width: 2.5em;
+  height: 4.5em;
+  background: center center url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAA8CAYAAAAUufjgAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAjFJREFUeNrsmU8oREEYwOexdtNuKBfFwdVhCyfuysnFiXISS+1BLopyUpKLXETkRLaUi1LK3Q2lpPbiQLnIn03a/Hm+z86Ttv0zM++bfbOar36Hbad5v535Zp7v47iuy0wOpyoEHccRHV9L9NxPkUE/bhKCOKiOSPAdn69DsJ5I8E2HYA0QJRJ8Bb50CDYRCT7pEMQD0kwk+CByUFQEW4gE73UIhoA2IsFb4ENEMCQ5MdU1IxwygpT3oKNLMGyyYFVscdhusc8tDpu+xRG7xf95BW0O2kNiV1AgIvaQ2BzUJNgJNJYZGyUU7OG1cal4Bi68oqkDPszy2teEwJp5Cdyu/lZ1g8CwIYJ7wEF+2YmrNw90Byx3BizgKhaqizEP1wg7CLLxCEzy/CtauMeBlQDyEfNuGrgU6SyM8F9SyVgHdmRaH6tAb4XkToEp2d4M5mOK0TWMigU2koa8vJMRZPxEb2ss2LEVPMpPLlMRxBgDZjQJLgNbxb6Uab9tAn3EcifAeKkBMoLY+j0GWonk7oB+lmsFkwhidAGHBPmIeTcAnJcbKCuIMQEs+hScAzZEBqoIYuzyFVCJI36lMJ2CDfxibZeUu+EX/4uMIFP8ZyLejxkgK0hG5a8kP4IYSZbr1IuQVHmAX0HGX4VuGfZVJ6cQxPd1uoRcWqDW0SroFVzZAnJZ/h0LWhAjUUAw4XdSSsH8fExRTEgtGAOuOTETBb16Jk412e+bxOSwglYw6PgWYABvLk8P7zGJFwAAAABJRU5ErkJggg==') no-repeat;
+  background-size: 2em 3em;
+  /*-webkit-transition-property: -webkit-transform;*/
+  /*-webkit-transition-duration: 200ms;*/
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+
+/* line 369, ../../sdk/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
+.x-list-pullrefresh-release .x-list-pullrefresh-arrow {
+  -webkit-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+}
+
+/* line 373, ../../sdk/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
+.x-list-pullrefresh-wrap {
+  width: 20em;
+  font-size: 0.7em;
+}
+
+/* line 378, ../../sdk/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
+.x-list-pullrefresh-message {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 0.1em;
+  text-align: center;
+}
+
+/* line 385, ../../sdk/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
+.x-list-pullrefresh-updated {
+  text-align: center;
+}
+
+/* line 389, ../../sdk/resources/themes/stylesheets/sencha-touch/default/widgets/_list.scss */
+.x-list-pullrefresh-loading {
+  /*position: relative;*/
+  /*top: 0;*/
+    /*.x-loading-spinner {
+      display: block;
+    }
+
+    .x-list-pullrefresh-arrow {
+      display: none;
+    }*/
+}
+
 /* TODO: Investigate how this should be properly used. Unable to reference correct directory.
 @mixin custom-iconmask($name) {
   .x-tab img.#{$name}, .x-button img.x-icon-mask.#{$name} {
@@ -6485,40 +6556,40 @@ input[type="search"]::-webkit-search-cancel-button {
   }
 }
 */
-/* line 146, ../sass/app.scss */
+/* line 147, ../sass/app.scss */
 input.x-input-el,
 .x-field.x-field-labeled .x-form-label {
   padding-left: 15px;
 }
 
-/* line 151, ../sass/app.scss */
+/* line 152, ../sass/app.scss */
 .x-field .x-input-radio:checked::after,
 .x-field .x-input-checkbox:checked::after {
   background-color: #1E9FD9;
 }
 
-/* line 155, ../sass/app.scss */
+/* line 156, ../sass/app.scss */
 #login-form.x-layout-card-item {
   background: #3c820d;
   background-image: url(../images/login-background.png);
   background-size: 60px 60px;
   background-repeat: repeat;
 }
-/* line 161, ../sass/app.scss */
+/* line 162, ../sass/app.scss */
 #login-form.x-layout-card-item .x-innerhtml {
   text-align: center;
 }
-/* line 165, ../sass/app.scss */
+/* line 166, ../sass/app.scss */
 #login-form.x-layout-card-item #app-logo {
   height: 124px;
   margin: 25px auto;
   width: 205px;
 }
-/* line 171, ../sass/app.scss */
+/* line 172, ../sass/app.scss */
 #login-form.x-layout-card-item .x-form-fieldset .x-form-fieldset-inner {
   border: 0;
 }
-/* line 174, ../sass/app.scss */
+/* line 175, ../sass/app.scss */
 #login-form.x-layout-card-item #login,
 #login-form.x-layout-card-item #forgot-password {
   background-color: #74ad35;
@@ -6535,7 +6606,7 @@ input.x-input-el,
   padding: 15px;
   text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
 }
-/* line 186, ../sass/app.scss */
+/* line 187, ../sass/app.scss */
 #login-form.x-layout-card-item #login.x-button-pressed,
 #login-form.x-layout-card-item #login.x-button-pressing {
   background-color: #5a8529;
@@ -6544,7 +6615,7 @@ input.x-input-el,
   background-image: linear-gradient(#a7d473, #6ca031 2%, #486a21);
   text-shadow: 0 -1px 1px rgba(22, 38, 7, 0.75);
 }
-/* line 191, ../sass/app.scss */
+/* line 192, ../sass/app.scss */
 #login-form.x-layout-card-item #forgot-password {
   -webkit-box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: inset 0px 0px 2px rgba(0, 0, 0, 0.75);
@@ -6556,14 +6627,14 @@ input.x-input-el,
   border-right: 1px solid rgba(116, 173, 53, 0.5);
   margin-top: 15px;
 }
-/* line 201, ../sass/app.scss */
+/* line 202, ../sass/app.scss */
 #login-form.x-layout-card-item hr {
   background: #214e06;
   border: 0;
   border-bottom: 1px solid #53921b;
   border-top: 1px solid #39700c;
 }
-/* line 208, ../sass/app.scss */
+/* line 209, ../sass/app.scss */
 #login-form.x-layout-card-item .x-body {
   /* Safari 4-5, Chrome 1-9 */
   background: -webkit-gradient(radial, center center, 0, center center, 460, from(rgba(128, 194, 58, 0.55)), to(rgba(128, 194, 58, 0.15)));
@@ -6572,12 +6643,12 @@ input.x-input-el,
   /* Firefox 3.6+ */
   background: -moz-radial-gradient(circle, rgba(128, 194, 58, 0.75), rgba(128, 194, 58, 0.15));
 }
-/* line 219, ../sass/app.scss */
+/* line 220, ../sass/app.scss */
 #login-form.x-layout-card-item .x-scroll-container {
   background: none;
 }
 
-/* line 224, ../sass/app.scss */
+/* line 225, ../sass/app.scss */
 #top-toolbar {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6585,14 +6656,14 @@ input.x-input-el,
   height: 40px;
   padding: 5px;
 }
-/* line 230, ../sass/app.scss */
+/* line 231, ../sass/app.scss */
 #top-toolbar #em-tipset-logo {
   height: 23px;
   margin-left: 15px;
   margin-top: 2px;
   width: 164px;
 }
-/* line 237, ../sass/app.scss */
+/* line 238, ../sass/app.scss */
 #top-toolbar .user.name {
   float: left;
   font-weight: bold;
@@ -6601,7 +6672,7 @@ input.x-input-el,
   border-right: 1px solid rgba(255, 255, 255, 0.25);
   padding-right: 15px;
 }
-/* line 246, ../sass/app.scss */
+/* line 247, ../sass/app.scss */
 #top-toolbar .settings {
   float: right;
   height: 15px;
@@ -6611,7 +6682,7 @@ input.x-input-el,
   width: 15px;
 }
 
-/* line 256, ../sass/app.scss */
+/* line 257, ../sass/app.scss */
 #main-nav {
   background-color: #74ad35;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bfe09b), color-stop(2%, #86c541), color-stop(100%, #62922d));
@@ -6624,7 +6695,7 @@ input.x-input-el,
   margin-left: 0;
   padding-left: 0;
 }
-/* line 263, ../sass/app.scss */
+/* line 264, ../sass/app.scss */
 #main-nav .x-button {
   background: transparent;
   border: 0;
@@ -6636,12 +6707,12 @@ input.x-input-el,
   padding: 15px 10px;
   text-shadow: 0 -1px 1px rgba(59, 87, 32, 0.75);
 }
-/* line 274, ../sass/app.scss */
+/* line 275, ../sass/app.scss */
 #main-nav .x-button .x-button-label, #main-nav .x-button .x-hasbadge .x-badge, .x-hasbadge #main-nav .x-button .x-badge {
   font-size: 0.7em;
   line-height: 1.35em;
 }
-/* line 280, ../sass/app.scss */
+/* line 281, ../sass/app.scss */
 #main-nav .x-button-pressed {
   background-color: #5a8529;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a7d473), color-stop(2%, #6ca031), color-stop(100%, #486a21));
@@ -6650,17 +6721,17 @@ input.x-input-el,
   text-shadow: 0 -1px 1px rgba(22, 38, 7, 0.75);
 }
 
-/* line 286, ../sass/app.scss */
+/* line 287, ../sass/app.scss */
 #main-nav.x-toolbar {
   height: 2.5em;
 }
 
-/* line 290, ../sass/app.scss */
+/* line 291, ../sass/app.scss */
 .x-toolbar.x-docked-top {
   border: 0;
 }
 
-/* line 294, ../sass/app.scss */
+/* line 295, ../sass/app.scss */
 #league-select {
   background-image: url(../images/arrow-down.png);
   background-size: 9px 6px;
@@ -6669,26 +6740,26 @@ input.x-input-el,
   padding-right: 20px;
 }
 
-/* line 303, ../sass/app.scss */
+/* line 304, ../sass/app.scss */
 #my-stats {
   border-top: 1px solid #dfeef0;
   border-left: 1px solid #dfeef0;
   height: 60px;
   padding: 10px 15px;
 }
-/* line 309, ../sass/app.scss */
+/* line 310, ../sass/app.scss */
 #my-stats #my-ranking {
   color: #448202;
   font-size: 30px;
   font-weight: bold;
   letter-spacing: -0.05em;
 }
-/* line 316, ../sass/app.scss */
+/* line 317, ../sass/app.scss */
 #my-stats .total-contestants {
   color: #bcc7c8;
 }
 
-/* line 321, ../sass/app.scss */
+/* line 322, ../sass/app.scss */
 #round-selector {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6696,32 +6767,32 @@ input.x-input-el,
   height: 50px;
   padding: 0;
 }
-/* line 327, ../sass/app.scss */
+/* line 328, ../sass/app.scss */
 #round-selector .x-segmentedbutton {
   height: 50px;
 }
-/* line 330, ../sass/app.scss */
+/* line 331, ../sass/app.scss */
 #round-selector .x-segmentedbutton .x-button.x-last {
   -webkit-borderradius: 0;
   -moz-borderradius: 0;
   border-radius: 0;
 }
-/* line 337, ../sass/app.scss */
+/* line 338, ../sass/app.scss */
 #round-selector #top-4-menu-item {
   width: 104px;
 }
-/* line 341, ../sass/app.scss */
+/* line 342, ../sass/app.scss */
 #round-selector #top-scorer-menu-item {
   width: 138px;
 }
-/* line 345, ../sass/app.scss */
+/* line 346, ../sass/app.scss */
 #round-selector .x-button-normal.x-button {
   background: transparent;
   border: 0;
   border-right: 1px dashed rgba(184, 184, 184, 0.5);
   width: 139px;
 }
-/* line 351, ../sass/app.scss */
+/* line 352, ../sass/app.scss */
 #round-selector .x-button-normal.x-button .x-button-icon {
   background-image: url(../images/lock-icons.png);
   background-position: 0 0;
@@ -6730,20 +6801,20 @@ input.x-input-el,
   height: 25px;
   width: 25px;
 }
-/* line 360, ../sass/app.scss */
+/* line 361, ../sass/app.scss */
 #round-selector .x-button-normal.x-button .x-button-icon.round-locked {
   background-position-x: 0px;
 }
-/* line 364, ../sass/app.scss */
+/* line 365, ../sass/app.scss */
 #round-selector .x-button-normal.x-button .x-button-icon.round-open {
   background-position-x: -45px;
 }
-/* line 368, ../sass/app.scss */
+/* line 369, ../sass/app.scss */
 #round-selector .x-button-normal.x-button .x-button-label, #round-selector .x-button-normal.x-button .x-hasbadge .x-badge, .x-hasbadge #round-selector .x-button-normal.x-button .x-badge {
   font-size: 0.8em;
   line-height: 1.35em;
 }
-/* line 374, ../sass/app.scss */
+/* line 375, ../sass/app.scss */
 #round-selector .x-button-normal.x-button-pressed {
   background-color: #5a8529;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a7d473), color-stop(2%, #6ca031), color-stop(100%, #486a21));
@@ -6755,21 +6826,21 @@ input.x-input-el,
   border-radius: 0;
   text-shadow: 0 -1px 1px rgba(22, 38, 7, 0.75);
 }
-/* line 379, ../sass/app.scss */
+/* line 380, ../sass/app.scss */
 #round-selector .x-button-normal.x-button-pressed .x-button-icon.round-locked {
   background-position-x: -90px;
 }
-/* line 383, ../sass/app.scss */
+/* line 384, ../sass/app.scss */
 #round-selector .x-button-normal.x-button-pressed .x-button-icon.round-open {
   background-position-x: -135px;
 }
 
-/* line 389, ../sass/app.scss */
+/* line 390, ../sass/app.scss */
 .x-inner.x-panel-inner.x-scroll-scroller {
   background: url(../images/graph-paper.png) top left repeat;
 }
 
-/* line 394, ../sass/app.scss */
+/* line 395, ../sass/app.scss */
 #last-updated {
   background: #ddcf6c;
   background-color: #ddcf6c;
@@ -6782,7 +6853,7 @@ input.x-input-el,
   font-size: 11px;
   padding: 5px 10px;
 }
-/* line 400, ../sass/app.scss */
+/* line 401, ../sass/app.scss */
 #last-updated img#clock {
   float: left;
   height: 13px;
@@ -6791,11 +6862,16 @@ input.x-input-el,
   width: 13px;
 }
 
-/* line 409, ../sass/app.scss */
+/* line 410, ../sass/app.scss */
+#match-list {
+  min-height: 600px;
+}
+
+/* line 414, ../sass/app.scss */
 .match-meta-data {
   .margin-top: 2px;
 }
-/* line 412, ../sass/app.scss */
+/* line 417, ../sass/app.scss */
 .match-meta-data .team-wrapper {
   float: left;
   font-weight: bold;
@@ -6805,7 +6881,7 @@ input.x-input-el,
   text-transform: uppercase;
   width: 40%;
 }
-/* line 421, ../sass/app.scss */
+/* line 426, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag {
   background-image: url(../images/flags-bg-32x32.png);
   background-position: -10px -9px;
@@ -6816,7 +6892,7 @@ input.x-input-el,
   width: 26px;
   top: 0;
 }
-/* line 431, ../sass/app.scss */
+/* line 436, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span {
   background-image: url(../images/flags-32x32.png);
   background-position: 5px -4px;
@@ -6826,71 +6902,71 @@ input.x-input-el,
   height: 28px;
   width: 26px;
 }
-/* line 442, ../sass/app.scss */
+/* line 447, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.pol {
   background-position-x: -5px;
 }
-/* line 443, ../sass/app.scss */
+/* line 448, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.gre {
   background-position-x: -31px;
 }
-/* line 444, ../sass/app.scss */
+/* line 449, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.rus {
   background-position-x: -57px;
 }
-/* line 445, ../sass/app.scss */
+/* line 450, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.cze {
   background-position-x: -83px;
 }
-/* line 446, ../sass/app.scss */
+/* line 451, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ned {
   background-position-x: -109px;
 }
-/* line 447, ../sass/app.scss */
+/* line 452, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.den {
   background-position-x: -135px;
 }
-/* line 448, ../sass/app.scss */
+/* line 453, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ger {
   background-position-x: -161px;
 }
-/* line 449, ../sass/app.scss */
+/* line 454, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.por {
   background-position-x: -187px;
 }
-/* line 450, ../sass/app.scss */
+/* line 455, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.esp {
   background-position-x: -213px;
 }
-/* line 451, ../sass/app.scss */
+/* line 456, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ita {
   background-position-x: -239px;
 }
-/* line 452, ../sass/app.scss */
+/* line 457, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.irl {
   background-position-x: -265px;
 }
-/* line 453, ../sass/app.scss */
+/* line 458, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.cro {
   background-position-x: -291px;
 }
-/* line 454, ../sass/app.scss */
+/* line 459, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.fra {
   background-position-x: -317px;
 }
-/* line 455, ../sass/app.scss */
+/* line 460, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.eng {
   background-position-x: -343px;
 }
-/* line 456, ../sass/app.scss */
+/* line 461, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.ukr {
   background-position-x: -369px;
 }
-/* line 457, ../sass/app.scss */
+/* line 462, ../sass/app.scss */
 .match-meta-data .team-wrapper .flag span.swe {
   background-position-x: -395px;
 }
-/* line 459, ../sass/app.scss */
+/* line 464, ../sass/app.scss */
 .match-meta-data .team-wrapper .goals-scored {
   background: url(../images/result-background.png) top left no-repeat;
   padding: 1px 0 3px 0;
@@ -6900,32 +6976,32 @@ input.x-input-el,
   top: -1px;
   width: 31px;
 }
-/* line 471, ../sass/app.scss */
+/* line 476, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team,
 .match-meta-data .team-wrapper.away-team {
   text-align: left;
 }
-/* line 476, ../sass/app.scss */
+/* line 481, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team .flag {
   left: 50px;
 }
-/* line 480, ../sass/app.scss */
+/* line 485, ../sass/app.scss */
 .match-meta-data .team-wrapper.home-team .goals-scored {
   left: 90px;
 }
-/* line 485, ../sass/app.scss */
+/* line 490, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team {
   text-align: right;
 }
-/* line 488, ../sass/app.scss */
+/* line 493, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team .flag {
   right: 50px;
 }
-/* line 492, ../sass/app.scss */
+/* line 497, ../sass/app.scss */
 .match-meta-data .team-wrapper.away-team .goals-scored {
   right: 90px;
 }
-/* line 497, ../sass/app.scss */
+/* line 502, ../sass/app.scss */
 .match-meta-data .kick-off-time {
   background: url(../images/lock-closed.png) top center no-repeat;
   float: left;
@@ -6935,7 +7011,7 @@ input.x-input-el,
   text-align: center;
   width: 20%;
 }
-/* line 507, ../sass/app.scss */
+/* line 512, ../sass/app.scss */
 .match-meta-data .bet-meta-data {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -6951,7 +7027,7 @@ input.x-input-el,
   margin-top: 10px;
   position: relative;
 }
-/* line 518, ../sass/app.scss */
+/* line 523, ../sass/app.scss */
 .match-meta-data .bet-meta-data img.user-icon {
   height: 13px;
   left: 10px;
@@ -6959,7 +7035,7 @@ input.x-input-el,
   top: 8px;
   width: 11px;
 }
-/* line 526, ../sass/app.scss */
+/* line 531, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet {
   color: #7f7f7f;
   font-weight: bold;
@@ -6969,7 +7045,7 @@ input.x-input-el,
   text-align: center;
   width: 28px;
 }
-/* line 537, ../sass/app.scss */
+/* line 542, ../sass/app.scss */
 .match-meta-data .bet-meta-data .points-earned,
 .match-meta-data .bet-meta-data .no-points-earned {
   background-image: url(../images/round-background.png);
@@ -6986,29 +7062,29 @@ input.x-input-el,
   text-align: center;
   width: 28px;
 }
-/* line 553, ../sass/app.scss */
+/* line 558, ../sass/app.scss */
 .match-meta-data .bet-meta-data .no-points-earned {
   background-position-x: -51px;
 }
-/* line 557, ../sass/app.scss */
+/* line 562, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.home-team {
   left: 90px;
 }
-/* line 561, ../sass/app.scss */
+/* line 566, ../sass/app.scss */
 .match-meta-data .bet-meta-data .goals-bet.away-team {
   right: 93px;
 }
-/* line 566, ../sass/app.scss */
+/* line 571, ../sass/app.scss */
 .match-meta-data .home-team-win .home-team {
   background: #448202;
   color: white;
 }
-/* line 571, ../sass/app.scss */
+/* line 576, ../sass/app.scss */
 .match-meta-data .away-team-win .away-team {
   background: #448202;
   color: white;
 }
-/* line 579, ../sass/app.scss */
+/* line 584, ../sass/app.scss */
 .match-meta-data .drawed .home-team,
 .match-meta-data .drawed .away-team,
 .match-meta-data .correct-result .home-team,
@@ -7017,7 +7093,7 @@ input.x-input-el,
   color: white;
 }
 
-/* line 585, ../sass/app.scss */
+/* line 590, ../sass/app.scss */
 .x-list-normal .x-list-header {
   background: url(../images/black-background.png) top left repeat;
   color: white;
@@ -7026,7 +7102,7 @@ input.x-input-el,
   font-size: 11px;
 }
 
-/* line 592, ../sass/app.scss */
+/* line 597, ../sass/app.scss */
 .x-list .x-list-item {
   background-color: #e6e6e6;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(2%, #f8f8f8), color-stop(100%, #d4d4d4));
@@ -7034,7 +7110,7 @@ input.x-input-el,
   background-image: linear-gradient(#ffffff, #f8f8f8 2%, #d4d4d4);
 }
 
-/* line 596, ../sass/app.scss */
+/* line 601, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label {
   background-color: #548820;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a1db66), color-stop(2%, #66a527), color-stop(100%, #426b19));
@@ -7043,31 +7119,31 @@ input.x-input-el,
   border-bottom-color: #74ad35;
   border-top-color: #7a8c6b;
 }
-/* line 601, ../sass/app.scss */
+/* line 606, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .team-wrapper .flag {
   background-position-y: -45px;
 }
-/* line 605, ../sass/app.scss */
+/* line 610, ../sass/app.scss */
 .x-list .x-list-item.x-item-selected .x-list-item-label .bet-meta-data {
   border: 1px solid #85b353;
   border-left-color: #3c6e11;
   border-top-color: #3c6e11;
 }
 
-/* line 612, ../sass/app.scss */
+/* line 617, ../sass/app.scss */
 .x-list-normal .x-list-item .x-list-item-label {
   border-bottom-color: #fafafa;
   border-top-color: #d1d1d1;
 }
 
-/* line 617, ../sass/app.scss */
+/* line 622, ../sass/app.scss */
 .x-panel.message.top.x-floating {
   display: block;
   margin: -5px 0 0 0;
   position: relative !important;
 }
 
-/* line 623, ../sass/app.scss */
+/* line 628, ../sass/app.scss */
 .x-panel.x-floating.message {
   -webkit-borderradius: 0;
   -moz-border-radius: 0;
@@ -7079,11 +7155,11 @@ input.x-input-el,
   font-size: 11px;
   padding: 10px 15px;
 }
-/* line 631, ../sass/app.scss */
+/* line 636, ../sass/app.scss */
 .x-panel.x-floating.message .x-inner.x-panel-inner {
   background: none;
 }
-/* line 634, ../sass/app.scss */
+/* line 639, ../sass/app.scss */
 .x-panel.x-floating.message .x-inner.x-panel-inner .x-innerhtml {
   background: url(../images/close.png) top right no-repeat;
   background-size: 19px 19px;

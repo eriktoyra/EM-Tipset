@@ -5,23 +5,34 @@ Ext.define('EM.view.MatchList', {
 	requires: [
 		'Ext.TitleBar',
 		'EM.store.Matches',
-		//'Ext.plugin.PullRefresh'
+		'Ext.plugin.PullRefresh'
 	],
 
 	config: {
 		id: 'match-list',		
 		store: 'Matches',
 		grouped: true,
-		scrollable: false,
+		//scrollable: false,
 		showAnimation: Ext.create('Ext.fx.animation.Slide', {
 			direction: 'right'
 		}),		
-		/*plugins: [
+		plugins: [
 			{
 				xclass: 'Ext.plugin.PullRefresh',
 				pullRefreshText: 'Dra nedåt för att uppdatera matchresultat.'
 			}
-		],*/
+		],
+		items: [
+			{
+				xtype: 'mystats'
+			},		
+			{
+				xtype: 'roundselector',
+			},
+			{
+				xtype: 'lastupdated',
+			},
+		],
 		itemTpl: [
 
 			'<div class="match-meta-data">',			

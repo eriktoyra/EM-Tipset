@@ -14,10 +14,7 @@ Ext.define('EM.view.Viewport', {
 			{
 				xtype: 'mainnav',
 				docked:'top'				
-			},
-			{
-				xtype: 'mystats'
-			},			
+			},		
 			{
 				xtype: 'main'
 			}
