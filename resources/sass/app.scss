@@ -23,6 +23,9 @@ $default-gradient-dark-color: rgba(209, 209, 209, 1);
 $dark-gradient-dark-color: rgba(98, 98, 98, 1);
 $dark-gradient-light-color: rgba(127, 127, 127, 1);
 
+$important-gradient-dark-color: rgba(221, 207, 108, 1);
+$important-gradient-light-color: rgba(240, 230, 151, 1);
+
 $active-gradient-light-color: rgba(116, 173, 53, 1);
 $active-gradient-dark-color: rgba(51, 99, 11, 1);
 
@@ -34,6 +37,8 @@ $main-nav-foreground-color-active: #fff;
 
 $default-text-color-on-light-background: #333;
 $default-text-color-on-dark-background: #fff;
+$text-color-on-important: rgb(84, 77, 21);
+
 
 $light-panel-background-color: #e7e7e7;
 
@@ -387,8 +392,8 @@ input.x-input-el,
 }
 
 #last-updated {
-  @include vertical-gradient-background($dark-gradient-light-color, $dark-gradient-dark-color);
-  color: $default-text-color-on-dark-background;
+  @include vertical-gradient-background($important-gradient-light-color, $important-gradient-dark-color);
+  color: $text-color-on-important;
   font-size: $small-font-size;
   padding: $default-distance $default-distance * 2;
 
@@ -396,6 +401,7 @@ input.x-input-el,
     float: left;
     height: 13px;
     margin-right: $default-distance;
+    margin-top: 1px;
     width: 13px;
   }
 }
