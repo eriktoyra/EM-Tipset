@@ -14,6 +14,7 @@ Ext.define('EM.view.ResultsPage', {
 			},
 			{
 				xtype: 'lastupdated',
+				id: 'matches-last-updated',
 			},
 			/*{
 				xtype: 'matchlist',

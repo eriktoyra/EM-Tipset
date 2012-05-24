@@ -6770,7 +6770,7 @@ input.x-input-el,
 }
 
 /* line 394, ../sass/app.scss */
-#last-updated {
+.last-updated {
   background: #ddcf6c;
   background-color: #ddcf6c;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f0e697), to(#ddcf6c));
@@ -6783,7 +6783,7 @@ input.x-input-el,
   padding: 5px 10px;
 }
 /* line 400, ../sass/app.scss */
-#last-updated img#clock {
+.last-updated img#clock {
   float: left;
   height: 13px;
   margin-right: 5px;
@@ -7102,6 +7102,16 @@ input.x-input-el,
 }
 
 /* line 651, ../sass/app.scss */
+#leage-header {
+  background: url(../images/black-background.png) top left repeat;
+  color: white;
+  border-top: #b8b8b8;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 15px;
+}
+
+/* line 659, ../sass/app.scss */
 .message {
   -webkit-borderradius: 0.4em;
   -moz-border-radius: 0.4em;

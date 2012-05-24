@@ -12,7 +12,7 @@ Ext.define('EM.controller.ResultsPage', {
         views: ['MatchList', 'MyStats', 'ResultsPage', 'RoundSelector', 'TopScorer', 'Top4'],
 
         refs: {
-            lastUpdated: '#last-updated',
+            lastUpdated: '#matches-last-updated',
             top4: {
                 selector: 'top-4',
                 xtype: 'top4',

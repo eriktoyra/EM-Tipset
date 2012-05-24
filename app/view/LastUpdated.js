@@ -3,8 +3,8 @@ Ext.define('EM.view.LastUpdated', {
 	xtype: 'lastupdated',
 
 	config: {
-		id: 'last-updated',
 		data: {},
-		tpl: '<img id="clock" src="resources/images/clock.png" />Senast uppdaterad: {lastUpdated}'
+		tpl: '<img id="clock" src="resources/images/clock.png" />Senast uppdaterad: {lastUpdated}',
+		cls: 'last-updated'
 	}
 });

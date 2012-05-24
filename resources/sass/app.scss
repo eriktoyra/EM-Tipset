@@ -391,7 +391,7 @@ input.x-input-el,
   //@include background-image-with-vertical-gradient-overlay('../images/graph-paper.png', rgba(255, 255, 255, 0.2), rgba(225, 232, 234, 0.5));  
 }
 
-#last-updated {
+.last-updated {
   @include vertical-gradient-background($important-gradient-light-color, $important-gradient-dark-color);
   color: $text-color-on-important;
   font-size: $small-font-size;
@@ -646,6 +646,14 @@ input.x-input-el,
 #top-4,
 #top-scorer {
   margin-top: $default-distance * 3;
+}
+
+#leage-header {
+  @include default-dark-section;
+  border-top: rgb(184, 184, 184);
+  height: 50px;
+  line-height: 50px;
+  padding: 0 $default-distance * 3;
 }
 
 .message {
