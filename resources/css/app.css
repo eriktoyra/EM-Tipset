@@ -7067,7 +7067,8 @@ input.x-input-el,
   position: relative !important;
 }
 
-/* line 623, ../sass/app.scss */
+/* line 624, ../sass/app.scss */
+.message,
 .x-panel.x-floating.message {
   -webkit-borderradius: 0;
   -moz-border-radius: 0;
@@ -7079,13 +7080,32 @@ input.x-input-el,
   font-size: 11px;
   padding: 10px 15px;
 }
-/* line 631, ../sass/app.scss */
+/* line 632, ../sass/app.scss */
+.message .x-inner.x-panel-inner,
 .x-panel.x-floating.message .x-inner.x-panel-inner {
   background: none;
 }
-/* line 634, ../sass/app.scss */
-.x-panel.x-floating.message .x-inner.x-panel-inner .x-innerhtml {
+/* line 636, ../sass/app.scss */
+.message .x-innerhtml,
+.x-panel.x-floating.message .x-innerhtml {
   background: url(../images/close.png) top right no-repeat;
   background-size: 19px 19px;
+  line-height: 19px;
+  min-height: 19px;
   padding-right: 29px;
+}
+
+/* line 647, ../sass/app.scss */
+#top-4,
+#top-scorer {
+  margin-top: 15px;
+}
+
+/* line 651, ../sass/app.scss */
+.message {
+  -webkit-borderradius: 0.4em;
+  -moz-border-radius: 0.4em;
+  -ms-border-radius: 0.4em;
+  border-radius: 0.4em;
+  margin: 15px;
 }

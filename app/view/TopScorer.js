@@ -11,10 +11,16 @@ Ext.define('EM.view.TopScorer', {
 		
 		items: [
 			{
+				xtype: 'message',
+				id: 'top-scorer-message',
+				data: {
+					message: 'Du får 1,3 poäng för varje rätt tippat semifinallag. Du får ytterligare 2,3 poäng för varje lag som du placerat helt rätt.	',
+				}
+			},		
+			{
 				xtype: 'container',
-
 				html: [
-					'<h1>Skyttekung</h1>',
+					'',
 				].join('')
 			}			
 		]			

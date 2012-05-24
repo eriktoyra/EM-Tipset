@@ -620,6 +620,7 @@ input.x-input-el,
   position: relative !important; 
 }
 
+.message,
 .x-panel.x-floating.message {
   @include rounded-corners(0);
   background: #f7f6c2;
@@ -630,11 +631,24 @@ input.x-input-el,
 
   .x-inner.x-panel-inner {
     background: none;
+  }
 
-    .x-innerhtml {
+  .x-innerhtml {
       background: url(../images/close.png) top right no-repeat;
       background-size: 19px 19px;
+      line-height: 19px;
+      min-height: 19px;
       padding-right: 29px;
     }
-  }
+ 
+}
+
+#top-4,
+#top-scorer {
+  margin-top: $default-distance * 3;
+}
+
+.message {
+  @include default-rounded-corners;  
+  margin: $default-distance * 3;
 }

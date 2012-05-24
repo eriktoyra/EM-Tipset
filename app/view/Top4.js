@@ -11,10 +11,17 @@ Ext.define('EM.view.Top4', {
 		
 		items: [
 			{
+				xtype: 'message',
+				id: 'top-4-message',
+				data: {
+					message: 'Du får 1 poäng för varje mål som dina spelare gör. Du får 0,5 poäng extra om din spelare blir turneringens skyttekung.',
+				}
+			},
+			{
 				xtype: 'container',
 
 				html: [
-					'<h1>Topp 4</h1>',
+					'',
 				].join('')
 			}			
 		]			
