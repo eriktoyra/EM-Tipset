@@ -6,6 +6,6 @@ Ext.define('EM.view.Main', {
 	items: [
 		{
 			xtype: 'resultspage'		
-		}
+		},
 	]
 });

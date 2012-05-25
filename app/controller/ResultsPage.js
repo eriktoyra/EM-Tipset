@@ -9,9 +9,15 @@ Ext.define('EM.controller.ResultsPage', {
     launch: function() {},
 
     config: {
-        views: ['MatchList', 'MyStats', 'ResultsPage', 'RoundSelector', 'TopScorer', 'Top4'],
+        views: ['Footer', 'MatchList', 'MyStats', 'ResultsPage', 'RoundSelector', 'TopScorer', 'Top4'],
 
         refs: {
+            footer: {
+                selector: 'footer',
+                xtype: 'footer',
+                autoCreate: true
+            },
+            logoutLink: '#logout',
             lastUpdated: '#matches-last-updated',
             top4: {
                 selector: 'top-4',
@@ -132,9 +138,12 @@ Ext.define('EM.controller.ResultsPage', {
                 this.getResultsPage().add(this.getTop4());
                 this.getResultsPage().add(this.getTopScorer());
                 this.getResultsPage().add(this.getMatchList());
+                this.getResultsPage().add(this.getFooter());
 
                 this.doUpdateLastUpdated();
                 this.roundFilterByKey('roundId', activeRoundId); // Filter the matchlist and display the first round of matches.                        
+
+                //console.log("logoutLink: ", this.getLogoutLink());
             }
         });
     },
@@ -181,20 +190,22 @@ Ext.define('EM.controller.ResultsPage', {
      * Display the 'Topp 4' page.
      */
     doTop4: function(button, event, eventOpts) {
+        this.getFooter().hide();
         this.getMatchList().hide();
         this.getTopScorer().hide();
         this.getTop4().show();
-        console.log("Tapped on Topp 4");
+        this.getFooter().show();
     },
 
     /**
      * Display the 'Skyttekung' page.
      */
     doTopScorer: function(button, event, eventOpts) {
+        this.getFooter().hide();
         this.getMatchList().hide();
         this.getTop4().hide();
         this.getTopScorer().show();
-        console.log("Tapped on Skyttekung");
+        this.getFooter().show();
     },
 
     /**

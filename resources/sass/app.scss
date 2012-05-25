@@ -39,6 +39,7 @@ $default-text-color-on-light-background: #333;
 $default-text-color-on-dark-background: #fff;
 $text-color-on-important: rgb(84, 77, 21);
 
+$footer-text-color: #e7e7e7;
 
 $light-panel-background-color: #e7e7e7;
 
@@ -643,20 +644,68 @@ input.x-input-el,
  
 }
 
+.message {
+  @include default-rounded-corners;  
+  margin: $default-distance * 3;
+}
+
 #top-4,
 #top-scorer {
   margin-top: $default-distance * 3;
 }
 
-#leage-header {
+#leage-header,
+#footer {
   @include default-dark-section;
   border-top: rgb(184, 184, 184);
-  height: 50px;
-  line-height: 50px;
+  height: 220px;
   padding: 0 $default-distance * 3;
+
+  .x-toolbar-inner {
+    text-align: left;
+  }
+
+  .x-layout-hbox, .x-layout-vbox {
+    display: block;
+  }
+
+  .x-button {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid #4f4f4f;
+    -moz-borderradius: 0;
+    -webkit-borderradius: 0;
+    border-radius: 0;
+    color: $footer-text-color;    
+    display: inline-block;
+    font-size: $default-font-size;
+    height: 44px;
+    margin: 0;
+    padding: 0 $default-distance * 3;
+    width: 100%;
+
+    .x-button-label {
+      display: inline-block;
+      font-size: 1em;
+      height: 44px;  
+      line-height: 44px;    
+    }
+  }
+
+  .x-button.x-button-pressing {
+    background: #4f4f4f;
+    color: #fff;
+    opacity: 0.75;
+  }
+
+  .x-button:last-child {
+    border-bottom: 0;
+  }
 }
 
-.message {
-  @include default-rounded-corners;  
-  margin: $default-distance * 3;
+#footer {
+  padding: 0;
 }
+
+
+

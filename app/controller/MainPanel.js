@@ -13,6 +13,7 @@ Ext.define('EM.controller.MainPanel', {
 		refs: {
 			forgotPasswordButton: '#login-form #forgot-password',
 			loginButton: '#login-form #login',
+			logoutButton: '#logout',
 			loginForm: '#login-form',
 			loginFormFields: '#login-form field',
 			mainPanel: '#main-panel',
@@ -27,6 +28,9 @@ Ext.define('EM.controller.MainPanel', {
 			loginButton: {
 				tap: 'doValidateForm'
 			},
+			logoutButton: {
+				tap: 'doLogout'
+			}
 		}
 	},
 	
@@ -105,10 +109,13 @@ Ext.define('EM.controller.MainPanel', {
 	},	
 
 	doLogout: function() {
-		console.log("logging out");
+		var loginForm = this.getLoginForm();
+		loginForm.reset();
+
 		EM.app.setUserData({});
 		this.dirtyRememberMe();
 		this.getMainPanel().setActiveItem(0);
+		this.showValidationErrorMessage('Du är nu utloggad, glöm inte att omgångarna har ett datum som du senast måste tippa klart dem.');
 	},
 
 	doLoginRequest: function() {
@@ -159,11 +166,11 @@ Ext.define('EM.controller.MainPanel', {
 		        } else {
 		        	switch(response.status) {					
 						case 401: // User is not authorized to login
-							this.showValidationErrorMessage('Inloggningen misslyckades. Kontrollera dina loginuppgifter.');	
+							this.showValidationErrorMessage('Felaktigt användarnamn eller lösenord. Försök igen.');	
 							break;
 
 						default: // All other kinds of errors
-							this.showValidationErrorMessage('Kunde inte kontakta servern. Försök igen lite senare.');		
+							this.showValidationErrorMessage('Ursäkta, det går inte att logga in nu av någon okänd anledning. Försök igen senare.');		
 					}
 				}
         	}
