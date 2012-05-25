@@ -37,7 +37,7 @@ Ext.application({
 		'RememberMe',
 		'Rounds',
 	],	
-	views: ['Main', 'Viewport', 'TopToolbar', 'LastUpdated', 'LoginForm', 'MainNav', 'MessageAtTop', 'StandingsPage'],
+	views: ['Main', 'Viewport', 'TopToolbar', 'LastUpdated', 'LoginForm', 'MainNav', 'Message', 'MessageAtTop', 'StandingsPage'],
 
 	icon: {
 		57: 'resources/icons/Icon.png',

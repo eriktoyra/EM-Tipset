@@ -55,8 +55,8 @@ Ext.define('EM.model.Match', {
 
 					if (typeof result == 'undefined') {
 						result = {
-							homeTeamScore: 0,
-							awayTeamScore: 0
+							homeTeamGoals: 0,
+							awayTeamGoals: 0
 						};
 					}
 
@@ -70,8 +70,8 @@ Ext.define('EM.model.Match', {
 
 					if (typeof prediction  == 'undefined') {
 						prediction = {
-							homeTeamScore: '',
-							awayTeamScore: '',
+							homeTeamGoals: '',
+							awayTeamGoals: '',
 						}
 					}
 
@@ -115,8 +115,8 @@ var matchExt = (function() {
 	/**
 	 * Verifies the betted result agains the actual result.
 	 */
-	matchExt.correctBettedResults = function(points, result, prediction) {
-		if (typeof points == 'undefined' || points == 0) {
+	matchExt.correctBettedResults = function(score, result, prediction) {
+		if (typeof score == 'undefined' || score == 0) {
 			// No points given for this match, so no need to continue.
 			return '';
 		}
@@ -125,15 +125,15 @@ var matchExt = (function() {
 			return 'correct-result';
 		}
 
-		if (this.checkFirstTeamWin(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
+		if (this.checkHomeTeamWin(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
 			return 'home-team-win';
 		}
 
-		if (this.checkSecondTeamWin(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
+		if (this.checkAwayTeamWin(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
 			return 'away-team-win';
 		}
 
-		if (this.checkDraw(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
+		if (this.checkDrawedResult(result.homeTeamGoals, result.awayTeamGoals, prediction.homeTeamGoals, prediction.awayTeamGoals)) {
 			return 'drawed';
 		}
 	}
@@ -148,29 +148,29 @@ var matchExt = (function() {
 	/**
 	 * Returns true if the betted result exactly matches the actual result. 
 	 */
-	matchExt.checkForCorrectResultBet = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
-		return (homeTeamGoals == homeTeamGoals) && (awayTeamGoals == awayTeamGoals);
+	matchExt.checkForCorrectResultBet = function(homeTeamGoals, awayTeamGoals, predictedHomeTeamGoals, predictedAwayTeamGoals) {
+		return (homeTeamGoals == predictedHomeTeamGoals) && (awayTeamGoals == predictedAwayTeamGoals);
 	}
 
 	/**
 	 * Returns true if the betted result had more first team goals than second team goals and the actual result had the same.
 	 */
-	matchExt.checkFirstTeamWin = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
-		return (homeTeamGoals > awayTeamGoals) && (homeTeamGoals > awayTeamGoals);
+	matchExt.checkHomeTeamWin = function(homeTeamGoals, awayTeamGoals, predictedHomeTeamGoals, predictedAwayTeamGoals) {
+		return (homeTeamGoals > awayTeamGoals) && (predictedHomeTeamGoals > predictedAwayTeamGoals);
 	}
 
 	/**
 	 * Returns true if the betted result had more second team goals than first team goals and the actual result had the same.
 	 */
-	matchExt.checkSecondTeamWin = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
-		return (homeTeamGoals < awayTeamGoals) && (homeTeamGoals < awayTeamGoals);	
+	matchExt.checkAwayTeamWin = function(homeTeamGoals, awayTeamGoals, predictedHomeTeamGoals, predictedAwayTeamGoals) {
+		return (homeTeamGoals < awayTeamGoals) && (predictedHomeTeamGoals < predictedAwayTeamGoals);	
 	}
 
 	/**
 	 * Returns true if the betted result were a drawed result and the actual result also was a drawed result.
 	 */
-	matchExt.checkDraw = function(homeTeamGoals, awayTeamGoals, homeTeamGoals, awayTeamGoals) {
-		return (homeTeamGoals == awayTeamGoals) && (homeTeamGoals == awayTeamGoals);	
+	matchExt.checkDrawedResult = function(homeTeamGoals, awayTeamGoals, predictedHomeTeamGoals, predictedAwayTeamGoals) {
+		return (homeTeamGoals == awayTeamGoals) && (predictedHomeTeamGoals == predictedAwayTeamGoals);	
 	}
 
 	/**
